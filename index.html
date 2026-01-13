@@ -538,10 +538,33 @@
     <img src="https://mc.yandex.ru/watch/104935828" style="position:absolute;left:-9999px" alt="">
   </div>
 </noscript>
+
+<!-- Автоматический чат-бот (появляется через 3 сек) -->
+<div id="chat-widget" style="
+  display: none; position: fixed; bottom: 90px; right: 20px;
+  width: 320px; max-height: 80vh; background: rgba(0, 0, 0, 0.8); border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.2); overflow: hidden;
+  z-index: 1000; font-family: sans-serif;
+  transition: all 0.3s ease;
+">
+  <div id="chat-messages" style="padding: 16px; height: 300px; overflow-y: auto;"></div>
+  <input type="text" id="chat-input" placeholder="Введите сообщение..." style="
+    width: 100%; padding: 12px; border: none; outline: none; border-top: 1px solid #eee;
+  ">
+</div>
+
+<!-- Кнопка вызова (опционально) -->
+<div id="chat-toggle" style="
+  position: fixed; bottom: 20px; right: 20px;
+  width: 60px; height: 60px; background: orange;
+  border-radius: 50%; cursor: pointer; box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+  display: flex; align-items: center; justify-content: center;
+  color: white; font-weight: bold; z-index: 1000;
+  opacity: 0.8;
+  transition: opacity 0.3s;
+">?</div>
+
+<!-- Подключение скрипта -->
+<script src="/js/chatbot.js"></script>
   </body>
 </html>
-
-
-
-
-

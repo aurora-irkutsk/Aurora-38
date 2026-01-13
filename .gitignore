@@ -1,0 +1,24 @@
+# Виртуальное окружение
+venv/
+__pycache__/
+
+# Локальные файлы
+*.log
+*.tmp
+.DS_Store
+Thumbs.db
+
+# Файлы IDE
+.vscode/
+.idea/
+
+# Если есть node_modules
+node_modules/
+
+# Скрытые файлы macOS
+.AppleDouble
+.LSOverride
+
+# Бэкапы
+*~
+*.bak
