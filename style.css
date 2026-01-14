@@ -1285,23 +1285,6 @@ h6 {
     flex-direction: column;
     align-items: center;
   }
-
-    #chat-widget {
-    width: 90%;
-    left: 5%;
-    right: auto;
-    bottom: 80px;
-  }
-
-  #chat-messages {
-    height: 200px;
-  }
-
-  #chat-input {
-    font-size: 14px;
-    padding: 8px;
-  }
-  
 }
 
 /* Планшеты (769px – 1024px) */
@@ -1338,3 +1321,4 @@ h6 {
     gap: 30px;
   }
 }
+
