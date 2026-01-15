@@ -1113,7 +1113,7 @@ h6 {
   }
 
   .header__logo-text {
-    font-size: clamp(1.1rem, 2vw, 1.5rem);
+    font-size: clamp(1.1rem, 2.2vw, 1.5rem);
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -1338,6 +1338,7 @@ h6 {
     gap: 30px;
   }
 }
+
 
 
 
