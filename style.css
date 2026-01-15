@@ -1120,7 +1120,7 @@ h6 {
   }
 
   .header a[href^="tel"] {
-    color: white !important;
+    color: orange !important;
     text-decoration: none;
   }
 
@@ -1336,6 +1336,7 @@ h6 {
     gap: 30px;
   }
 }
+
 
 
 
