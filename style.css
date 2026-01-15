@@ -1115,6 +1115,11 @@ h6 {
     font-size: 1.2rem;
   }
 
+  .header a[href^="tel"] {
+  color: white !important;
+  text-decoration: none;
+  }
+
   .header__nav,
   .header__button {
     display: none;
@@ -1321,6 +1326,7 @@ h6 {
     gap: 30px;
   }
 }
+
 
 
 
