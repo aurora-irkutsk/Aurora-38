@@ -1112,20 +1112,26 @@ h6 {
   }
 
   .header__logo-text {
-  font-size: clamp(1rem, 2vw, 1.5rem);
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+    font-size: clamp(1rem, 2vw, 1.5rem);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 
   .header a[href^="tel"] {
-  color: white !important;
-  text-decoration: none;
+    color: white !important;
+    text-decoration: none;
   }
 
   .header__nav,
   .header__button {
     display: none;
+  }
+
+  .header__inner {
+    background: transparent; /* Убираем фон */
+    box-shadow: none; /* Убираем тень */
+    padding: 0; /* Убираем лишние отступы */
   }
 
   .burger {
@@ -1329,6 +1335,7 @@ h6 {
     gap: 30px;
   }
 }
+
 
 
 
