@@ -1101,6 +1101,7 @@ h6 {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    margin-bottom: 0;
   }
 
   .header__logo {
@@ -1335,6 +1336,7 @@ h6 {
     gap: 30px;
   }
 }
+
 
 
 
