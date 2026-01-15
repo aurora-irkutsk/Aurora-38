@@ -5,6 +5,7 @@ document.addEventListener('DOMContentLoaded', function () {
   initGallery();
   initBurgerMenu();
   initCallModal();
+  initPhoneValidation(); // ← добавлена валидация телефона
 });
 
 // =============
@@ -147,5 +148,95 @@ function initCallModal() {
   // Закрытие по клику на оверлей
   window.addEventListener('click', (e) => {
     if (e.target === callModal) closeCallModal();
+  });
+}
+
+// =============
+// Валидация номера телефона и имени в форме заявки
+// =============
+function initPhoneValidation() {
+  const form = document.getElementById('requestForm');
+  if (!form) return;
+
+  // Поля
+  const nameInput = form.querySelector('input[name="name"]');
+  const phoneInput = form.querySelector('input[name="phone"]');
+  const submitButton = form.querySelector('.request_button');
+
+  // Создаём элемент для ошибки динамически
+  let phoneError = form.querySelector('#phoneError');
+  if (!phoneError) {
+    phoneError = document.createElement('div');
+    phoneError.id = 'phoneError';
+    phoneError.style.color = 'white'; // ← БЕЛЫЙ ЦВЕТ вместо красного
+    phoneError.style.fontWeight = '500'; // ← средняя жирность (500)
+    phoneError.style.fontSize = '1rem';
+    phoneError.style.marginTop = '5px';
+    phoneError.style.display = 'none';
+    phoneError.textContent = 'Номер должен начинаться с +7 и содержать ровно 10 цифр. Пожалуйста, проверьте и исправьте.';
+    
+    const button = form.querySelector('button[type="submit"]');
+    if (button) {
+      button.parentNode.insertBefore(phoneError, button.nextSibling);
+    }
+  }
+
+  // === Валидация имени: запрет на цифры ===
+  if (nameInput) {
+    nameInput.addEventListener('input', () => {
+      // Удаляем все цифры из имени
+      nameInput.value = nameInput.value.replace(/\d/g, '');
+    });
+  }
+
+  // === Валидация телефона ===
+  if (phoneInput) {
+    // При фокусе — подставляем +7, если поле пустое
+    phoneInput.addEventListener('focus', () => {
+      if (!phoneInput.value) {
+        phoneInput.value = '+7';
+      }
+    });
+
+    // При вводе — форматируем
+    phoneInput.addEventListener('input', () => {
+      let value = phoneInput.value;
+      value = value.replace(/[^\d+]/g, ''); // Только цифры и +
+      if (!value.startsWith('+')) value = '+' + value;
+      if (value.startsWith('+') && !value.startsWith('+7')) value = '+7' + value.slice(1);
+      if (value.length > 12) value = value.slice(0, 12); // +7 + 10 цифр = 12 символов
+      phoneInput.value = value;
+      phoneError.style.display = 'none'; // Скрываем ошибку при вводе
+    });
+  }
+
+  // === Отправка формы ===
+  form.addEventListener('submit', (e) => {
+    let isValid = true;
+
+    // Проверка имени
+    if (nameInput && nameInput.value.trim().length < 2) {
+      isValid = false;
+      // Можно добавить ошибку для имени, но по ТЗ не требуется
+    }
+
+    // Проверка телефона
+    if (phoneInput) {
+      const phoneValue = phoneInput.value.trim();
+      const isPhoneValid = /^(\+7\d{10})$/.test(phoneValue);
+      if (!isPhoneValid) {
+        isValid = false;
+        phoneError.style.display = 'block';
+      } else {
+        phoneError.style.display = 'none';
+      }
+    }
+
+    if (!isValid) {
+      e.preventDefault();
+      if (submitButton) submitButton.disabled = true;
+    } else {
+      if (submitButton) submitButton.disabled = false;
+    }
   });
 }
