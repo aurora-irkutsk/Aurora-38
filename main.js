@@ -152,61 +152,99 @@ function initCallModal() {
 }
 
 // =============
-// Валидация номера телефона и имени в форме заявки
+// Умное форматирование и валидация номера телефона
 // =============
 function initPhoneValidation() {
   const form = document.getElementById('requestForm');
   if (!form) return;
 
-  // Поля
   const nameInput = form.querySelector('input[name="name"]');
   const phoneInput = form.querySelector('input[name="phone"]');
   const submitButton = form.querySelector('.request_button');
 
-  // Создаём элемент для ошибки динамически
+  // Создаём элемент для ошибки (просто текст под формой)
   let phoneError = form.querySelector('#phoneError');
   if (!phoneError) {
     phoneError = document.createElement('div');
     phoneError.id = 'phoneError';
-    phoneError.style.color = 'white'; // ← БЕЛЫЙ ЦВЕТ вместо красного
-    phoneError.style.fontWeight = '500'; // ← средняя жирность (500)
-    phoneError.style.fontSize = '1rem';
+    phoneError.style.color = 'white';                 // белый текст
+    phoneError.style.fontWeight = '500';              // средняя жирность
+    phoneError.style.fontSize = 'clamp(0.9rem, 2.2vw, 1.1rem)';
     phoneError.style.marginTop = '5px';
     phoneError.style.display = 'none';
-    phoneError.textContent = 'Номер должен начинаться с +7 и содержать ровно 10 цифр. Пожалуйста, проверьте и исправьте.';
+    phoneError.textContent = 'Введите номер в формате: 8 902 560 52 25 или +7 902 560 52 25';
     
+    // Вставляем после кнопки отправки
     const button = form.querySelector('button[type="submit"]');
     if (button) {
       button.parentNode.insertBefore(phoneError, button.nextSibling);
     }
   }
 
-  // === Валидация имени: запрет на цифры ===
+  // === Запрет цифр в имени ===
   if (nameInput) {
     nameInput.addEventListener('input', () => {
-      // Удаляем все цифры из имени
       nameInput.value = nameInput.value.replace(/\d/g, '');
     });
   }
 
-  // === Валидация телефона ===
+  // === Форматирование телефона ===
   if (phoneInput) {
-    // При фокусе — подставляем +7, если поле пустое
-    phoneInput.addEventListener('focus', () => {
-      if (!phoneInput.value) {
-        phoneInput.value = '+7';
+    let isDeleting = false;
+
+    phoneInput.addEventListener('keydown', (e) => {
+      if (e.key === 'Backspace' || e.key === 'Delete') {
+        isDeleting = true;
       }
     });
 
-    // При вводе — форматируем
     phoneInput.addEventListener('input', () => {
       let value = phoneInput.value;
-      value = value.replace(/[^\d+]/g, ''); // Только цифры и +
-      if (!value.startsWith('+')) value = '+' + value;
-      if (value.startsWith('+') && !value.startsWith('+7')) value = '+7' + value.slice(1);
-      if (value.length > 12) value = value.slice(0, 12); // +7 + 10 цифр = 12 символов
-      phoneInput.value = value;
-      phoneError.style.display = 'none'; // Скрываем ошибку при вводе
+      
+      // Удаляем всё, кроме цифр, + и пробелов
+      value = value.replace(/[^\d+\s]/g, '');
+      
+      // Убираем множественные пробелы
+      value = value.replace(/\s+/g, ' ');
+      
+      // Извлекаем только цифры
+      const digits = value.replace(/\D/g, '');
+      
+      let formatted = '';
+      
+      if (digits.startsWith('7') && digits.length >= 1) {
+        // Формат +7 XXX XXX XX XX
+        formatted = '+7';
+        if (digits.length > 1) formatted += ' ' + digits.slice(1, 4);
+        if (digits.length > 4) formatted += ' ' + digits.slice(4, 7);
+        if (digits.length > 7) formatted += ' ' + digits.slice(7, 9);
+        if (digits.length > 9) formatted += ' ' + digits.slice(9, 11);
+      } else if (digits.startsWith('8') && digits.length >= 1) {
+        // Формат 8 XXX XXX XX XX
+        formatted = '8';
+        if (digits.length > 1) formatted += ' ' + digits.slice(1, 4);
+        if (digits.length > 4) formatted += ' ' + digits.slice(4, 7);
+        if (digits.length > 7) formatted += ' ' + digits.slice(7, 9);
+        if (digits.length > 9) formatted += ' ' + digits.slice(9, 11);
+      } else if (digits.length > 0) {
+        // Если не начинается с 7 или 8, просто показываем цифры
+        formatted = digits;
+        if (digits.length > 3) formatted = digits.slice(0, 3) + ' ' + digits.slice(3, 6);
+        if (digits.length > 6) formatted = digits.slice(0, 3) + ' ' + digits.slice(3, 6) + ' ' + digits.slice(6, 8);
+        if (digits.length > 8) formatted = digits.slice(0, 3) + ' ' + digits.slice(3, 6) + ' ' + digits.slice(6, 8) + ' ' + digits.slice(8, 10);
+      }
+
+      // Сохраняем позицию курсора
+      const start = phoneInput.selectionStart;
+      const end = phoneInput.selectionEnd;
+
+      phoneInput.value = formatted;
+
+      // Восстанавливаем курсор в конец
+      if (!isDeleting) {
+        phoneInput.setSelectionRange(formatted.length, formatted.length);
+      }
+      isDeleting = false;
     });
   }
 
@@ -214,17 +252,18 @@ function initPhoneValidation() {
   form.addEventListener('submit', (e) => {
     let isValid = true;
 
-    // Проверка имени
-    if (nameInput && nameInput.value.trim().length < 2) {
-      isValid = false;
-      // Можно добавить ошибку для имени, но по ТЗ не требуется
-    }
-
-    // Проверка телефона
     if (phoneInput) {
-      const phoneValue = phoneInput.value.trim();
-      const isPhoneValid = /^(\+7\d{10})$/.test(phoneValue);
-      if (!isPhoneValid) {
+      const value = phoneInput.value.trim();
+      const digits = value.replace(/\D/g, '');
+      
+      // Проверяем: ровно 11 цифр
+      const has11Digits = digits.length === 11;
+      
+      // Проверяем начало: либо +7..., либо 8...
+      const startsWithPlus7 = value.startsWith('+7');
+      const startsWith8 = value.startsWith('8');
+      
+      if (!has11Digits || !(startsWithPlus7 || startsWith8)) {
         isValid = false;
         phoneError.style.display = 'block';
       } else {
