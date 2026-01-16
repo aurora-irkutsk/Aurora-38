@@ -167,12 +167,12 @@ function initPhoneValidation() {
   if (!phoneError) {
     phoneError = document.createElement('div');
     phoneError.id = 'phoneError';
-    phoneError.style.color = 'white';                 // белый текст
+    phoneError.style.color = 'orange';                 // белый текст
     phoneError.style.fontWeight = '500';              // средняя жирность
-    phoneError.style.fontSize = 'clamp(0.9rem, 2.2vw, 1.1rem)';
+    phoneError.style.fontSize = 'clamp(1rem, 2.2vw, 1.4rem)';
     phoneError.style.marginTop = '5px';
     phoneError.style.display = 'none';
-    phoneError.textContent = 'Введите номер в формате: 8 902 560 52 25 или +7 902 560 52 25';
+    phoneError.innerHTML = 'Введите номер в формате: 8 902 560 52 25';
     
     // Вставляем после кнопки отправки
     const button = form.querySelector('button[type="submit"]');
