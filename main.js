@@ -167,7 +167,7 @@ function initPhoneValidation() {
   if (!phoneError) {
     phoneError = document.createElement('div');
     phoneError.id = 'phoneError';
-    phoneError.style.color = 'orange';                 // белый текст
+    phoneError.style.color = 'whitesmoke';            // белый текст
     phoneError.style.fontWeight = '500';              // средняя жирность
     phoneError.style.fontSize = 'clamp(1rem, 2.2vw, 1.4rem)';
     phoneError.style.marginTop = '5px';
@@ -279,3 +279,4 @@ function initPhoneValidation() {
     }
   });
 }
+
