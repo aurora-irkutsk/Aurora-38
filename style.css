@@ -1313,8 +1313,8 @@ h6 {
   }
 
   .header__logo-text {
-    font-size: clamp(1.1rem, 2.2vw, 1.5rem);
-    white-space: nowrap;
+    font-size: clamp(1rem, 1.8vw, 1.4rem); /* Уменьшили размер */
+    white-space: nowrap; /* Запрещаем перенос */
     overflow: hidden;
     text-overflow: ellipsis;
   }
@@ -1354,6 +1354,7 @@ h6 {
     gap: 30px;
   }
 }
+
 
 
 
