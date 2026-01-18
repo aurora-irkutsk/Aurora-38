@@ -152,131 +152,120 @@ function initCallModal() {
 }
 
 // =============
-// Умное форматирование и валидация номера телефона
+// Умное форматирование и валидация номера телефона (для обеих форм)
 // =============
 function initPhoneValidation() {
-  const form = document.getElementById('requestForm');
-  if (!form) return;
+  // Функция для инициализации одной формы
+  function setupForm(form) {
+    if (!form) return;
 
-  const nameInput = form.querySelector('input[name="name"]');
-  const phoneInput = form.querySelector('input[name="phone"]');
-  const submitButton = form.querySelector('.request_button');
+    const nameInput = form.querySelector('input[name="name"]');
+    const phoneInput = form.querySelector('input[name="phone"]');
+    const submitButton = form.querySelector('.modal__button') || form.querySelector('.request__button');
+    let phoneError = form.querySelector('#phoneError');
 
-  // Создаём элемент для ошибки (просто текст под формой)
-  let phoneError = form.querySelector('#phoneError');
-  if (!phoneError) {
-    phoneError = document.createElement('div');
-    phoneError.id = 'phoneError';
-    phoneError.style.color = 'whitesmoke';            // белый текст
-    phoneError.style.fontWeight = '500';              // средняя жирность
-    phoneError.style.fontSize = 'clamp(1rem, 2.2vw, 1.4rem)';
-    phoneError.style.marginTop = '5px';
-    phoneError.style.display = 'none';
-    phoneError.innerHTML = 'Введите номер в формате: 8 902 560 52 25';
-    
-    // Вставляем после кнопки отправки
-    const button = form.querySelector('button[type="submit"]');
-    if (button) {
-      button.parentNode.insertBefore(phoneError, button.nextSibling);
+    // Создаём элемент для ошибки (если нет)
+    if (!phoneError) {
+      phoneError = document.createElement('div');
+      phoneError.id = 'phoneError';
+      phoneError.style.color = 'white';
+      phoneError.style.fontWeight = '500';
+      phoneError.style.fontSize = 'clamp(0.8rem, 2vw, 1.2rem)';
+      phoneError.style.marginTop = '5px';
+      phoneError.style.display = 'none';
+      phoneError.innerHTML = 'Введите номер в формате: 8 902 560 52 25';
+
+      // Вставляем после кнопки отправки
+      const button = form.querySelector('button[type="submit"]');
+      if (button) {
+        button.parentNode.insertBefore(phoneError, button.nextSibling);
+      }
     }
-  }
 
-  // === Запрет цифр в имени ===
-  if (nameInput) {
-    nameInput.addEventListener('input', () => {
-      nameInput.value = nameInput.value.replace(/\d/g, '');
-    });
-  }
+    // === Запрет цифр в имени ===
+    if (nameInput) {
+      nameInput.addEventListener('input', () => {
+        nameInput.value = nameInput.value.replace(/\d/g, '');
+      });
+    }
 
-  // === Форматирование телефона ===
-  if (phoneInput) {
-    let isDeleting = false;
-
-    phoneInput.addEventListener('keydown', (e) => {
-      if (e.key === 'Backspace' || e.key === 'Delete') {
-        isDeleting = true;
-      }
-    });
-
-    phoneInput.addEventListener('input', () => {
-      let value = phoneInput.value;
-      
-      // Удаляем всё, кроме цифр, + и пробелов
-      value = value.replace(/[^\d+\s]/g, '');
-      
-      // Убираем множественные пробелы
-      value = value.replace(/\s+/g, ' ');
-      
-      // Извлекаем только цифры
-      const digits = value.replace(/\D/g, '');
-      
-      let formatted = '';
-      
-      if (digits.startsWith('7') && digits.length >= 1) {
-        // Формат +7 XXX XXX XX XX
-        formatted = '+7';
-        if (digits.length > 1) formatted += ' ' + digits.slice(1, 4);
-        if (digits.length > 4) formatted += ' ' + digits.slice(4, 7);
-        if (digits.length > 7) formatted += ' ' + digits.slice(7, 9);
-        if (digits.length > 9) formatted += ' ' + digits.slice(9, 11);
-      } else if (digits.startsWith('8') && digits.length >= 1) {
-        // Формат 8 XXX XXX XX XX
-        formatted = '8';
-        if (digits.length > 1) formatted += ' ' + digits.slice(1, 4);
-        if (digits.length > 4) formatted += ' ' + digits.slice(4, 7);
-        if (digits.length > 7) formatted += ' ' + digits.slice(7, 9);
-        if (digits.length > 9) formatted += ' ' + digits.slice(9, 11);
-      } else if (digits.length > 0) {
-        // Если не начинается с 7 или 8, просто показываем цифры
-        formatted = digits;
-        if (digits.length > 3) formatted = digits.slice(0, 3) + ' ' + digits.slice(3, 6);
-        if (digits.length > 6) formatted = digits.slice(0, 3) + ' ' + digits.slice(3, 6) + ' ' + digits.slice(6, 8);
-        if (digits.length > 8) formatted = digits.slice(0, 3) + ' ' + digits.slice(3, 6) + ' ' + digits.slice(6, 8) + ' ' + digits.slice(8, 10);
-      }
-
-      // Сохраняем позицию курсора
-      const start = phoneInput.selectionStart;
-      const end = phoneInput.selectionEnd;
-
-      phoneInput.value = formatted;
-
-      // Восстанавливаем курсор в конец
-      if (!isDeleting) {
-        phoneInput.setSelectionRange(formatted.length, formatted.length);
-      }
-      isDeleting = false;
-    });
-  }
-
-  // === Отправка формы ===
-  form.addEventListener('submit', (e) => {
-    let isValid = true;
-
+    // === Форматирование телефона ===
     if (phoneInput) {
-      const value = phoneInput.value.trim();
-      const digits = value.replace(/\D/g, '');
-      
-      // Проверяем: ровно 11 цифр
-      const has11Digits = digits.length === 11;
-      
-      // Проверяем начало: либо +7..., либо 8...
-      const startsWithPlus7 = value.startsWith('+7');
-      const startsWith8 = value.startsWith('8');
-      
-      if (!has11Digits || !(startsWithPlus7 || startsWith8)) {
-        isValid = false;
-        phoneError.style.display = 'block';
-      } else {
-        phoneError.style.display = 'none';
+      let isDeleting = false;
+      phoneInput.addEventListener('keydown', (e) => {
+        if (e.key === 'Backspace' || e.key === 'Delete') {
+          isDeleting = true;
+        }
+      });
+
+      phoneInput.addEventListener('input', () => {
+        let value = phoneInput.value;
+        value = value.replace(/[^\d+\s]/g, ''); // Только цифры, + и пробелы
+        value = value.replace(/\s+/g, ' '); // Убираем лишние пробелы
+        const digits = value.replace(/\D/g, ''); // Только цифры
+
+        let formatted = '';
+        if (digits.startsWith('7') && digits.length >= 1) {
+          formatted = '+7';
+          if (digits.length > 1) formatted += ' ' + digits.slice(1, 4);
+          if (digits.length > 4) formatted += ' ' + digits.slice(4, 7);
+          if (digits.length > 7) formatted += ' ' + digits.slice(7, 9);
+          if (digits.length > 9) formatted += ' ' + digits.slice(9, 11);
+        } else if (digits.startsWith('8') && digits.length >= 1) {
+          formatted = '8';
+          if (digits.length > 1) formatted += ' ' + digits.slice(1, 4);
+          if (digits.length > 4) formatted += ' ' + digits.slice(4, 7);
+          if (digits.length > 7) formatted += ' ' + digits.slice(7, 9);
+          if (digits.length > 9) formatted += ' ' + digits.slice(9, 11);
+        } else if (digits.length > 0) {
+          formatted = digits;
+          if (digits.length > 3) formatted = digits.slice(0, 3) + ' ' + digits.slice(3, 6);
+          if (digits.length > 6) formatted = digits.slice(0, 3) + ' ' + digits.slice(3, 6) + ' ' + digits.slice(6, 8);
+          if (digits.length > 8) formatted = digits.slice(0, 3) + ' ' + digits.slice(3, 6) + ' ' + digits.slice(6, 8) + ' ' + digits.slice(8, 10);
+        }
+
+        // Сохраняем позицию курсора
+        const start = phoneInput.selectionStart;
+        const end = phoneInput.selectionEnd;
+        phoneInput.value = formatted;
+        if (!isDeleting) {
+          phoneInput.setSelectionRange(formatted.length, formatted.length);
+        }
+        isDeleting = false;
+      });
+    }
+
+    // === Отправка формы ===
+    form.addEventListener('submit', (e) => {
+      let isValid = true;
+      if (phoneInput) {
+        const value = phoneInput.value.trim();
+        const digits = value.replace(/\D/g, '');
+        const has11Digits = digits.length === 11;
+        const startsWithPlus7 = value.startsWith('+7');
+        const startsWith8 = value.startsWith('8');
+
+        if (!has11Digits || !(startsWithPlus7 || startsWith8)) {
+          isValid = false;
+          phoneError.style.display = 'block';
+        } else {
+          phoneError.style.display = 'none';
+        }
       }
-    }
 
-    if (!isValid) {
-      e.preventDefault();
-      if (submitButton) submitButton.disabled = true;
-    } else {
-      if (submitButton) submitButton.disabled = false;
-    }
-  });
+      if (!isValid) {
+        e.preventDefault();
+        if (submitButton) submitButton.disabled = true;
+      } else {
+        if (submitButton) submitButton.disabled = false;
+      }
+    });
+  }
+
+  // Инициализируем обе формы
+  const requestForm = document.getElementById('requestForm');
+  const callForm = document.getElementById('callForm');
+
+  setupForm(requestForm);
+  setupForm(callForm);
 }
-
