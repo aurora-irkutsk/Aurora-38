@@ -910,8 +910,8 @@ h6 {
   border-color: orange;
 }
 
-/* Модальное окно — Lightbox */
-.modal {
+/* === Lightbox Modal (для галереи) === */
+.lightbox-modal {
   display: none;
   position: fixed;
   z-index: 1000;
@@ -924,7 +924,7 @@ h6 {
   box-sizing: border-box;
 }
 
-.modal__img {
+.lightbox-modal .modal__img {
   display: block;
   margin: 0 auto;
   max-width: 90%;
@@ -932,7 +932,7 @@ h6 {
   object-fit: contain;
 }
 
-.modal__close {
+.lightbox-modal .modal__close {
   position: absolute;
   top: 20px;
   right: 30px;
@@ -943,11 +943,11 @@ h6 {
   user-select: none;
 }
 
-.modal__close:hover {
+.lightbox-modal .modal__close:hover {
   color: #ccc;
 }
 
-.modal__arrow {
+.lightbox-modal .modal__arrow {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
@@ -961,19 +961,19 @@ h6 {
   user-select: none;
 }
 
-.modal__arrow--prev {
+.lightbox-modal .modal__arrow--prev {
   left: 20px;
 }
 
-.modal__arrow--next {
+.lightbox-modal .modal__arrow--next {
   right: 20px;
 }
 
-.modal__arrow:hover {
+.lightbox-modal .modal__arrow:hover {
   background: rgba(0, 0, 0, 0.8);
 }
 
-.modal__counter {
+.lightbox-modal .modal__counter {
   position: absolute;
   bottom: 20px;
   left: 50%;
@@ -982,7 +982,7 @@ h6 {
   font-size: 16px;
 }
 
-.modal__caption {
+.lightbox-modal .modal__caption {
   color: white;
   text-align: center;
   margin-top: 15px;
@@ -993,8 +993,8 @@ h6 {
   padding: 0 10px;
 }
 
-/* Модальное окно — попап */
-.modal {
+/* === Call Modal (попап формы) === */
+.call-modal {
   display: none;
   position: fixed;
   z-index: 2000;
@@ -1007,7 +1007,7 @@ h6 {
   box-sizing: border-box;
 }
 
-.modal__content {
+.call-modal .modal__content {
   background: white;
   max-width: 500px;
   margin: 80px auto;
@@ -1018,7 +1018,7 @@ h6 {
   animation: modalFadeIn 0.3s ease-out;
 }
 
-.modal__close {
+.call-modal .modal__close {
   position: absolute;
   top: 15px;
   right: 20px;
@@ -1029,11 +1029,11 @@ h6 {
   transition: color 0.2s;
 }
 
-.modal__close:hover {
+.call-modal .modal__close:hover {
   color: #333;
 }
 
-.modal__title {
+.call-modal .modal__title {
   font-size: 24px;
   font-weight: 700;
   color: #2c3e50;
@@ -1041,14 +1041,14 @@ h6 {
   text-align: center;
 }
 
-.modal__text {
+.call-modal .modal__text {
   text-align: center;
   color: #555;
   margin-bottom: 24px;
   font-size: 16px;
 }
 
-.modal__input {
+.call-modal .modal__input {
   width: 100%;
   padding: 14px;
   margin-bottom: 16px;
@@ -1059,12 +1059,12 @@ h6 {
   transition: border-color 0.3s;
 }
 
-.modal__input:focus {
+.call-modal .modal__input:focus {
   outline: none;
   border-color: orange;
 }
 
-.modal__button {
+.call-modal .modal__button {
   width: 100%;
   padding: 14px;
   background: orange;
@@ -1077,16 +1077,22 @@ h6 {
   transition: background 0.3s;
 }
 
-.modal__button:hover {
+.call-modal .modal__button:hover {
   background: #ff9800;
 }
 
-.modal__agreement {
+.call-modal .modal__agreement {
   font-size: 12px;
   color: #777;
   text-align: center;
   margin-top: 16px;
   line-height: 1.4;
+}
+
+/* Анимация появления */
+@keyframes modalFadeIn {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 /* Мобильные устройства (до 768px) */
@@ -1307,23 +1313,7 @@ h6 {
 /* Планшеты (769px – 1024px) */
 @media (min-width: 769px) and (max-width: 1024px) {
   .header__inner {
-    background: transparent; /* Убираем фон */
-    box-shadow: none; /* Убираем тень */
-    padding: 0; /* Убираем лишние отступы */
-  }
-
-  .header__logo-text {
-    font-size: clamp(1rem, 1.8vw, 1.4rem); /* Уменьшили размер */
-    white-space: nowrap; /* Запрещаем перенос */
-    overflow: hidden;
-    text-overflow: ellipsis;
-  }
-
-  .header a[href^="tel"] {
-    color: white !important;
-    text-decoration: none;
-    font-weight: bold;
-    text-shadow: 0 1px 2px rgba(0,0,0,0.3); /* Тень */
+    padding: 0 20px;
   }
 
   .hero {
@@ -1354,22 +1344,3 @@ h6 {
     gap: 30px;
   }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
