@@ -1,21 +1,21 @@
-// =============
-// Инициализация после загрузки DOM
-// =============
+// =============================================================================
+// ИНИЦИАЛИЗАЦИЯ ПОСЛЕ ЗАГРУЗКИ DOM
+// =============================================================================
+
 document.addEventListener('DOMContentLoaded', function () {
   initGallery();
   initBurgerMenu();
   initCallModal();
-  initPhoneValidation(); // ← добавлена валидация телефона
+  initPhoneValidation();
 });
 
-// =============
-// Галерея (Lightbox)
-// =============
+// =============================================================================
+// ГАЛЕРЕЯ (LIGHTBOX)
+// =============================================================================
+
 function initGallery() {
-  // Отключаем галерею на мобильных и планшетах
-  if (window.innerWidth < 768) {
-    return;
-  }
+  // Отключаем галерею на мобильных устройствах
+  if (window.innerWidth < 768) return;
 
   const imageModal = document.getElementById('imageModal');
   if (!imageModal) return;
@@ -31,6 +31,7 @@ function initGallery() {
 
   let currentIndex = 0;
 
+  // Открытие модального окна при клике на изображение
   images.forEach((img, index) => {
     img.addEventListener('click', () => {
       currentIndex = index;
@@ -42,17 +43,20 @@ function initGallery() {
     });
   });
 
+  // Обновление счётчика изображений
   function updateCounter() {
     if (counter) {
       counter.textContent = `${currentIndex + 1} / ${images.length}`;
     }
   }
 
+  // Закрытие модального окна
   const closeModal = () => {
     imageModal.style.display = 'none';
     document.body.style.overflow = '';
   };
 
+  // Обработчики событий
   if (closeBtn) closeBtn.addEventListener('click', closeModal);
   imageModal.addEventListener('click', (e) => {
     if (e.target === imageModal) closeModal();
@@ -76,6 +80,7 @@ function initGallery() {
     });
   }
 
+  // Управление с клавиатуры
   document.addEventListener('keydown', (e) => {
     if (imageModal.style.display !== 'block') return;
     if (e.key === 'ArrowLeft') prevBtn?.click();
@@ -84,9 +89,10 @@ function initGallery() {
   });
 }
 
-// =============
-// Бургер-меню
-// =============
+// =============================================================================
+// БУРГЕР-МЕНЮ
+// =============================================================================
+
 function initBurgerMenu() {
   const burger = document.querySelector('.burger');
   const mobileMenu = document.querySelector('.mobile-menu');
@@ -122,9 +128,10 @@ function initBurgerMenu() {
   });
 }
 
-// =============
-// Попап "Вызвать мастера"
-// =============
+// =============================================================================
+// ПОПАП "ВЫЗВАТЬ МАСТЕРА"
+// =============================================================================
+
 function initCallModal() {
   const callModal = document.getElementById('callModal');
   const openCallBtn = document.getElementById('openCallModal');
@@ -151,26 +158,27 @@ function initCallModal() {
   });
 }
 
-// =============
-// Умное форматирование и валидация номера телефона (для обеих форм)
-// =============
+// =============================================================================
+// ВАЛИДАЦИЯ И ФОРМАТИРОВАНИЕ НОМЕРА ТЕЛЕФОНА (ДЛЯ ОБЕИХ ФОРМ)
+// =============================================================================
+
 function initPhoneValidation() {
-  // Функция для инициализации одной формы
+  // Функция инициализации одной формы
   function setupForm(form) {
     if (!form) return;
 
     const nameInput = form.querySelector('input[name="name"]');
     const phoneInput = form.querySelector('input[name="phone"]');
-    const submitButton = form.querySelector('.modal__button') || form.querySelector('.request__button');
+    const submitButton = form.querySelector('.request__button') || form.querySelector('.modal__button');
     let phoneError = form.querySelector('#phoneError');
 
-    // Создаём элемент для ошибки (если нет)
+    // Создаём элемент ошибки, если его нет
     if (!phoneError) {
       phoneError = document.createElement('div');
       phoneError.id = 'phoneError';
-      phoneError.style.color = 'white';
+      phoneError.style.color = 'whitesmoke';
       phoneError.style.fontWeight = '500';
-      phoneError.style.fontSize = 'clamp(0.8rem, 2vw, 1.2rem)';
+      phoneError.style.fontSize = 'clamp(1rem, 2.2vw, 1.4rem)';
       phoneError.style.marginTop = '5px';
       phoneError.style.display = 'none';
       phoneError.innerHTML = 'Введите номер в формате: 8 902 560 52 25';
@@ -182,16 +190,17 @@ function initPhoneValidation() {
       }
     }
 
-    // === Запрет цифр в имени ===
+    // Запрет цифр в поле имени
     if (nameInput) {
       nameInput.addEventListener('input', () => {
         nameInput.value = nameInput.value.replace(/\d/g, '');
       });
     }
 
-    // === Форматирование телефона ===
+    // Форматирование телефона
     if (phoneInput) {
       let isDeleting = false;
+
       phoneInput.addEventListener('keydown', (e) => {
         if (e.key === 'Backspace' || e.key === 'Delete') {
           isDeleting = true;
@@ -201,7 +210,7 @@ function initPhoneValidation() {
       phoneInput.addEventListener('input', () => {
         let value = phoneInput.value;
         value = value.replace(/[^\d+\s]/g, ''); // Только цифры, + и пробелы
-        value = value.replace(/\s+/g, ' '); // Убираем лишние пробелы
+        value = value.replace(/\s+/g, ' ');     // Убираем лишние пробелы
         const digits = value.replace(/\D/g, ''); // Только цифры
 
         let formatted = '';
@@ -235,7 +244,7 @@ function initPhoneValidation() {
       });
     }
 
-    // === Отправка формы ===
+    // Валидация при отправке формы
     form.addEventListener('submit', (e) => {
       let isValid = true;
       if (phoneInput) {
