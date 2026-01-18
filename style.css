@@ -167,12 +167,24 @@ h6 {
    ========================================================================== */
 
 .hero {
-  background: url("/images/hero/hero-bg-desktop.webp") center / cover no-repeat;
   min-height: 100vh;
   display: flex;
   align-items: flex-start;
   padding: 60px 156px;
   color: white;
+  position: relative;
+}
+
+.hero__bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  z-index: -1;
+  aspect-ratio: 16 / 9;
 }
 
 .hero__content {
@@ -1402,4 +1414,5 @@ h6 {
     gap: 30px;
   }
 }
+
 
