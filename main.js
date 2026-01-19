@@ -158,6 +158,9 @@ function initCallModal() {
   });
 }
 
+// Инициализируем модальное окно при загрузке DOM
+document.addEventListener('DOMContentLoaded', initCallModal);
+
 // =============================================================================
 // ВАЛИДАЦИЯ И ФОРМАТИРОВАНИЕ НОМЕРА ТЕЛЕФОНА (ДЛЯ ОБЕИХ ФОРМ)
 // =============================================================================
@@ -278,3 +281,4 @@ function initPhoneValidation() {
   setupForm(requestForm);
   setupForm(callForm);
 }
+
