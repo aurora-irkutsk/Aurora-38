@@ -1094,7 +1094,7 @@ h6 {
 }
 
 .call-modal .modal__close:hover {
-  color: white;
+  color: orange;
 }
 
 .call-modal .modal__title {
@@ -1414,3 +1414,4 @@ h6 {
     gap: 30px;
   }
 }
+
