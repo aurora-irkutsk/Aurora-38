@@ -133,39 +133,33 @@ function initBurgerMenu() {
 // =============================================================================
 
 function initCallModal() {
-    const callModal = document.getElementById('callModal');
-    const closeCallBtn = document.getElementById('closeCallModal');
-    const openButtons = document.querySelectorAll('.open-call-modal'); // ← все кнопки с этим классом
+  const callModal = document.getElementById('callModal');
+  const openCallBtn = document.getElementById('openCallModal');
+  const closeCallBtn = document.getElementById('closeCallModal');
 
-    if (!callModal || !closeCallBtn || openButtons.length === 0) {
-        console.warn('Элементы модального окна не найдены.');
-        return;
-    }
+  if (!callModal || !openCallBtn || !closeCallBtn) return;
 
-    const openCallModal = () => {
-        callModal.style.display = 'block';
-        document.body.style.overflow = 'hidden';
-    };
+  const openCallModal = () => {
+    callModal.style.display = 'block';
+    document.body.style.overflow = 'hidden';
+  };
 
-    const closeCallModal = () => {
-        callModal.style.display = 'none';
-        document.body.style.overflow = '';
-    };
+  const closeCallModal = () => {
+    callModal.style.display = 'none';
+    document.body.style.overflow = '';
+  };
 
-    // Назначаем обработчик всем кнопкам
-    openButtons.forEach(btn => {
-        btn.addEventListener('click', (e) => {
-            e.preventDefault();
-            openCallModal();
-        });
-    });
+  openCallBtn.addEventListener('click', openCallModal);
+  closeCallBtn.addEventListener('click', closeCallModal);
 
-    closeCallBtn.addEventListener('click', closeCallModal);
-
-    window.addEventListener('click', (e) => {
-        if (e.target === callModal) closeCallModal();
-    });
+  // Закрытие по клику на оверлей
+  window.addEventListener('click', (e) => {
+    if (e.target === callModal) closeCallModal();
+  });
 }
+
+// Инициализируем модальное окно при загрузке DOM
+document.addEventListener('DOMContentLoaded', initCallModal);
 
 // =============================================================================
 // ВАЛИДАЦИЯ И ФОРМАТИРОВАНИЕ НОМЕРА ТЕЛЕФОНА (ДЛЯ ОБЕИХ ФОРМ)
@@ -287,5 +281,3 @@ function initPhoneValidation() {
   setupForm(requestForm);
   setupForm(callForm);
 }
-
-
