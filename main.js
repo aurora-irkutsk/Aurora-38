@@ -158,9 +158,6 @@ function initCallModal() {
   });
 }
 
-// Инициализируем модальное окно при загрузке DOM
-document.addEventListener('DOMContentLoaded', initCallModal);
-
 // =============================================================================
 // ВАЛИДАЦИЯ И ФОРМАТИРОВАНИЕ НОМЕРА ТЕЛЕФОНА (ДЛЯ ОБЕИХ ФОРМ)
 // =============================================================================
@@ -181,7 +178,7 @@ function initPhoneValidation() {
       phoneError.id = 'phoneError';
       phoneError.style.color = 'whitesmoke';
       phoneError.style.fontWeight = '500';
-      phoneError.style.fontSize = 'clamp(0.8rem, 2vw, 1.2rem)';
+      phoneError.style.fontSize = 'clamp(1rem, 2.2vw, 1.4rem)';
       phoneError.style.marginTop = '5px';
       phoneError.style.display = 'none';
       phoneError.innerHTML = 'Введите номер в формате: 8 902 560 52 25';
@@ -281,4 +278,3 @@ function initPhoneValidation() {
   setupForm(requestForm);
   setupForm(callForm);
 }
-
