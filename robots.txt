@@ -1,12 +1,42 @@
+# robots.txt для peretyazhka-aurora.ru
+
 User-agent: *
 Allow: /
 
-# Указываем карту сайта
-Sitemap: https://peretyazhka-aurora.ru/sitemap.xml
-
-# Запрещаем только потенциально опасные или служебные пути
+# Блокируем служебные папки
 Disallow: /admin/
 Disallow: /cgi-bin/
 Disallow: /tmp/
-Disallow: /backup/
-Disallow: /*?
+Disallow: /*.php$
+
+# Sitemap
+Sitemap: https://peretyazhka-aurora.ru/sitemap.xml
+
+# Основные поисковики
+User-agent: Googlebot
+Allow: /
+
+User-agent: Yandex
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+# Блокируем плохих ботов
+User-agent: AhrefsBot
+Crawl-delay: 10
+
+User-agent: SemrushBot
+Crawl-delay: 10
+
+User-agent: MJ12bot
+Disallow: /
+
+User-agent: dotbot
+Disallow: /
+
+# Рекомендации по скорости сканирования
+Crawl-delay: 1
+
+# Host (для Яндекса)
+Host: peretyazhka-aurora.ru
