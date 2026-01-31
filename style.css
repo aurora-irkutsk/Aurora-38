@@ -106,11 +106,20 @@ h6 {
   cursor: pointer;
 }
 
+.hero__button,
+.header__button,
+.request__button,
+.modal__button,
+button {
+    text-decoration: none !important;
+}
+
 .header__logo-text {
   font-size: 24px;
   font-weight: 600;
   color: whitesmoke;
   text-transform: uppercase;
+  text-decoration: none !important;
   cursor: pointer;
 }
 
@@ -1170,7 +1179,6 @@ h6 {
 .modal__agreement a:hover {
     opacity: 0.8;
 }
-
 /* =============================================================================
    МОБИЛЬНЫЕ УСТРОЙСТВА (до 768px)
    ========================================================================== */
