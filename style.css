@@ -1159,6 +1159,18 @@ h6 {
   to { opacity: 1; transform: translateY(0); }
 }
 
+/* Цвет ссылки в формах */
+.request__agreement a,
+.modal__agreement a {
+    color: #ffffff !important;
+    text-decoration: underline;
+}
+
+.request__agreement a:hover,
+.modal__agreement a:hover {
+    opacity: 0.8;
+}
+
 /* =============================================================================
    МОБИЛЬНЫЕ УСТРОЙСТВА (до 768px)
    ========================================================================== */
