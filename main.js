@@ -279,4 +279,27 @@ function initPhoneValidation() {
   setupForm(callForm);
 }
 
+// Защита от повторных отправок формы
+function preventDoubleSubmit(form) {
+    const submitButton = form.querySelector('button[type="submit"]');
+    const originalText = submitButton.textContent;
+    
+    submitButton.disabled = true;
+    submitButton.textContent = 'Отправка...';
+    
+    // Разблокировать через 5 секунд на случай ошибки
+    setTimeout(function() {
+        submitButton.disabled = false;
+        submitButton.textContent = originalText;
+    }, 5000);
+}
 
+// Применить к формам
+document.addEventListener('DOMContentLoaded', function() {
+    const forms = document.querySelectorAll('form');
+    forms.forEach(function(form) {
+        form.addEventListener('submit', function() {
+            preventDoubleSubmit(this);
+        });
+    });
+});

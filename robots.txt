@@ -8,6 +8,8 @@ Disallow: /admin/
 Disallow: /cgi-bin/
 Disallow: /tmp/
 Disallow: /*.php$
+Disallow: /fonts/
+Disallow: /_next/
 
 # Sitemap
 Sitemap: https://peretyazhka-aurora.ru/sitemap.xml
