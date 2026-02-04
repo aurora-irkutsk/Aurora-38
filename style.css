@@ -134,13 +134,13 @@ button {
 .header__nav {
   display: flex;
   align-items: center;
-  gap: 40px;
-  margin-right: 80px;
+  gap: clamp(20px, 3vw, 50px); 
+  margin-right: clamp(20px, 3vw, 50px);
 }
 
 .header__nav-link {
   position: relative;
-  font-size: 18px;
+  font-size: clamp(14px, 1.2vw, 20px);
   font-weight: 500;
   text-decoration: none;
   color: whitesmoke;
