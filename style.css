@@ -2599,7 +2599,7 @@ a.request__button {
   }
 
   .hero__text {
-    font-size: clamp(12px, 5vw, 20px);
+    font-size: clamp(10px, 5vw, 20px);
     max-width: none;
   }
 
