@@ -108,17 +108,38 @@ a.request__button {
   left: 0;
   width: 100%;
   z-index: 1000;
-  background-color: #333;
-  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+  background: linear-gradient(135deg, #1a1a1a 0%, #0a0a0a 50%, #1a1a1a 100%);
+  box-shadow: 
+    0 3px 20px rgba(0, 0, 0, 0.4),
+    0 1px 0 rgba(255, 140, 0, 0.1),
+    inset 0 -1px 0 rgba(255, 140, 0, 0.15);
+  border-bottom: 2px solid rgba(255, 140, 0, 0.2);
+  backdrop-filter: blur(10px);
 }
 
 .header__inner {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #333;
+  background: transparent;
   padding: 0 30px;
   width: 100%;
+  position: relative;
+}
+
+.header__inner::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, 
+    transparent 0%, 
+    rgba(255, 140, 0, 0.3) 25%, 
+    rgba(255, 140, 0, 0.5) 50%, 
+    rgba(255, 140, 0, 0.3) 75%, 
+    transparent 100%);
 }
 
 .header__logo {
@@ -142,6 +163,15 @@ a.request__button {
   text-transform: uppercase;
   cursor: pointer;
   text-decoration: none;
+  text-shadow: 0 0 20px rgba(255, 140, 0, 0.4),
+               0 2px 4px rgba(0, 0, 0, 0.5);
+  transition: all 0.3s ease;
+}
+
+.header__logo-text:hover {
+  color: #ff8c00;
+  text-shadow: 0 0 30px rgba(255, 140, 0, 0.8),
+               0 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 /* Убираем подчёркивание у всех элементов в хедере */
@@ -163,36 +193,42 @@ a.request__button {
 }
 
 .header__nav-link {
+  display: inline-flex;
   position: relative;
   font-size: clamp(14px, 1.2vw, 20px);
   font-weight: 500;
   text-decoration: none;
   color: whitesmoke;
-  transition: color 0.3s ease;
+  transition: all 0.3s ease;
+  padding: 5px 10px;
 }
 
-.header__nav-link::after {
+.header__nav-link::before {
   content: "";
   position: absolute;
-  bottom: -4px;
-  left: 0;
+  bottom: 0;
+  left: 50%;
   width: 0;
   height: 2px;
-  background: orange;
+  background: linear-gradient(90deg, transparent, #ff8c00, #ffa500, #ff8c00, transparent);
+  transform: translateX(-50%);
   transition: width 0.3s ease;
+  box-shadow: 0 0 10px rgba(255, 140, 0, 0.6);
 }
 
 .header__nav-link:hover {
-  color: orange;
+  color: #ffa500;
+  text-shadow: 0 0 15px rgba(255, 140, 0, 0.5);
+  transform: translateY(-2px);
 }
 
-.header__nav-link:hover::after {
+.header__nav-link:hover::before {
   width: 100%;
 }
 
 .header__button {
-  background: transparent;
-  border: 2px solid orange;
+  background: linear-gradient(135deg, rgba(255, 140, 0, 0.1), rgba(255, 140, 0, 0.05));
+  border: 2px solid #ff8c00;
   border-radius: 8px;
   padding: 14px 20px;
   color: white;
@@ -200,11 +236,37 @@ a.request__button {
   font-weight: 600;
   cursor: pointer;
   transition: all 0.3s ease;
+  box-shadow: 
+    0 0 20px rgba(255, 140, 0, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  position: relative;
+  overflow: hidden;
+}
+
+.header__button::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s ease;
+}
+
+.header__button:hover::before {
+  left: 100%;
 }
 
 .header__button:hover {
-  background-color: orange;
-  color: whitesmoke;
+  background: linear-gradient(135deg, #ff8c00, #ffa500);
+  color: #1a1a1a;
+  border-color: #ffa500;
+  box-shadow: 
+    0 0 30px rgba(255, 140, 0, 0.6),
+    0 0 60px rgba(255, 140, 0, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3);
+  transform: translateY(-2px);
 }
 
 /* =============================================================================
@@ -2191,6 +2253,12 @@ a.request__button {
     padding: 12px 15px;
     height: auto;
     margin-bottom: 0;
+    background: linear-gradient(135deg, #1a1a1a 0%, #0a0a0a 50%, #1a1a1a 100%);
+    box-shadow: 
+      0 3px 20px rgba(0, 0, 0, 0.4),
+      0 1px 0 rgba(255, 140, 0, 0.1),
+      inset 0 -1px 0 rgba(255, 140, 0, 0.15);
+    border-bottom: 2px solid rgba(255, 140, 0, 0.2);
   }
 
   .header .container {
@@ -2224,6 +2292,8 @@ a.request__button {
     line-height: 1.4;
     display: block;
     font-weight: 700;
+    text-shadow: 0 0 15px rgba(255, 140, 0, 0.4),
+                 0 2px 4px rgba(0, 0, 0, 0.5);
   }
 
   .header a[href^="tel"] {
@@ -2279,7 +2349,7 @@ a.request__button {
     left: 0;
     width: 100vw;
     height: 100vh;
-    background-color: #333;
+    background: linear-gradient(135deg, #1a1a1a 0%, #0a0a0a 50%, #1a1a1a 100%);
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -2289,6 +2359,17 @@ a.request__button {
     opacity: 0;
     visibility: hidden;
     transition: opacity 0.3s ease, visibility 0.3s ease;
+  }
+  
+  .mobile-menu::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at 50% 50%, rgba(255, 140, 0, 0.1) 0%, transparent 70%);
+    pointer-events: none;
   }
 
   .mobile-menu.active {
@@ -2592,11 +2673,15 @@ a.request__button {
 @media (min-width: 376px) and (max-width: 480px) {
   .header {
     padding: 12px 15px;
+    background: linear-gradient(135deg, #1a1a1a 0%, #0a0a0a 50%, #1a1a1a 100%);
+    border-bottom: 2px solid rgba(255, 140, 0, 0.2);
   }
 
   .header__logo-text {
     font-size: clamp(1rem, 4vw, 1.15rem);
     line-height: 1.35;
+    text-shadow: 0 0 15px rgba(255, 140, 0, 0.4),
+                 0 2px 4px rgba(0, 0, 0, 0.5);
   }
 
   .header__inner {
@@ -2629,11 +2714,15 @@ a.request__button {
 @media (min-width: 481px) and (max-width: 768px) {
   .header {
     padding: 14px 18px;
+    background: linear-gradient(135deg, #1a1a1a 0%, #0a0a0a 50%, #1a1a1a 100%);
+    border-bottom: 2px solid rgba(255, 140, 0, 0.2);
   }
 
   .header__logo-text {
     font-size: clamp(1.1rem, 3.8vw, 1.3rem);
     line-height: 1.4;
+    text-shadow: 0 0 15px rgba(255, 140, 0, 0.4),
+                 0 2px 4px rgba(0, 0, 0, 0.5);
   }
   
   .header__inner {
@@ -2670,6 +2759,8 @@ a.request__button {
 @media (max-width: 375px) {
   .header {
     padding: 10px 12px;
+    background: linear-gradient(135deg, #1a1a1a 0%, #0a0a0a 50%, #1a1a1a 100%);
+    border-bottom: 2px solid rgba(255, 140, 0, 0.2);
   }
 
   .header__inner {
@@ -2679,6 +2770,8 @@ a.request__button {
   .header__logo-text {
     font-size: clamp(0.85rem, 4vw, 1rem);
     line-height: 1.3;
+    text-shadow: 0 0 15px rgba(255, 140, 0, 0.4),
+                 0 2px 4px rgba(0, 0, 0, 0.5);
   }
 
   .burger {
