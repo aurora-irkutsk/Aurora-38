@@ -1798,6 +1798,18 @@ a.request__button {
   pointer-events: none;
 }
 
+/* Анимация для футера и хедера (десктоп) */
+@keyframes pulseGlow {
+  0%, 100% {
+    opacity: 0.5;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.1);
+  }
+}
+
 .footer__content {
   display: flex;
   flex-wrap: wrap;
@@ -2086,6 +2098,84 @@ a.request__button {
 .request__agreement a:hover,
 .modal__agreement a:hover {
   opacity: 0.8;
+}
+
+/* =============================================================================
+   ДЕСКТОПЫ (≥1025px) - СТИЛЬ ФУТЕРА ДЛЯ ШАПКИ
+   ========================================================================== */
+
+@media (min-width: 1025px) {
+  .header {
+    background: #0a0a0a;
+    overflow: hidden;
+  }
+
+  .header::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -50%;
+    width: 200%;
+    height: 100%;
+    background: radial-gradient(circle at 50% 50%, rgba(255, 140, 0, 0.05) 0%, transparent 50%);
+    animation: pulseGlow 8s ease-in-out infinite;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .header__inner {
+    background-color: transparent;
+    position: relative;
+    z-index: 1;
+  }
+
+  .header__logo-text {
+    color: rgba(255, 255, 255, 0.85);
+  }
+
+  .header__nav-link {
+    color: rgba(255, 255, 255, 0.75);
+    padding: 5px 10px;
+    transition: all 0.3s ease;
+  }
+
+  .header__nav-link::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #ff8c00, #ffa500, #ff8c00, transparent);
+    transform: translateX(-50%);
+    transition: width 0.3s ease;
+    box-shadow: 0 0 10px rgba(255, 140, 0, 0.6);
+  }
+
+  .header__nav-link:hover {
+    color: #ffa500;
+    text-shadow: 0 0 15px rgba(255, 140, 0, 0.5);
+    transform: translateY(-2px);
+  }
+
+  .header__nav-link:hover::after {
+    width: 100%;
+  }
+
+  .header__button {
+    border: 2px solid rgba(255, 140, 0, 0.6);
+    background: transparent;
+    color: rgba(255, 255, 255, 0.85);
+    transition: all 0.3s ease;
+  }
+
+  .header__button:hover {
+    background-color: rgba(255, 140, 0, 0.15);
+    border-color: #ffa500;
+    color: #ffa500;
+    box-shadow: 0 0 20px rgba(255, 140, 0, 0.4);
+    text-shadow: 0 0 10px rgba(255, 140, 0, 0.5);
+  }
 }
 
 /* =============================================================================
