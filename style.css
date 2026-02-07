@@ -110,6 +110,11 @@ a.request__button {
   z-index: 1000;
   background-color: #333;
   box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+  /* Фиксация для мобильных устройств */
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
 }
 
 .header__inner {
@@ -2474,7 +2479,7 @@ a.request__button {
   }
 
   .header__logo-text {
-    font-size: clamp(1.1rem, 4.2vw, 1.2rem);
+    font-size: 1.1rem !important;
     white-space: normal;
     word-break: break-word;
     line-height: 1.4;
@@ -2915,7 +2920,7 @@ a.request__button {
   }
 
   .header__logo-text {
-    font-size: clamp(1rem, 4vw, 1.15rem);
+    font-size: 1rem !important;
     line-height: 1.35;
   }
 
@@ -2952,7 +2957,7 @@ a.request__button {
   }
 
   .header__logo-text {
-    font-size: clamp(1.1rem, 3.8vw, 1.3rem);
+    font-size: 1.15rem !important;
     line-height: 1.4;
   }
   
@@ -2997,7 +3002,7 @@ a.request__button {
   }
 
   .header__logo-text {
-    font-size: clamp(0.85rem, 4vw, 1rem);
+    font-size: 0.9rem !important;
     line-height: 1.3;
   }
 
