@@ -1855,14 +1855,25 @@ a.request__button {
   .header {
     padding: 12px 15px;
     height: auto;
+    margin-bottom: 0;
+  }
+
+  .header .container {
+    padding: 0 !important;
+  }
+
+  .header__inner {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 0;
+    padding: 0 !important;
+    width: 100%;
   }
 
   .header__logo {
     padding: 0;
+    margin-right: auto;
+    justify-content: flex-start;
   }
 
   .header__logo-img {
@@ -1870,10 +1881,9 @@ a.request__button {
   }
 
   .header__logo-text {
-    font-size: clamp(1.1rem, 2.2vw, 1.5rem);
+    font-size: clamp(0.75rem, 3.5vw, 1rem);
     white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
+    text-align: left;
   }
 
   .header a[href^="tel"] {
@@ -1905,6 +1915,8 @@ a.request__button {
     cursor: pointer;
     padding: 0;
     z-index: 10;
+    margin-left: 10px;
+    flex-shrink: 0;
   }
 
   .burger span {
@@ -2028,13 +2040,14 @@ a.request__button {
   .service,
   .portfolio__item,
   .review {
-    /* Постоянное лёгкое свечение для мобильных */
+    /* Яркое постоянное свечение для мобильных */
     box-shadow: 
       0 10px 40px rgba(0, 0, 0, 0.6),
-      0 0 20px rgba(255, 140, 0, 0.3),
-      0 0 40px rgba(255, 140, 0, 0.15),
-      inset 0 1px 0 rgba(255, 255, 255, 0.05) !important;
-    border-color: rgba(255, 140, 0, 0.3) !important;
+      0 0 30px rgba(255, 140, 0, 0.6),
+      0 0 60px rgba(255, 140, 0, 0.35),
+      0 0 90px rgba(255, 140, 0, 0.2),
+      inset 0 1px 0 rgba(255, 255, 255, 0.08) !important;
+    border-color: rgba(255, 140, 0, 0.5) !important;
   }
 
   .advantage-cards__item::before,
@@ -2042,14 +2055,15 @@ a.request__button {
   .service::before,
   .portfolio__item::before,
   .review::before {
-    opacity: 0.3 !important;
+    opacity: 0.5 !important;
   }
 
   .advantage-cards__number,
   .step__number {
     box-shadow: 
-      0 0 20px rgba(255, 140, 0, 0.6),
-      0 0 40px rgba(255, 140, 0, 0.3),
+      0 0 30px rgba(255, 140, 0, 0.8),
+      0 0 60px rgba(255, 140, 0, 0.5),
+      0 0 90px rgba(255, 140, 0, 0.3),
       0 5px 15px rgba(0, 0, 0, 0.5),
       inset 0 -3px 10px rgba(0, 0, 0, 0.3),
       inset 0 2px 5px rgba(255, 255, 255, 0.3);
