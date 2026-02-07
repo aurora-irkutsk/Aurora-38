@@ -2246,7 +2246,7 @@ a.request__button {
   }
 
   .hero__title {
-    font-size: clamp(22px, 5vw, 32px);
+    font-size: clamp(20px, 5vw, 30px);
     line-height: 1.4;
     margin-top: 30px;
     margin-bottom: 20px;
