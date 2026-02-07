@@ -2331,10 +2331,12 @@ a.request__button {
   }
 
   .hero__title {
-    font-size: clamp(24px, 5vw, 32px);
-    line-height: 1.4;
+    font-size: clamp(28px, 7vw, 36px);
+    line-height: 1.25;
     margin-top: 30px;
     margin-bottom: 20px;
+    letter-spacing: -0.5px;
+    word-spacing: 0.1em;
   }
 
   .hero__text {
@@ -2608,6 +2610,14 @@ a.request__button {
     height: 22px;
   }
 
+  /* Hero title для средних экранов */
+  .hero__title {
+    font-size: 30px !important;
+    line-height: 1.22 !important;
+    letter-spacing: -0.6px !important;
+    word-spacing: 0.08em !important;
+  }
+
   /* Средние экраны */
   .about__title {
     font-size: clamp(24px, 5.5vw, 30px);
@@ -2649,6 +2659,14 @@ a.request__button {
     height: 3.5px;
   }
 
+  /* Hero title для больших мобильных */
+  .hero__title {
+    font-size: 34px !important;
+    line-height: 1.25 !important;
+    letter-spacing: -0.5px !important;
+    word-spacing: 0.1em !important;
+  }
+
   /* Большие мобильные */
   .about__title {
     font-size: clamp(26px, 5vw, 32px);
@@ -2688,6 +2706,17 @@ a.request__button {
 
   .burger span {
     height: 3px;
+  }
+
+  /* Hero title для очень узких экранов */
+  .hero__title {
+    font-size: 26px !important;
+    line-height: 1.2 !important;
+    letter-spacing: -0.8px !important;
+    word-spacing: 0.05em !important;
+    max-width: 90% !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
   }
 
   /* Меньший для маленьких экранов */
