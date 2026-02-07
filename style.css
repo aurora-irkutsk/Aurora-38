@@ -39,7 +39,14 @@ h6 {
 .request__button,
 .modal__button,
 button {
-  text-decoration: none !important;
+  text-decoration: none;
+}
+
+/* Убираем подчеркивание у ссылок-кнопок */
+a.hero__button,
+a.header__button,
+a.request__button {
+  text-decoration: none;
 }
 
 /* =============================================================================
@@ -119,15 +126,17 @@ button {
   color: whitesmoke;
   text-transform: uppercase;
   cursor: pointer;
-  text-decoration: none !important;
+  text-decoration: none;
 }
 
 /* Убираем подчёркивание у всех элементов в хедере */
 .header a,
 .header__logo,
 .header__logo *,
-.header__logo a {
-  text-decoration: none !important;
+.header__logo a,
+.header__logo a:hover,
+.header__logo a:visited {
+  text-decoration: none;
 }
 
 .header__nav {
@@ -894,11 +903,9 @@ button {
   font-weight: 500;
 }
 
-/* Скрываем breadcrumbs на мобильных устройствах */
-@media (max-width: 768px) {
-  .breadcrumb {
-    display: none;
-  }
+/* Скрываем breadcrumbs на всех устройствах (ломают визуал) */
+.breadcrumb {
+  display: none;
 }
 
 /* =============================================================================
