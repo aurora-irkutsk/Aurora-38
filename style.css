@@ -1899,17 +1899,6 @@ a.request__button {
     display: none;
   }
 
-  .header__nav,
-  .header__button {
-    display: none;
-  }
-
-  .header__inner {
-    background: transparent;
-    box-shadow: none;
-    padding: 0;
-  }
-
   .burger {
     display: flex;
     flex-direction: column;
@@ -1921,7 +1910,7 @@ a.request__button {
     cursor: pointer;
     padding: 0;
     z-index: 10;
-    margin-left: 15px;
+    margin-left: auto;
     flex-shrink: 0;
   }
 
