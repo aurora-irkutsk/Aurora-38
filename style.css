@@ -49,6 +49,13 @@ a.request__button {
   text-decoration: none;
 }
 
+/* Container */
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
 /* =============================================================================
    ШРИФТЫ
    ========================================================================== */
@@ -1831,6 +1838,11 @@ a.request__button {
     padding-top: 40px;
   }
 
+  .container {
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+  }
+
   .header {
     padding: 12px 15px;
     height: auto;
@@ -2012,8 +2024,8 @@ a.request__button {
       0 10px 40px rgba(0, 0, 0, 0.6),
       0 0 20px rgba(255, 140, 0, 0.3),
       0 0 40px rgba(255, 140, 0, 0.15),
-      inset 0 1px 0 rgba(255, 255, 255, 0.05);
-    border-color: rgba(255, 140, 0, 0.3);
+      inset 0 1px 0 rgba(255, 255, 255, 0.05) !important;
+    border-color: rgba(255, 140, 0, 0.3) !important;
   }
 
   .advantage-cards__item::before,
@@ -2021,7 +2033,7 @@ a.request__button {
   .service::before,
   .portfolio__item::before,
   .review::before {
-    opacity: 0.3;
+    opacity: 0.3 !important;
   }
 
   .advantage-cards__number,
@@ -2040,17 +2052,17 @@ a.request__button {
   .service:hover,
   .portfolio__item:hover,
   .review:hover {
-    transform: none;
+    transform: none !important;
     box-shadow: 
       0 10px 40px rgba(0, 0, 0, 0.6),
       0 0 20px rgba(255, 140, 0, 0.3),
       0 0 40px rgba(255, 140, 0, 0.15),
-      inset 0 1px 0 rgba(255, 255, 255, 0.05);
+      inset 0 1px 0 rgba(255, 255, 255, 0.05) !important;
   }
 
   .advantage-cards__item:hover .advantage-cards__number,
   .step:hover .step__number {
-    transform: none;
+    transform: none !important;
   }
 
   .advantage-cards__item:active,
@@ -2065,7 +2077,7 @@ a.request__button {
   .service:hover .service__photo-wrapper,
   .portfolio__item:hover .portfolio__img,
   .review:hover .review__photo-wrapper {
-    transform: none;
+    transform: none !important;
   }
 
   .contacts__wrapper {
