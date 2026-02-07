@@ -2690,7 +2690,7 @@ a.request__button {
     height: 3px;
   }
 
-  /* Меньший текст для маленьких экранов */
+  /* Меньший для маленьких экранов */
   .about__title {
     font-size: clamp(20px, 5.5vw, 26px);
   }
