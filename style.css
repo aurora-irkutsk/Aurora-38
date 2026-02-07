@@ -407,6 +407,15 @@ a.request__button {
   opacity: 1;
 }
 
+/* Обёртка-ссылка для всей карточки */
+.service__link-wrapper {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  text-decoration: none;
+  color: inherit;
+}
+
 .service__photo-wrapper {
   width: 100%;
   padding-top: 100%;
