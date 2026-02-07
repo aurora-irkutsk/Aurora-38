@@ -722,7 +722,65 @@
                         <p class="contacts__email"><strong>Эл. почта:</strong> <a href="mailto:aurora-38@yandex.ru">aurora-38@yandex.ru</a></p>
                     </div>
                     <div class="contacts__map">
-                        <iframe src="https://yandex.ru/map-widget/v1/?um=constructor%3Ab3ccd0f592f488e287da048e2e9cd52c6807140320e892759e69cb73cf5d553a&amp;source=constructor" width="100%" height="365" frameborder="0" allowfullscreen title="Карта с адресом Aurora 38"></iframe>
+                        <!-- Информация о времени в пути -->
+                        <div class="map__travel-info">
+                            <svg class="map__icon" width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" fill="currentColor"/>
+                            </svg>
+                            <span>~25 минут от центра Иркутска</span>
+                        </div>
+                        
+                        <!-- Iframe карты с улучшенной доступностью -->
+                        <iframe 
+                            src="https://yandex.ru/map-widget/v1/?um=constructor%3Ab3ccd0f592f488e287da048e2e9cd52c6807140320e892759e69cb73cf5d553a&amp;source=constructor" 
+                            width="100%" 
+                            height="365" 
+                            frameborder="0" 
+                            allowfullscreen 
+                            title="Интерактивная карта с адресом Aurora 38 - р.п. Марково, микрорайон Берёзовый, дом 216"
+                            aria-label="Яндекс.Карта с местоположением Aurora 38"
+                            loading="lazy">
+                        </iframe>
+                        
+                        <!-- Fallback на случай блокировки iframe -->
+                        <noscript>
+                            <div class="map__fallback">
+                                <p>Карта недоступна. Откройте адрес в Яндекс.Картах:</p>
+                                <a href="https://yandex.ru/maps/?text=р.п.+Марково+микрорайон+Берёзовый+дом+216" target="_blank" rel="noopener noreferrer">Открыть карту</a>
+                            </div>
+                        </noscript>
+                        
+                        <!-- Кнопки действий -->
+                        <div class="map__actions">
+                            <a href="https://yandex.ru/maps/?text=р.п.+Марково+микрорайон+Берёзовый+дом+216" 
+                               class="map__button map__button--primary" 
+                               target="_blank" 
+                               rel="noopener noreferrer"
+                               aria-label="Открыть адрес в Яндекс.Картах">
+                                <svg class="map__button-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" fill="currentColor"/>
+                                </svg>
+                                <span>Открыть в Яндекс.Картах</span>
+                            </a>
+                            
+                            <button class="map__button map__button--secondary" 
+                                    id="copyAddressBtn"
+                                    aria-label="Копировать адрес в буфер обмена"
+                                    data-address="р.п. Марково, микрорайон Берёзовый, дом 216">
+                                <svg class="map__button-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z" fill="currentColor"/>
+                                </svg>
+                                <span>Копировать адрес</span>
+                            </button>
+                        </div>
+                        
+                        <!-- Уведомление о копировании -->
+                        <div class="map__notification" id="copyNotification" role="alert" aria-live="polite">
+                            <svg class="map__notification-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z" fill="currentColor"/>
+                            </svg>
+                            <span>Адрес скопирован!</span>
+                        </div>
                     </div>
                 </div>
             </div>

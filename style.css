@@ -1529,6 +1529,220 @@ a.request__button {
   cursor: grabbing;
 }
 
+/* Информация о времени в пути */
+.map__travel-info {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(10px);
+  padding: 10px 16px;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 140, 0, 0.3);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 14px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.map__travel-info:hover {
+  background: rgba(0, 0, 0, 0.95);
+  border-color: rgba(255, 140, 0, 0.5);
+  box-shadow: 0 6px 20px rgba(255, 140, 0, 0.3);
+}
+
+.map__icon {
+  color: #ff8c00;
+  flex-shrink: 0;
+}
+
+/* Кнопки действий */
+.map__actions {
+  position: absolute;
+  bottom: 15px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.map__button {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 20px;
+  border-radius: 10px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  border: none;
+  text-decoration: none;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.map__button::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.2);
+  transform: translate(-50%, -50%);
+  transition: width 0.5s ease, height 0.5s ease;
+}
+
+.map__button:hover::before {
+  width: 300px;
+  height: 300px;
+}
+
+.map__button-icon {
+  flex-shrink: 0;
+  position: relative;
+  z-index: 1;
+}
+
+.map__button span {
+  position: relative;
+  z-index: 1;
+  white-space: nowrap;
+}
+
+/* Основная кнопка - "Открыть в Яндекс.Картах" */
+.map__button--primary {
+  background: linear-gradient(135deg, #ff8c00 0%, #ffa500 100%);
+  color: white;
+  border: 2px solid rgba(255, 140, 0, 0.6);
+}
+
+.map__button--primary:hover {
+  background: linear-gradient(135deg, #ffa500 0%, #ff8c00 100%);
+  box-shadow: 
+    0 6px 25px rgba(255, 140, 0, 0.5),
+    0 0 30px rgba(255, 140, 0, 0.3);
+  transform: translateY(-3px);
+  border-color: #ffa500;
+}
+
+.map__button--primary:active {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 15px rgba(255, 140, 0, 0.4);
+}
+
+/* Вторичная кнопка - "Копировать адрес" */
+.map__button--secondary {
+  background: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(10px);
+  color: rgba(255, 255, 255, 0.9);
+  border: 2px solid rgba(255, 140, 0, 0.3);
+}
+
+.map__button--secondary:hover {
+  background: rgba(20, 20, 20, 0.95);
+  border-color: rgba(255, 140, 0, 0.6);
+  color: #ffa500;
+  box-shadow: 
+    0 6px 25px rgba(0, 0, 0, 0.5),
+    0 0 30px rgba(255, 140, 0, 0.2);
+  transform: translateY(-3px);
+}
+
+.map__button--secondary:active {
+  transform: translateY(-1px);
+}
+
+/* Уведомление о копировании */
+.map__notification {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: linear-gradient(135deg, rgba(0, 150, 0, 0.95) 0%, rgba(0, 180, 0, 0.95) 100%);
+  backdrop-filter: blur(10px);
+  padding: 16px 24px;
+  border-radius: 12px;
+  border: 2px solid rgba(0, 255, 0, 0.5);
+  box-shadow: 
+    0 10px 40px rgba(0, 0, 0, 0.6),
+    0 0 30px rgba(0, 255, 0, 0.4);
+  color: white;
+  font-size: 16px;
+  font-weight: 600;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.map__notification.show {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.map__notification-icon {
+  flex-shrink: 0;
+  animation: checkmark 0.6s ease-in-out;
+}
+
+@keyframes checkmark {
+  0% {
+    transform: scale(0) rotate(-45deg);
+  }
+  50% {
+    transform: scale(1.2) rotate(5deg);
+  }
+  100% {
+    transform: scale(1) rotate(0deg);
+  }
+}
+
+/* Fallback для карты */
+.map__fallback {
+  padding: 40px;
+  text-align: center;
+  background: rgba(20, 20, 20, 0.9);
+  border-radius: 12px;
+  border: 2px solid rgba(255, 140, 0, 0.3);
+}
+
+.map__fallback p {
+  color: rgba(255, 255, 255, 0.8);
+  margin-bottom: 20px;
+  font-size: 16px;
+}
+
+.map__fallback a {
+  display: inline-block;
+  padding: 12px 24px;
+  background: linear-gradient(135deg, #ff8c00 0%, #ffa500 100%);
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.map__fallback a:hover {
+  box-shadow: 0 6px 20px rgba(255, 140, 0, 0.5);
+  transform: translateY(-2px);
+}
+
 /* =============================================================================
    BREADCRUMBS (Хлебные крошки)
    ========================================================================== */
@@ -2176,6 +2390,34 @@ a.request__button {
     box-shadow: 0 0 20px rgba(255, 140, 0, 0.4);
     text-shadow: 0 0 10px rgba(255, 140, 0, 0.5);
   }
+
+  /* Стиль для кнопки "Рассчитать по фото" (один в один с "Вызвать мастера") */
+  .hero__button {
+    border: 2px solid rgba(255, 140, 0, 0.6);
+    background: transparent;
+    color: rgba(255, 255, 255, 0.85);
+    transition: all 0.3s ease;
+    font-weight: 600;
+    padding: 14px 32px;
+    border-radius: 8px;
+    font-size: 18px;
+    display: inline-block;
+    text-decoration: none;
+  }
+
+  .hero__button:hover,
+  .hero__button:focus {
+    background-color: rgba(255, 140, 0, 0.15);
+    border-color: #ffa500;
+    color: #ffa500;
+    box-shadow: 0 0 20px rgba(255, 140, 0, 0.4);
+    text-shadow: 0 0 10px rgba(255, 140, 0, 0.5);
+  }
+
+  .hero__button:active {
+    transform: scale(0.98);
+    box-shadow: 0 0 15px rgba(255, 140, 0, 0.3);
+  }
 }
 
 /* =============================================================================
@@ -2459,6 +2701,24 @@ a.request__button {
     gap: 30px;
   }
 
+  /* Адаптация элементов карты для планшетов */
+  .map__travel-info {
+    top: 12px;
+    left: 12px;
+    padding: 9px 14px;
+    font-size: 13px;
+  }
+
+  .map__actions {
+    bottom: 12px;
+    gap: 10px;
+  }
+
+  .map__button {
+    padding: 11px 18px;
+    font-size: 14px;
+  }
+
   .contacts__map {
     width: 100%;
     max-width: none;
@@ -2471,6 +2731,52 @@ a.request__button {
     height: 280px !important;
     border-radius: 12px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+  }
+
+  /* Адаптация элементов карты для мобильных */
+  .map__travel-info {
+    top: 10px;
+    left: 10px;
+    padding: 8px 12px;
+    font-size: 12px;
+    gap: 6px;
+  }
+
+  .map__icon {
+    width: 14px;
+    height: 14px;
+  }
+
+  .map__actions {
+    bottom: 10px;
+    left: 10px;
+    right: 10px;
+    transform: none;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .map__button {
+    width: 100%;
+    padding: 10px 16px;
+    font-size: 14px;
+    justify-content: center;
+  }
+
+  .map__button-icon {
+    width: 18px;
+    height: 18px;
+  }
+
+  .map__notification {
+    padding: 12px 18px;
+    font-size: 14px;
+    max-width: 90%;
+  }
+
+  .map__notification-icon {
+    width: 18px;
+    height: 18px;
   }
 
   .request {
