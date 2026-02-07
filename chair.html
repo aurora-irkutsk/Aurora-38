@@ -38,8 +38,7 @@
   <link rel="manifest" href="/site.webmanifest">
 
   <!-- Preload Images -->
-  <link rel="preload" as="image" href="/images/hero/hero-bg-desktop.webp" media="(min-width:768px)">
-  <link rel="preload" as="image" href="/images/hero/hero-bg-mobile.webp" media="(max-width:767px)">
+  <link rel="preload" as="image" href="/images/hero/hero-bg-desktop.webp">
 
   <!-- Structured Data -->
   <script type="application/ld+json">
@@ -82,8 +81,7 @@
   </script>
 
   <!-- CSS -->
-  <link rel="preload" href="/style.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-  <noscript><link rel="stylesheet" href="/style.css"></noscript>
+  <link rel="stylesheet" href="/style.css">
 
   <!-- JS -->
   <script src="analytics.js" defer></script>
@@ -121,6 +119,22 @@
       <a href="tel:+79025605225" class="mobile-cta">Вызвать мастера</a>
     </nav>
   </header>
+
+  <!-- Breadcrumbs -->
+  <div class="container">
+    <nav aria-label="breadcrumb">
+      <ol itemscope itemtype="https://schema.org/BreadcrumbList" class="breadcrumb">
+        <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+          <a itemprop="item" href="/"><span itemprop="name">Главная</span></a>
+          <meta itemprop="position" content="1" />
+        </li>
+        <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+          <span itemprop="name">Перетяжка стульев</span>
+          <meta itemprop="position" content="2" />
+        </li>
+      </ol>
+    </nav>
+  </div>
 
   <main class="main">
     <!-- Hero-секция -->

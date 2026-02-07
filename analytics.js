@@ -1,75 +1,46 @@
 // Отслеживание кликов по телефону
 document.addEventListener('DOMContentLoaded', function() {
     
-    // Клики по телефону
-    const phoneLinks = document.querySelectorAll('a[href^="tel:"]');
-    phoneLinks.forEach(function(link) {
-        link.addEventListener('click', function() {
-            if (typeof gtag !== 'undefined') {
-                gtag('event', 'click_phone', {
-                    'event_category': 'Contact',
-                    'event_label': 'Phone Click',
-                    'value': 1
-                });
-            }
-        });
-    });
-    
-    // Клики по WhatsApp
-    const whatsappLinks = document.querySelectorAll('a[href*="wa.me"]');
-    whatsappLinks.forEach(function(link) {
-        link.addEventListener('click', function() {
-            if (typeof gtag !== 'undefined') {
-                gtag('event', 'click_whatsapp', {
-                    'event_category': 'Contact',
-                    'event_label': 'WhatsApp Click',
-                    'value': 1
-                });
-            }
-        });
-    });
-    
-    // Клики по Telegram
-    const telegramLinks = document.querySelectorAll('a[href*="t.me"]');
-    telegramLinks.forEach(function(link) {
-        link.addEventListener('click', function() {
-            if (typeof gtag !== 'undefined') {
-                gtag('event', 'click_telegram', {
-                    'event_category': 'Contact',
-                    'event_label': 'Telegram Click',
-                    'value': 1
-                });
-            }
-        });
-    });
-    
-    // Отправка формы "Вызвать мастера"
-    const callForm = document.getElementById('callForm');
-    if (callForm) {
-        callForm.addEventListener('submit', function() {
-            if (typeof gtag !== 'undefined') {
-                gtag('event', 'form_submit_call_master', {
-                    'event_category': 'Lead',
-                    'event_label': 'Form: Call Master',
-                    'value': 10
-                });
-            }
+    // Универсальная функция для отслеживания кликов по ссылкам
+    function trackLinkClick(selector, eventName, eventLabel, eventValue) {
+        const links = document.querySelectorAll(selector);
+        links.forEach(function(link) {
+            link.addEventListener('click', function() {
+                if (typeof gtag !== 'undefined') {
+                    gtag('event', eventName, {
+                        'event_category': 'Contact',
+                        'event_label': eventLabel,
+                        'value': eventValue || 1
+                    });
+                }
+            });
         });
     }
     
-    // Отправка формы "Оставить заявку"
-    const requestForm = document.getElementById('requestForm');
-    if (requestForm) {
-        requestForm.addEventListener('submit', function() {
-            if (typeof gtag !== 'undefined') {
-                gtag('event', 'form_submit_request', {
-                    'event_category': 'Lead',
-                    'event_label': 'Form: Request',
-                    'value': 10
-                });
-            }
-        });
+    // Отслеживание контактных ссылок
+    trackLinkClick('a[href^="tel:"]', 'click_phone', 'Phone Click', 1);
+    trackLinkClick('a[href*="wa.me"]', 'click_whatsapp', 'WhatsApp Click', 1);
+    trackLinkClick('a[href*="t.me"]', 'click_telegram', 'Telegram Click', 1);
+    
+    // Универсальная функция для отслеживания отправки форм
+    function trackFormSubmit(formId, eventName, eventLabel, eventValue) {
+        const form = document.getElementById(formId);
+        if (form) {
+            form.addEventListener('submit', function() {
+                if (typeof gtag !== 'undefined') {
+                    gtag('event', eventName, {
+                        'event_category': 'Lead',
+                        'event_label': eventLabel,
+                        'value': eventValue || 10
+                    });
+                }
+            });
+        }
     }
+    
+    // Отслеживание отправки форм
+    trackFormSubmit('callForm', 'form_submit_call_master', 'Form: Call Master', 10);
+    trackFormSubmit('requestForm', 'form_submit_request', 'Form: Request', 10);
     
     // Просмотр 3+ страниц (engagement)
     let pageViews = parseInt(sessionStorage.getItem('pageViews') || '0');

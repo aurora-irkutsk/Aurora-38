@@ -7,6 +7,7 @@ document.addEventListener('DOMContentLoaded', function () {
   initBurgerMenu();
   initCallModal();
   initPhoneValidation();
+  initFormProtection();
 });
 
 // =============================================================================
@@ -37,9 +38,27 @@ function initGallery() {
       currentIndex = index;
       modalImg.src = img.src;
       modalImg.alt = img.alt;
-      imageModal.style.display = 'block';
-      updateCounter();
-      document.body.style.overflow = 'hidden';
+      
+      // Обработка ошибок загрузки изображения
+      modalImg.onerror = () => {
+        console.error('Ошибка загрузки изображения:', img.src);
+        modalImg.alt = 'Изображение недоступно';
+        // Можно добавить placeholder или сообщение пользователю
+      };
+      
+      // Открытие модального окна после загрузки
+      modalImg.onload = () => {
+        imageModal.style.display = 'block';
+        updateCounter();
+        document.body.style.overflow = 'hidden';
+      };
+      
+      // Если изображение уже загружено (из кеша)
+      if (modalImg.complete) {
+        imageModal.style.display = 'block';
+        updateCounter();
+        document.body.style.overflow = 'hidden';
+      }
     });
   });
 
@@ -62,21 +81,30 @@ function initGallery() {
     if (e.target === imageModal) closeModal();
   });
 
+  // Функция для безопасной загрузки изображения
+  const loadImage = (index) => {
+    modalImg.src = images[index].src;
+    modalImg.alt = images[index].alt;
+    
+    modalImg.onerror = () => {
+      console.error('Ошибка загрузки изображения:', images[index].src);
+      modalImg.alt = 'Изображение недоступно';
+    };
+    
+    updateCounter();
+  };
+
   if (prevBtn) {
     prevBtn.addEventListener('click', () => {
       currentIndex = (currentIndex > 0) ? currentIndex - 1 : images.length - 1;
-      modalImg.src = images[currentIndex].src;
-      modalImg.alt = images[currentIndex].alt;
-      updateCounter();
+      loadImage(currentIndex);
     });
   }
 
   if (nextBtn) {
     nextBtn.addEventListener('click', () => {
       currentIndex = (currentIndex < images.length - 1) ? currentIndex + 1 : 0;
-      modalImg.src = images[currentIndex].src;
-      modalImg.alt = images[currentIndex].alt;
-      updateCounter();
+      loadImage(currentIndex);
     });
   }
 
@@ -102,8 +130,9 @@ function initBurgerMenu() {
 
   // Переключение меню
   burger.addEventListener('click', () => {
-    burger.classList.toggle('active');
+    const isActive = burger.classList.toggle('active');
     mobileMenu.classList.toggle('active');
+    burger.setAttribute('aria-expanded', isActive);
   });
 
   // Закрытие по клику на ссылку
@@ -279,27 +308,27 @@ function initPhoneValidation() {
   setupForm(callForm);
 }
 
-// Защита от повторных отправок формы
-function preventDoubleSubmit(form) {
-    const submitButton = form.querySelector('button[type="submit"]');
-    const originalText = submitButton.textContent;
-    
-    submitButton.disabled = true;
-    submitButton.textContent = 'Отправка...';
-    
-    // Разблокировать через 5 секунд на случай ошибки
-    setTimeout(function() {
+// =============================================================================
+// ЗАЩИТА ОТ ПОВТОРНЫХ ОТПРАВОК ФОРМЫ
+// =============================================================================
+
+function initFormProtection() {
+  const forms = document.querySelectorAll('form');
+  
+  forms.forEach(function(form) {
+    form.addEventListener('submit', function() {
+      const submitButton = form.querySelector('button[type="submit"]');
+      if (!submitButton) return;
+      
+      const originalText = submitButton.textContent;
+      submitButton.disabled = true;
+      submitButton.textContent = 'Отправка...';
+      
+      // Разблокировать через 5 секунд на случай ошибки
+      setTimeout(function() {
         submitButton.disabled = false;
         submitButton.textContent = originalText;
-    }, 5000);
-}
-
-// Применить к формам
-document.addEventListener('DOMContentLoaded', function() {
-    const forms = document.querySelectorAll('form');
-    forms.forEach(function(form) {
-        form.addEventListener('submit', function() {
-            preventDoubleSubmit(this);
-        });
+      }, 5000);
     });
-});
+  });
+}

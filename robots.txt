@@ -10,7 +10,6 @@ Disallow: /tmp/
 Disallow: /*.php$
 Disallow: /fonts/
 Disallow: /_next/
-Disallow: /privacy.html
 
 # Sitemap
 Sitemap: https://peretyazhka-aurora.ru/sitemap.xml
