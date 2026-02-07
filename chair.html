@@ -307,38 +307,36 @@
               </div>
             </noscript>
             
-            <!-- Кнопки быстрых действий -->
+            <!-- Кнопки действий -->
             <div class="map__actions">
-              <a href="https://yandex.ru/maps/?rtext=~52.219651,104.291614" 
+              <a href="https://yandex.ru/maps/?text=р.п.+Марково+микрорайон+Берёзовый+дом+216" 
                  class="map__button map__button--primary" 
                  target="_blank" 
                  rel="noopener noreferrer"
-                 aria-label="Построить маршрут до Aurora 38">
-                <svg class="map__button-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M12 2L4.5 20.29l.71.71L12 18l6.79 3 .71-.71z" fill="currentColor"/>
-                </svg>
-                <span>Маршрут</span>
-              </a>
-              
-              <a href="https://go.2gis.com/rk7gh" 
-                 class="map__button map__button--secondary" 
-                 target="_blank" 
-                 rel="noopener noreferrer"
-                 aria-label="Открыть Aurora 38 в 2ГИС">
+                 aria-label="Открыть адрес в Яндекс.Картах">
                 <svg class="map__button-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" fill="currentColor"/>
                 </svg>
-                <span>2ГИС</span>
+                <span>Открыть в Яндекс.Картах</span>
               </a>
               
-              <a href="tel:+79025605225" 
-                 class="map__button map__button--call" 
-                 aria-label="Позвонить в Aurora 38">
+              <button class="map__button map__button--secondary" 
+                      id="copyAddressBtn"
+                      aria-label="Копировать адрес в буфер обмена"
+                      data-address="р.п. Марково, микрорайон Берёзовый, дом 216">
                 <svg class="map__button-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z" fill="currentColor"/>
+                  <path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z" fill="currentColor"/>
                 </svg>
-                <span>Позвонить</span>
-              </a>
+                <span>Копировать адрес</span>
+              </button>
+            </div>
+            
+            <!-- Уведомление о копировании -->
+            <div class="map__notification" id="copyNotification" role="alert" aria-live="polite">
+              <svg class="map__notification-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z" fill="currentColor"/>
+              </svg>
+              <span>Адрес скопирован!</span>
             </div>
           </div>
         </div>
