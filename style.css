@@ -2492,7 +2492,7 @@ a.request__button {
   }
 
   .header__logo-text {
-    font-size: clamp(1.1rem, 4.2vw, 1.2rem);
+    font-size: clamp(1.2rem, 4.2vw, 1.6rem);
     white-space: normal;
     word-break: break-word;
     line-height: 1.4;
