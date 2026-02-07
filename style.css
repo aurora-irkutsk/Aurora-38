@@ -56,6 +56,12 @@ a.request__button {
   padding: 0 20px;
 }
 
+/* Исключаем header из container */
+.header .container {
+  max-width: 100%;
+  padding: 0;
+}
+
 /* =============================================================================
    ШРИФТЫ
    ========================================================================== */
@@ -112,6 +118,7 @@ a.request__button {
   align-items: center;
   background-color: #333;
   padding: 0 30px;
+  width: 100%;
 }
 
 .header__logo {
@@ -119,6 +126,7 @@ a.request__button {
   align-items: center;
   gap: 12px;
   padding: 20px 0;
+  flex-shrink: 0;
 }
 
 .header__logo-img {
@@ -149,8 +157,9 @@ a.request__button {
 .header__nav {
   display: flex;
   align-items: center;
-  gap: clamp(20px, 3vw, 50px); 
-  margin-right: clamp(20px, 3vw, 50px);
+  gap: clamp(15px, 2vw, 30px);
+  margin-left: auto;
+  flex-shrink: 0;
 }
 
 .header__nav-link {
