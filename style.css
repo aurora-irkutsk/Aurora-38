@@ -1855,14 +1855,25 @@ a.request__button {
   .header {
     padding: 12px 15px;
     height: auto;
+    margin-bottom: 0;
+  }
+
+  .header .container {
+    max-width: 100%;
+    padding: 0 !important;
+  }
+
+  .header__inner {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 0;
+    padding: 0 !important;
+    width: 100%;
   }
 
   .header__logo {
     padding: 0;
+    flex: 1;
   }
 
   .header__logo-img {
@@ -1870,7 +1881,7 @@ a.request__button {
   }
 
   .header__logo-text {
-    font-size: clamp(1.1rem, 2.2vw, 1.5rem);
+    font-size: clamp(0.9rem, 4vw, 1.1rem);
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -1903,18 +1914,20 @@ a.request__button {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    width: 28px;
-    height: 20px;
+    width: 30px;
+    height: 22px;
     background: transparent;
     border: none;
     cursor: pointer;
     padding: 0;
     z-index: 10;
+    margin-left: 15px;
+    flex-shrink: 0;
   }
 
   .burger span {
     display: block;
-    height: 3px;
+    height: 3.5px;
     width: 100%;
     background-color: orange;
     border-radius: 2px;
