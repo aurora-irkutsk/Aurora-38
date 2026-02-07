@@ -1855,25 +1855,14 @@ a.request__button {
   .header {
     padding: 12px 15px;
     height: auto;
-    margin-bottom: 0;
-  }
-
-  .header .container {
-    padding: 0 !important;
-  }
-
-  .header__inner {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0 !important;
-    width: 100%;
+    margin-bottom: 0;
   }
 
   .header__logo {
     padding: 0;
-    margin-right: auto;
-    justify-content: flex-start;
   }
 
   .header__logo-img {
@@ -1881,9 +1870,10 @@ a.request__button {
   }
 
   .header__logo-text {
-    font-size: clamp(0.75rem, 3.5vw, 1rem);
+    font-size: clamp(1.1rem, 2.2vw, 1.5rem);
     white-space: nowrap;
-    text-align: left;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 
   .header a[href^="tel"] {
@@ -1891,6 +1881,11 @@ a.request__button {
     text-decoration: none;
     font-weight: bold;
     text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+  }
+
+  .header__nav,
+  .header__button {
+    display: none;
   }
 
   .header__nav,
@@ -1915,8 +1910,6 @@ a.request__button {
     cursor: pointer;
     padding: 0;
     z-index: 10;
-    margin-left: 10px;
-    flex-shrink: 0;
   }
 
   .burger span {
