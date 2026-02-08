@@ -261,7 +261,7 @@
             <input type="tel" name="phone" class="request__input" placeholder="Введите ваш номер телефона *" required>
             <input type="text" name="_gotcha" style="display:none !important" tabindex="-1" autocomplete="off">
             <button type="submit" class="request__button">Отправить</button>
-            <p class="request__agreement">Отправляя данные с любой формы сайта, Вы соглашаетесь на обработку данных согласно ФЗ-152.</p>
+            <p class="request__agreement">Мы бережно относимся к вашим данным. Отправляя форму, вы соглашаетесь с нашей Политикой конфиденциальности — ваши данные защищены по закону (152-ФЗ).</p>
           </form>
         </div>
       </div>
@@ -386,7 +386,7 @@
         <input type="tel" name="phone" class="modal__input" placeholder="Введите ваш номер телефона *" required>
         <input type="text" name="_gotcha" style="display:none !important" tabindex="-1" autocomplete="off">
         <button type="submit" class="modal__button">Отправить</button>
-        <p class="modal__agreement">Отправляя данные с любой формы сайта, Вы соглашаетесь на обработку данных согласно ФЗ-152.</p>
+        <p class="modal__agreement">Мы бережно относимся к вашим данным. Отправляя форму, вы соглашаетесь с нашей Политикой конфиденциальности — ваши данные защищены по закону (152-ФЗ).</p>
       </form>
     </div>
   </div>
@@ -418,5 +418,22 @@
       <img src="https://mc.yandex.ru/watch/104935828" style="position:absolute;left:-9999px;" alt="Счётчик посещений Яндекс.Метрика">
     </div>
   </noscript>
+
+  <!-- Success Modal -->
+  <div class="success-modal" id="successModal">
+    <div class="success-modal__content">
+      <span class="success-modal__close" id="closeSuccessModal">&times;</span>
+      <div class="success-modal__icon">
+        <svg width="80" height="80" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="40" cy="40" r="38" stroke="#ff8c00" stroke-width="4"/>
+          <path d="M25 40L35 50L55 30" stroke="#ff8c00" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+      <h3 class="success-modal__title">Спасибо!</h3>
+      <p class="success-modal__text">Форма была успешно отправлена.<br>Мы свяжемся с вами в ближайшее время.</p>
+      <button class="success-modal__button" id="successModalBtn">Вернуться на сайт</button>
+    </div>
+  </div>
+
 </body>
 </html>

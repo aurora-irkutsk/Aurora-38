@@ -9,6 +9,7 @@ document.addEventListener('DOMContentLoaded', function () {
   initPhoneValidation();
   initFormProtection();
   initCopyAddress();
+  initSuccessModal();
 });
 
 // =============================================================================
@@ -399,4 +400,94 @@ function initCopyAddress() {
     
     document.body.removeChild(textArea);
   }
+}
+
+// =============================================================================
+// МОДАЛЬНОЕ ОКНО УСПЕШНОЙ ОТПРАВКИ ФОРМЫ
+// =============================================================================
+
+function initSuccessModal() {
+  const successModal = document.getElementById('successModal');
+  const closeSuccessModal = document.getElementById('closeSuccessModal');
+  const successModalBtn = document.getElementById('successModalBtn');
+  const forms = document.querySelectorAll('form');
+
+  if (!successModal) return;
+
+  // Функция открытия модального окна
+  const openSuccessModal = () => {
+    successModal.style.display = 'block';
+    document.body.style.overflow = 'hidden';
+  };
+
+  // Функция закрытия модального окна
+  const closeModal = () => {
+    successModal.style.display = 'none';
+    document.body.style.overflow = '';
+    // Перенаправляем на главную страницу
+    window.location.href = window.location.pathname;
+  };
+
+  // Обработчики закрытия
+  if (closeSuccessModal) {
+    closeSuccessModal.addEventListener('click', closeModal);
+  }
+
+  if (successModalBtn) {
+    successModalBtn.addEventListener('click', closeModal);
+  }
+
+  // Закрытие по клику на оверлей
+  successModal.addEventListener('click', (e) => {
+    if (e.target === successModal) {
+      closeModal();
+    }
+  });
+
+  // Закрытие по Escape
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && successModal.style.display === 'block') {
+      closeModal();
+    }
+  });
+
+  // Обработка отправки всех форм
+  forms.forEach((form) => {
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      const formData = new FormData(form);
+      const action = form.getAttribute('action');
+
+      try {
+        const response = await fetch(action, {
+          method: 'POST',
+          body: formData,
+          headers: {
+            'Accept': 'application/json'
+          }
+        });
+
+        if (response.ok) {
+          // Успешная отправка - показываем модальное окно
+          form.reset();
+          
+          // Закрываем модальное окно вызова мастера, если оно открыто
+          const callModal = document.getElementById('callModal');
+          if (callModal && callModal.style.display === 'block') {
+            callModal.style.display = 'none';
+          }
+
+          // Показываем модальное окно успеха
+          openSuccessModal();
+        } else {
+          // Ошибка отправки
+          alert('Произошла ошибка при отправке формы. Попробуйте позже или позвоните нам напрямую.');
+        }
+      } catch (error) {
+        console.error('Ошибка:', error);
+        alert('Произошла ошибка при отправке формы. Попробуйте позже или позвоните нам напрямую.');
+      }
+    });
+  });
 }
