@@ -182,9 +182,9 @@ a.request__button {
   bottom: -4px;
   left: 0;
   width: 0;
-  height: 2px;
+  height: 1px;
   background: orange;
-  transition: width 0.3s ease;
+  transition: width 0.15s ease;
 }
 
 .header__nav-link:hover {
@@ -496,12 +496,13 @@ a.request__button {
   content: "";
   position: absolute;
   bottom: 0;
-  left: 0;
+  left: 50%;
   width: 0;
-  height: 2px;
-  background: linear-gradient(90deg, #ff8c00, #ffa500);
-  box-shadow: 0 0 8px rgba(255, 140, 0, 0.6);
-  transition: width 0.3s ease;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #ff8c00, #ffa500, #ff8c00, transparent);
+  transform: translateX(-50%);
+  box-shadow: 0 0 10px rgba(255, 140, 0, 0.6);
+  transition: width 0.15s ease;
 }
 
 .service:hover .service__link {
@@ -2096,10 +2097,10 @@ a.request__button {
   bottom: 0;
   left: 50%;
   width: 0;
-  height: 2px;
+  height: 1px;
   background: linear-gradient(90deg, transparent, #ff8c00, #ffa500, #ff8c00, transparent);
   transform: translateX(-50%);
-  transition: width 0.3s ease;
+  transition: width 0.15s ease;
   box-shadow: 0 0 10px rgba(255, 140, 0, 0.6);
 }
 
@@ -2395,10 +2396,10 @@ a.request__button {
     bottom: 0;
     left: 50%;
     width: 0;
-    height: 2px;
+    height: 1px;
     background: linear-gradient(90deg, transparent, #ff8c00, #ffa500, #ff8c00, transparent);
     transform: translateX(-50%);
-    transition: width 0.3s ease;
+    transition: width 0.15s ease;
     box-shadow: 0 0 10px rgba(255, 140, 0, 0.6);
   }
 
