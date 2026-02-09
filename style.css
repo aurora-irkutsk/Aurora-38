@@ -2342,13 +2342,25 @@ a.request__button {
 }
 
 @keyframes buttonPulse {
-  0%, 100% {
-    box-shadow: 0 0 10px 2px rgba(255, 140, 0, 0.5);
+  0% {
+    box-shadow: 0 0 8px 1px rgba(255, 140, 0, 0.3);
     transform: scale(1);
   }
+  25% {
+    box-shadow: 0 0 11px 2px rgba(255, 140, 0, 0.4);
+    transform: scale(1.01);
+  }
   50% {
-    box-shadow: 0 0 30px 10px rgba(255, 140, 0, 0.8);
-    transform: scale(1.05);
+    box-shadow: 0 0 15px 4px rgba(255, 140, 0, 0.5);
+    transform: scale(1.02);
+  }
+  75% {
+    box-shadow: 0 0 11px 2px rgba(255, 140, 0, 0.4);
+    transform: scale(1.01);
+  }
+  100% {
+    box-shadow: 0 0 8px 1px rgba(255, 140, 0, 0.3);
+    transform: scale(1);
   }
 }
 
@@ -2675,7 +2687,9 @@ a.request__button {
     left: 0;
     width: 100vw;
     height: 100vh;
-    background-color: #333;
+    background-color: rgba(51, 51, 51, 0.85);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -2704,11 +2718,24 @@ a.request__button {
   }
 
   .mobile-cta {
-    background: orange;
-    color: #333 !important;
-    padding: 10px 25px;
-    border-radius: 30px;
-    font-weight: bold;
+    border: 2px solid rgba(255, 140, 0, 0.6);
+    background: transparent;
+    color: rgba(255, 255, 255, 0.85) !important;
+    padding: 14px 32px;
+    border-radius: 8px;
+    font-weight: 400;
+    font-size: 18px;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 10px 2px rgba(255, 140, 0, 0.3);
+  }
+
+  .mobile-cta:hover,
+  .mobile-cta:active {
+    background-color: rgba(255, 140, 0, 0.15);
+    border-color: #ffa500;
+    color: #ffa500 !important;
+    box-shadow: 0 0 20px rgba(255, 140, 0, 0.4);
+    text-shadow: 0 0 10px rgba(255, 140, 0, 0.5);
   }
 
   .hero {
