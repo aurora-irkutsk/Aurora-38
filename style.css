@@ -2477,7 +2477,7 @@ a.request__button {
 
 @media (max-width: 768px) {
   body {
-    padding-top: 60px;
+    padding-top: 40px;
   }
 
   .container {
@@ -2486,7 +2486,6 @@ a.request__button {
   }
 
   .header {
-    position: fixed;
     padding: 12px 15px;
     height: auto;
     margin-bottom: 0;
@@ -2517,7 +2516,7 @@ a.request__button {
   }
 
   .header__logo-text {
-    font-size: 1.3rem !important;
+    font-size: 1.1rem !important;
     white-space: normal;
     word-break: break-word;
     line-height: 1.4;
@@ -2951,16 +2950,11 @@ a.request__button {
 
 @media (min-width: 376px) and (max-width: 480px) {
   .header {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    z-index: 1000;
     padding: 12px 15px;
   }
 
   .header__logo-text {
-    font-size: 1.15rem !important;
+    font-size: 1rem !important;
     line-height: 1.35;
   }
 
@@ -2993,16 +2987,11 @@ a.request__button {
 
 @media (min-width: 481px) and (max-width: 768px) {
   .header {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    z-index: 1000;
     padding: 14px 18px;
   }
 
   .header__logo-text {
-    font-size: 1.35rem !important;
+    font-size: 1.2rem !important;
     line-height: 1.4;
   }
   
@@ -3039,11 +3028,6 @@ a.request__button {
 
 @media (max-width: 375px) {
   .header {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    z-index: 1000;
     padding: 10px 12px;
   }
 
@@ -3052,7 +3036,7 @@ a.request__button {
   }
 
   .header__logo-text {
-    font-size: 1.05rem !important;
+    font-size: 0.9rem !important;
     line-height: 1.3;
   }
 
