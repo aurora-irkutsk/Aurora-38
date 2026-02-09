@@ -2486,50 +2486,27 @@ a.request__button {
     width: 10px;
     height: 10px;
     background: radial-gradient(circle at 30% 30%, 
-      #00ff88 0%, 
-      #00ff00 25%, 
-      #00dd00 60%, 
-      #00aa00 100%);
+      #ffffff 0%, 
+      #99ffaa 15%,
+      #33ff33 35%, 
+      #00ff00 60%, 
+      #00dd00 85%, 
+      #00bb00 100%);
     border-radius: 50%;
     position: relative;
     flex-shrink: 0;
     align-self: center; /* Центрируем по вертикали */
     box-shadow: 
       /* Внешнее свечение */
-      0 0 8px rgba(0, 255, 0, 0.9),
-      0 0 16px rgba(0, 255, 0, 0.6),
-      0 0 24px rgba(0, 255, 0, 0.3),
-      /* Тень снизу для объёма */
-      0 2px 4px rgba(0, 0, 0, 0.4),
-      /* Внутренние тени для 3D */
-      inset 0 -3px 6px rgba(0, 0, 0, 0.4),
-      inset 0 2px 4px rgba(255, 255, 255, 0.6),
-      inset -2px -2px 4px rgba(0, 100, 0, 0.5);
-    animation: statusDotGlow 2s ease-in-out infinite;
-  }
-
-  /* Анимация свечения точки */
-  @keyframes statusDotGlow {
-    0%, 100% {
-      box-shadow: 
-        0 0 8px rgba(0, 255, 0, 0.9),
-        0 0 16px rgba(0, 255, 0, 0.6),
-        0 0 24px rgba(0, 255, 0, 0.3),
-        0 2px 4px rgba(0, 0, 0, 0.4),
-        inset 0 -3px 6px rgba(0, 0, 0, 0.4),
-        inset 0 2px 4px rgba(255, 255, 255, 0.6),
-        inset -2px -2px 4px rgba(0, 100, 0, 0.5);
-    }
-    50% {
-      box-shadow: 
-        0 0 12px rgba(0, 255, 0, 1),
-        0 0 24px rgba(0, 255, 0, 0.8),
-        0 0 36px rgba(0, 255, 0, 0.5),
-        0 2px 4px rgba(0, 0, 0, 0.4),
-        inset 0 -3px 6px rgba(0, 0, 0, 0.4),
-        inset 0 2px 5px rgba(255, 255, 255, 0.7),
-        inset -2px -2px 4px rgba(0, 100, 0, 0.5);
-    }
+      0 0 12px rgba(0, 255, 0, 0.9),
+      0 0 24px rgba(0, 255, 0, 0.6),
+      0 0 36px rgba(0, 255, 0, 0.4),
+      /* Тень для объёма */
+      0 1px 3px rgba(0, 0, 0, 0.4),
+      /* Внутренние тени для 3D эффекта */
+      inset 0 -2px 4px rgba(0, 0, 0, 0.25),
+      inset 0 1px 3px rgba(255, 255, 255, 0.75),
+      inset -1px -1px 3px rgba(0, 120, 0, 0.3);
   }
 
   /* Двойные расходящиеся волны */
