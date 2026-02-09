@@ -2472,6 +2472,88 @@ a.request__button {
 }
 
 /* =============================================================================
+   ЗЕЛЕНАЯ МИГАЮЩАЯ ТОЧКА С ВОЛНАМИ (только мобильные и планшеты)
+   ========================================================================== */
+
+.header__status-dot {
+  display: none; /* Скрыта по умолчанию для десктопов */
+}
+
+/* Показываем точку только на мобильных и планшетах (до 1024px) */
+@media (max-width: 1024px) {
+  .header__status-dot {
+    display: block;
+    width: 8px;
+    height: 8px;
+    background-color: #00ff00; /* Зеленый цвет */
+    border-radius: 50%;
+    position: relative;
+    flex-shrink: 0;
+    align-self: center; /* Центрируем по вертикали */
+    animation: statusDotPulse 2s ease-in-out infinite;
+    box-shadow: 
+      0 0 10px rgba(0, 255, 0, 0.8),
+      0 0 20px rgba(0, 255, 0, 0.5);
+  }
+
+  /* Двойные расходящиеся волны */
+  .header__status-dot::before,
+  .header__status-dot::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    border: 2px solid rgba(0, 255, 0, 0.6);
+    opacity: 0;
+    filter: blur(1px);
+  }
+
+  /* Первая волна */
+  .header__status-dot::before {
+    animation: statusWave 2s ease-out infinite;
+  }
+
+  /* Вторая волна с задержкой */
+  .header__status-dot::after {
+    animation: statusWave 2s ease-out infinite 1s;
+  }
+
+  /* Анимация пульсации точки */
+  @keyframes statusDotPulse {
+    0%, 100% {
+      opacity: 1;
+      transform: scale(1);
+    }
+    50% {
+      opacity: 0.96;
+      transform: scale(0.98);
+    }
+  }
+
+  /* Анимация расходящихся волн */
+  @keyframes statusWave {
+    0% {
+      width: 100%;
+      height: 100%;
+      opacity: 0.6;
+      border-width: 2px;
+      filter: blur(0.5px);
+    }
+    100% {
+      width: 400%;
+      height: 400%;
+      opacity: 0;
+      border-width: 0.5px;
+      filter: blur(2px);
+    }
+  }
+}
+
+/* =============================================================================
    МОБИЛЬНЫЕ УСТРОЙСТВА (до 768px)
    ========================================================================== */
 
