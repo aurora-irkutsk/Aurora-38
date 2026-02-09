@@ -2483,16 +2483,53 @@ a.request__button {
 @media (max-width: 1024px) {
   .header__status-dot {
     display: block;
-    width: 8px;
-    height: 8px;
-    background-color: #00ff00; /* Зеленый цвет */
+    width: 10px;
+    height: 10px;
+    background: radial-gradient(circle at 30% 30%, 
+      #00ff88 0%, 
+      #00ff00 25%, 
+      #00dd00 60%, 
+      #00aa00 100%);
     border-radius: 50%;
     position: relative;
     flex-shrink: 0;
     align-self: center; /* Центрируем по вертикали */
     box-shadow: 
-      0 0 10px rgba(0, 255, 0, 0.8),
-      0 0 20px rgba(0, 255, 0, 0.5);
+      /* Внешнее свечение */
+      0 0 8px rgba(0, 255, 0, 0.9),
+      0 0 16px rgba(0, 255, 0, 0.6),
+      0 0 24px rgba(0, 255, 0, 0.3),
+      /* Тень снизу для объёма */
+      0 2px 4px rgba(0, 0, 0, 0.4),
+      /* Внутренние тени для 3D */
+      inset 0 -3px 6px rgba(0, 0, 0, 0.4),
+      inset 0 2px 4px rgba(255, 255, 255, 0.6),
+      inset -2px -2px 4px rgba(0, 100, 0, 0.5);
+    animation: statusDotGlow 2s ease-in-out infinite;
+  }
+
+  /* Анимация свечения точки */
+  @keyframes statusDotGlow {
+    0%, 100% {
+      box-shadow: 
+        0 0 8px rgba(0, 255, 0, 0.9),
+        0 0 16px rgba(0, 255, 0, 0.6),
+        0 0 24px rgba(0, 255, 0, 0.3),
+        0 2px 4px rgba(0, 0, 0, 0.4),
+        inset 0 -3px 6px rgba(0, 0, 0, 0.4),
+        inset 0 2px 4px rgba(255, 255, 255, 0.6),
+        inset -2px -2px 4px rgba(0, 100, 0, 0.5);
+    }
+    50% {
+      box-shadow: 
+        0 0 12px rgba(0, 255, 0, 1),
+        0 0 24px rgba(0, 255, 0, 0.8),
+        0 0 36px rgba(0, 255, 0, 0.5),
+        0 2px 4px rgba(0, 0, 0, 0.4),
+        inset 0 -3px 6px rgba(0, 0, 0, 0.4),
+        inset 0 2px 5px rgba(255, 255, 255, 0.7),
+        inset -2px -2px 4px rgba(0, 100, 0, 0.5);
+    }
   }
 
   /* Двойные расходящиеся волны */
