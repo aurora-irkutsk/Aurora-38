@@ -2671,6 +2671,7 @@ a.request__button {
 
   .burger.active span:nth-child(1) {
     transform: rotate(45deg) translate(6px, 6px);
+    background-color: #c62828;
   }
 
   .burger.active span:nth-child(2) {
@@ -2679,6 +2680,7 @@ a.request__button {
 
   .burger.active span:nth-child(3) {
     transform: rotate(-45deg) translate(6px, -6px);
+    background-color: #c62828;
   }
 
   .mobile-menu {
