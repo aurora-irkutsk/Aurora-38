@@ -12,47 +12,6 @@ html {
   scroll-behavior: smooth;
 }
 
-/* =============================================================================
-   ПРОДВИНУТЫЕ АНИМАЦИИ - CSS СТИЛИ
-   ========================================================================== */
-
-/* Анимация исчезновения для частиц курсора */
-@keyframes particleFade {
-  0% {
-    opacity: 1;
-    transform: translate(-50%, -50%) scale(1);
-  }
-  100% {
-    opacity: 0;
-    transform: translate(-50%, -50%) scale(0);
-  }
-}
-
-/* Стиль для символов в Text Scramble */
-.scramble-char {
-  color: #ff8c00;
-  opacity: 0.8;
-}
-
-/* Улучшенные переходы для всех интерактивных элементов */
-.service,
-.advantage-cards__item,
-.step,
-.review,
-.portfolio__item {
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  will-change: transform;
-}
-
-/* Подготовка для 3D трансформаций */
-.service,
-.advantage-cards__item,
-.review,
-.portfolio__item {
-  transform-style: preserve-3d;
-  perspective: 1000px;
-}
-
 body {
   font-family: "Montserrat", sans-serif;
   margin: 0;
