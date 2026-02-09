@@ -2341,6 +2341,17 @@ a.request__button {
   to { opacity: 1; transform: translateY(0); }
 }
 
+@keyframes buttonPulse {
+  0%, 100% {
+    box-shadow: 0 0 10px 2px rgba(255, 140, 0, 0.5);
+    transform: scale(1);
+  }
+  50% {
+    box-shadow: 0 0 30px 10px rgba(255, 140, 0, 0.8);
+    transform: scale(1.05);
+  }
+}
+
 /* Цвет ссылки в формах */
 .request__agreement a,
 .modal__agreement a {
@@ -2420,6 +2431,7 @@ a.request__button {
     background: transparent;
     color: rgba(255, 255, 255, 0.85);
     transition: all 0.3s ease;
+    animation: buttonPulse 2s ease-in-out infinite;
   }
 
   .header__button:hover {
