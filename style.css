@@ -2481,6 +2481,30 @@ a.request__button {
 
 /* Показываем точку только на мобильных и планшетах (до 1024px) */
 @media (max-width: 1024px) {
+  .header {
+    background: #0a0a0a;
+    overflow: hidden;
+  }
+
+  .header::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -50%;
+    width: 200%;
+    height: 100%;
+    background: radial-gradient(circle at 50% 50%, rgba(255, 140, 0, 0.05) 0%, transparent 50%);
+    animation: pulseGlow 8s ease-in-out infinite;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .header__inner {
+    background-color: transparent;
+    position: relative;
+    z-index: 1;
+  }
+
   .header__status-dot {
     display: block;
     width: 8px;
