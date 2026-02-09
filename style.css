@@ -2952,6 +2952,10 @@ a.request__button {
 @media (min-width: 376px) and (max-width: 480px) {
   .header {
     position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
     padding: 12px 15px;
   }
 
@@ -2990,6 +2994,10 @@ a.request__button {
 @media (min-width: 481px) and (max-width: 768px) {
   .header {
     position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
     padding: 14px 18px;
   }
 
@@ -3032,6 +3040,10 @@ a.request__button {
 @media (max-width: 375px) {
   .header {
     position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
     padding: 10px 12px;
   }
 
