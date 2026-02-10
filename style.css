@@ -2639,10 +2639,9 @@ a.request__button {
 
   .burger {
     display: flex;
-    flex-direction: column;
     align-items: center;
     justify-content: center;
-    width: 30px;
+    width: 36px;
     height: 36px;
     background: transparent;
     border: none;
@@ -2650,7 +2649,7 @@ a.request__button {
     padding: 0;
     z-index: 10;
     flex-shrink: 0;
-    gap: 5px;
+    gap: 4px;
     position: relative;
   }
 
