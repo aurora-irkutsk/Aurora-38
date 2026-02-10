@@ -2497,33 +2497,16 @@ a.request__button {
     display: block;
     width: 10px;
     height: 10px;
-    background: radial-gradient(circle at 30% 30%, 
-      #ffffff 0%, 
-      #99ffaa 15%,
-      #33ff33 35%, 
-      #00ff00 60%, 
-      #00dd00 85%, 
-      #00bb00 100%);
+    background: #00ff00;
     border-radius: 50%;
     position: relative;
     flex-shrink: 0;
-    align-self: center; /* Центрируем по вертикали */
-    box-shadow: 
-      /* Внешнее свечение */
-      0 0 12px rgba(0, 255, 0, 0.9),
-      0 0 24px rgba(0, 255, 0, 0.6),
-      0 0 36px rgba(0, 255, 0, 0.4),
-      /* Тень для объёма */
-      0 1px 3px rgba(0, 0, 0, 0.4),
-      /* Внутренние тени для 3D эффекта */
-      inset 0 -2px 4px rgba(0, 0, 0, 0.25),
-      inset 0 1px 3px rgba(255, 255, 255, 0.75),
-      inset -1px -1px 3px rgba(0, 120, 0, 0.3);
+    align-self: center;
+    animation: dotPulse 3s ease-in-out infinite;
   }
 
-  /* Двойные расходящиеся волны */
-  .header__status-dot::before,
-  .header__status-dot::after {
+  /* Одиночная расходящаяся волна */
+  .header__status-dot::before {
     content: '';
     position: absolute;
     top: 50%;
@@ -2535,18 +2518,26 @@ a.request__button {
     border: 2px solid rgba(0, 255, 0, 0.8);
     opacity: 0;
     filter: blur(0.5px);
-  }
-
-  /* Первая волна */
-  .header__status-dot::before {
     animation: statusWave 3s cubic-bezier(0.25, 0.46, 0.45, 0.94) infinite;
   }
 
-  /* Вторая волна с задержкой */
-  .header__status-dot::after {
-    animation: statusWave 3s cubic-bezier(0.25, 0.46, 0.45, 0.94) infinite 1.5s;
-  }
 
+  /* Анимация мигания точки */
+  @keyframes dotPulse {
+    0%, 100% {
+      opacity: 1;
+      box-shadow: 
+        0 0 12px rgba(0, 255, 0, 0.9),
+        0 0 24px rgba(0, 255, 0, 0.6),
+        0 0 36px rgba(0, 255, 0, 0.4);
+    }
+    50% {
+      opacity: 0.15;
+      box-shadow: 
+        0 0 2px rgba(0, 255, 0, 0.3),
+        0 0 4px rgba(0, 255, 0, 0.1);
+    }
+  }
 
   /* Анимация расходящихся волн */
   @keyframes statusWave {
@@ -2555,28 +2546,28 @@ a.request__button {
       height: 100%;
       opacity: 0;
       border-width: 3px;
-      filter: blur(0px);
+      filter: blur(1px);
     }
     10% {
       opacity: 1;
-      filter: blur(0px);
+      filter: blur(1px);
     }
     50% {
       opacity: 0.7;
       border-width: 2px;
-      filter: blur(1px);
+      filter: blur(2px);
     }
     80% {
       opacity: 0.3;
       border-width: 1px;
-      filter: blur(3px);
+      filter: blur(4px);
     }
     100% {
-      width: 400%;
-      height: 400%;
+      width: 250%;
+      height: 250%;
       opacity: 0;
       border-width: 0.5px;
-      filter: blur(5px);
+      filter: blur(6px);
     }
   }
 }
