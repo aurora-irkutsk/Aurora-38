@@ -2342,25 +2342,13 @@ a.request__button {
 }
 
 @keyframes buttonPulse {
-  0% {
+  0%, 100% {
     box-shadow: 0 0 8px 1px rgba(255, 140, 0, 0.3);
     transform: scale(1);
-  }
-  25% {
-    box-shadow: 0 0 11px 2px rgba(255, 140, 0, 0.4);
-    transform: scale(1.01);
   }
   50% {
     box-shadow: 0 0 15px 4px rgba(255, 140, 0, 0.5);
-    transform: scale(1.02);
-  }
-  75% {
-    box-shadow: 0 0 11px 2px rgba(255, 140, 0, 0.4);
-    transform: scale(1.01);
-  }
-  100% {
-    box-shadow: 0 0 8px 1px rgba(255, 140, 0, 0.3);
-    transform: scale(1);
+    transform: scale(1.015);
   }
 }
 
