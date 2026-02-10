@@ -2661,20 +2661,25 @@ a.request__button {
     border-radius: 50%;
     transition: all 0.3s ease;
     flex-shrink: 0;
+    position: static;
   }
 
   /* Крестик при активном состоянии */
+  .burger.active {
+    gap: 0;
+  }
+
   .burger.active span {
     position: absolute;
     background-color: #c62828;
+    left: 50%;
+    top: 50%;
   }
 
   .burger.active span:nth-child(1) {
     width: 24px;
     height: 3px;
     border-radius: 2px;
-    left: 50%;
-    top: 50%;
     transform: translate(-50%, -50%) rotate(45deg);
   }
 
@@ -2686,8 +2691,6 @@ a.request__button {
     width: 24px;
     height: 3px;
     border-radius: 2px;
-    left: 50%;
-    top: 50%;
     transform: translate(-50%, -50%) rotate(-45deg);
   }
 
