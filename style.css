@@ -2639,30 +2639,39 @@ a.request__button {
 
   .burger {
     display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    width: 30px;
-    height: 22px;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
     background: transparent;
     border: none;
     cursor: pointer;
     padding: 0;
     z-index: 10;
     flex-shrink: 0;
+    gap: 4px;
   }
 
   .burger span {
-    display: block;
-    height: 3.5px;
-    width: 100%;
+    width: 11px;
+    height: 11px;
     background-color: orange;
-    border-radius: 2px;
+    border-radius: 50%;
     transition: all 0.3s ease;
+    flex-shrink: 0;
+  }
+
+  /* Состояние активного меню - превращаем в крестик */
+  .burger.active span {
+    animation: none;
+    background-color: #c62828;
   }
 
   .burger.active span:nth-child(1) {
-    transform: rotate(45deg) translate(6px, 6px);
-    background-color: #c62828;
+    transform: translate(-50%, -50%) rotate(45deg);
+    width: 20px;
+    height: 3px;
+    border-radius: 2px;
   }
 
   .burger.active span:nth-child(2) {
@@ -2670,8 +2679,10 @@ a.request__button {
   }
 
   .burger.active span:nth-child(3) {
-    transform: rotate(-45deg) translate(6px, -6px);
-    background-color: #c62828;
+    transform: translate(-50%, -50%) rotate(-45deg);
+    width: 20px;
+    height: 3px;
+    border-radius: 2px;
   }
 
   .mobile-menu {
@@ -3122,10 +3133,6 @@ a.request__button {
     height: 24px;
   }
 
-  .burger span {
-    height: 3.5px;
-  }
-
   /* Большие мобильные */
   .about__title {
     font-size: clamp(26px, 5vw, 32px);
@@ -3161,10 +3168,6 @@ a.request__button {
   .burger {
     width: 28px;
     height: 20px;
-  }
-
-  .burger span {
-    height: 3px;
   }
 
   /* Меньший для маленьких экранов */
