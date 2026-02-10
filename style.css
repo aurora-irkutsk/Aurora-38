@@ -2640,29 +2640,42 @@ a.request__button {
   .burger {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    align-items: center;
+    justify-content: center;
     width: 30px;
-    height: 22px;
+    height: 36px;
     background: transparent;
     border: none;
     cursor: pointer;
     padding: 0;
     z-index: 10;
     flex-shrink: 0;
+    gap: 5px;
+    position: relative;
   }
 
   .burger span {
-    display: block;
-    height: 3.5px;
-    width: 100%;
+    width: 7px;
+    height: 7px;
     background-color: orange;
-    border-radius: 2px;
+    border-radius: 50%;
     transition: all 0.3s ease;
+    flex-shrink: 0;
+  }
+
+  /* Крестик при активном состоянии */
+  .burger.active span {
+    position: absolute;
+    background-color: #c62828;
   }
 
   .burger.active span:nth-child(1) {
-    transform: rotate(45deg) translate(6px, 6px);
-    background-color: #c62828;
+    width: 24px;
+    height: 3px;
+    border-radius: 2px;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%) rotate(45deg);
   }
 
   .burger.active span:nth-child(2) {
@@ -2670,8 +2683,12 @@ a.request__button {
   }
 
   .burger.active span:nth-child(3) {
-    transform: rotate(-45deg) translate(6px, -6px);
-    background-color: #c62828;
+    width: 24px;
+    height: 3px;
+    border-radius: 2px;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%) rotate(-45deg);
   }
 
   .mobile-menu {
