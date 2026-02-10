@@ -7,8 +7,6 @@ Allow: /
 Disallow: /admin/
 Disallow: /cgi-bin/
 Disallow: /tmp/
-Disallow: /*.php$
-Disallow: /fonts/
 Disallow: /_next/
 
 # Sitemap
@@ -36,9 +34,6 @@ Disallow: /
 
 User-agent: dotbot
 Disallow: /
-
-# Рекомендации по скорости сканирования
-Crawl-delay: 1
 
 # Host (для Яндекса)
 Host: peretyazhka-aurora.ru
