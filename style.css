@@ -2662,14 +2662,21 @@ a.request__button {
   }
 
   /* Состояние активного меню - превращаем в крестик */
+  .burger.active {
+    position: relative;
+  }
+
   .burger.active span {
     animation: none;
     background-color: #c62828;
+    position: absolute;
+    left: 50%;
+    top: 50%;
   }
 
   .burger.active span:nth-child(1) {
     transform: translate(-50%, -50%) rotate(45deg);
-    width: 20px;
+    width: 24px;
     height: 3px;
     border-radius: 2px;
   }
@@ -2680,7 +2687,7 @@ a.request__button {
 
   .burger.active span:nth-child(3) {
     transform: translate(-50%, -50%) rotate(-45deg);
-    width: 20px;
+    width: 24px;
     height: 3px;
     border-radius: 2px;
   }
