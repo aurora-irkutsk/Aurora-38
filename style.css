@@ -2639,47 +2639,36 @@ a.request__button {
 
   .burger {
     display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 36px;
-    height: 36px;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 22px;
     background: transparent;
     border: none;
     cursor: pointer;
     padding: 0;
     z-index: 10;
     flex-shrink: 0;
-    gap: 4px;
-    position: relative;
   }
 
   .burger span {
-    width: 7px;
-    height: 7px;
+    display: block;
+    height: 3.5px;
+    width: 100%;
     background-color: orange;
-    border-radius: 50%;
+    border-radius: 2px;
     transition: all 0.3s ease;
-    flex-shrink: 0;
-    position: static;
   }
 
-  /* Крестик при активном состоянии */
-  .burger.active {
-    gap: 0;
-  }
-
-  .burger.active span {
-    position: absolute;
-    background-color: #c62828;
-    left: 50%;
-    top: 50%;
+  /* Средняя полоска короче слева */
+  .burger span:nth-child(2) {
+    width: 70%;
+    margin-left: auto;
   }
 
   .burger.active span:nth-child(1) {
-    width: 24px;
-    height: 3px;
-    border-radius: 2px;
-    transform: translate(-50%, -50%) rotate(45deg);
+    transform: rotate(45deg) translate(6px, 6px);
+    background-color: #c62828;
   }
 
   .burger.active span:nth-child(2) {
@@ -2687,10 +2676,8 @@ a.request__button {
   }
 
   .burger.active span:nth-child(3) {
-    width: 24px;
-    height: 3px;
-    border-radius: 2px;
-    transform: translate(-50%, -50%) rotate(-45deg);
+    transform: rotate(-45deg) translate(6px, -6px);
+    background-color: #c62828;
   }
 
   .mobile-menu {
