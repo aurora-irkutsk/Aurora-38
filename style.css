@@ -3077,6 +3077,18 @@ a.request__button {
   margin: 0;
 }
 
+.prices-info__item p a {
+  color: inherit;
+  text-decoration: none;
+  pointer-events: none;
+}
+
+.price-value {
+  color: #90ee90;
+  font-weight: 600;
+  text-decoration: none !important;
+}
+
 .prices-cta {
   max-width: 900px;
   margin: 0 auto;
