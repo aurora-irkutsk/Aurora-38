@@ -162,14 +162,14 @@ a.request__button {
 .header__nav {
   display: flex;
   align-items: center;
-  gap: clamp(15px, 2vw, 30px);
+  gap: clamp(12px, 1.5vw, 20px);
   margin-left: auto;
   flex-shrink: 0;
 }
 
 .header__nav-link {
   position: relative;
-  font-size: clamp(14px, 1.2vw, 20px);
+  font-size: 15px;
   font-weight: 500;
   text-decoration: none;
   color: whitesmoke;
