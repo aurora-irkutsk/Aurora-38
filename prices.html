@@ -245,7 +245,7 @@
                     <p>Оставьте заявку — мастер приедет с образцами тканей, сделает замеры и рассчитает финальную цену с учётом всех ваших пожеланий. <strong>Выезд и консультация бесплатно!</strong></p>
                     <div class="prices-cta__buttons">
                         <a href="tel:+79025605225" class="prices-cta__button prices-cta__button--primary">Позвонить сейчас</a>
-                        <button class="prices-cta__button prices-cta__button--secondary" id="openCallModalPrice">Вызвать мастера</button>
+                        <a href="/#request" class="prices-cta__button prices-cta__button--secondary">Оставить заявку</a>
                     </div>
                 </div>
 
@@ -269,7 +269,7 @@
                     <a href="/about.html" class="footer__link">О компании</a>
                     <a href="/#contacts" class="footer__link">Контакты</a>
                     <a href="/prices.html" class="footer__link">Цены</a>
-                    <a href="/privacy.html" class="footer__link">Политика конфиденциальности</a>
+                    <a href="/privacy.html" class="footer__link">Приватность</a>
                 </nav>
             </div>
             <div class="footer__bottom">
@@ -289,22 +289,10 @@
                 <input type="tel" name="phone" class="modal__input" placeholder="Ваш телефон *" required>
                 <input type="text" name="_gotcha" style="display:none !important" tabindex="-1" autocomplete="off">
                 <button type="submit" class="modal__button">Отправить</button>
-                <p class="modal__agreement">Отправляя форму, вы соглашаетесь с нашей <a href="/privacy.html">Политикой конфиденциальности</a>.</p>
+                <p class="modal__agreement">Отправляя форму, вы соглашаетесь с нашей <a href="/privacy.html">Политикой приватности</a>.</p>
             </form>
         </div>
     </div>
-
-    <script>
-    // Дополнительная кнопка для открытия модалки
-    document.addEventListener('DOMContentLoaded', function() {
-        const openModalBtn = document.getElementById('openCallModalPrice');
-        if (openModalBtn) {
-            openModalBtn.addEventListener('click', function() {
-                document.getElementById('callModal').classList.add('active');
-            });
-        }
-    });
-    </script>
 
 </body>
 </html>
