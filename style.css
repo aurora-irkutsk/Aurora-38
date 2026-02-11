@@ -2628,10 +2628,10 @@ a.request__button {
 
   .mobile-menu {
     position: fixed;
-    top: 46px; /* Начинается сразу под шапкой */
+    top: 44px; /* Начинается сразу под шапкой */
     left: 0;
     width: 100vw;
-    height: calc(100vh - 46px); /* Высота экрана минус высота шапки */
+    height: calc(100vh - 44px); /* Высота экрана минус высота шапки */
     background-color: rgba(51, 51, 51, 0.95);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
