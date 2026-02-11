@@ -3680,7 +3680,7 @@ a.request__button {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 25px;
+    gap: 20px;
     z-index: 9;
     opacity: 0;
     visibility: hidden;
@@ -3695,12 +3695,14 @@ a.request__button {
   .mobile-menu a {
     color: white;
     text-decoration: none;
-    font-size: 1.4rem;
     font-weight: 500;
+    font-size: 1.3rem;
+    transition: all 0.3s ease;
   }
 
   .mobile-menu a:hover {
     color: orange;
+    transform: scale(1.05);
   }
 
   .mobile-cta {
@@ -4043,7 +4045,7 @@ a.request__button {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 30px;
+    gap: 25px;
     z-index: 9;
     opacity: 0;
     visibility: hidden;
@@ -4058,12 +4060,14 @@ a.request__button {
   .mobile-menu a {
     color: white;
     text-decoration: none;
-    font-size: 1.6rem;
     font-weight: 500;
+    font-size: 1.5rem;
+    transition: all 0.3s ease;
   }
 
   .mobile-menu a:hover {
     color: orange;
+    transform: scale(1.05);
   }
 
   .mobile-cta {
