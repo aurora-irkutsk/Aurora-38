@@ -97,5 +97,85 @@
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
+  
+  <!-- Блог - главная страница -->
+  <url>
+    <loc>https://peretyazhka-aurora.ru/blog.html</loc>
+    <lastmod>2026-02-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <!-- Статья: Как выбрать ткань для перетяжки дивана -->
+  <url>
+    <loc>https://peretyazhka-aurora.ru/blog/kak-vybrat-tkan-dlya-peretyazhki-divana.html</loc>
+    <lastmod>2026-01-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://peretyazhka-aurora.ru/images/blog/fabric-choice.webp</image:loc>
+      <image:title>Как выбрать ткань для перетяжки дивана</image:title>
+    </image:image>
+  </url>
+  
+  <!-- Статья: Антивандальные ткани -->
+  <url>
+    <loc>https://peretyazhka-aurora.ru/blog/antivandalnye-tkani-chto-eto.html</loc>
+    <lastmod>2026-01-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://peretyazhka-aurora.ru/images/blog/antivandal-fabric.webp</image:loc>
+      <image:title>Антивандальные ткани для мебели</image:title>
+    </image:image>
+  </url>
+  
+  <!-- Статья: Натуральная кожа vs экокожа -->
+  <url>
+    <loc>https://peretyazhka-aurora.ru/blog/naturalnaya-kozha-vs-ekokozha.html</loc>
+    <lastmod>2026-01-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://peretyazhka-aurora.ru/images/blog/leather-comparison.webp</image:loc>
+      <image:title>Натуральная кожа vs экокожа</image:title>
+    </image:image>
+  </url>
+  
+  <!-- Статья: Как ухаживать за мягкой мебелью -->
+  <url>
+    <loc>https://peretyazhka-aurora.ru/blog/kak-uhazhivat-za-myagkoj-mebelyu.html</loc>
+    <lastmod>2026-01-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://peretyazhka-aurora.ru/images/blog/furniture-care.webp</image:loc>
+      <image:title>Как ухаживать за мягкой мебелью</image:title>
+    </image:image>
+  </url>
+  
+  <!-- Статья: 7 признаков, что пора перетягивать мебель -->
+  <url>
+    <loc>https://peretyazhka-aurora.ru/blog/7-priznakov-chto-pora-pertyaginat-mebel.html</loc>
+    <lastmod>2026-01-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://peretyazhka-aurora.ru/images/blog/signs-reupholstery.webp</image:loc>
+      <image:title>7 признаков, что пора перетягивать мебель</image:title>
+    </image:image>
+  </url>
+  
+  <!-- Статья: Преображение советского дивана -->
+  <url>
+    <loc>https://peretyazhka-aurora.ru/blog/peretyazhka-sovetskogo-divana.html</loc>
+    <lastmod>2026-01-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://peretyazhka-aurora.ru/images/blog/soviet-sofa-case.webp</image:loc>
+      <image:title>Преображение советского дивана: история реставрации</image:title>
+    </image:image>
+  </url>
 
 </urlset>
