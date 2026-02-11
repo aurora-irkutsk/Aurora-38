@@ -3158,9 +3158,13 @@ a.request__button {
 
 @media (max-width: 768px) {
   .privacy-content__title,
-  .faq-content__title,
-  .about-content__title {
+  .faq-content__title {
     font-size: 32px;
+    margin-bottom: 30px;
+  }
+  
+  .about-content__title {
+    font-size: 28px;
     margin-bottom: 30px;
   }
 
