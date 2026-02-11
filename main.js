@@ -8,7 +8,6 @@ document.addEventListener('DOMContentLoaded', function () {
   initCallModal();
   initPhoneValidation();
   initFormProtection();
-  initCopyAddress();
   initSuccessModal();
 });
 
@@ -333,73 +332,6 @@ function initFormProtection() {
       }, 5000);
     });
   });
-}
-
-// =============================================================================
-// КОПИРОВАНИЕ АДРЕСА
-// =============================================================================
-
-function initCopyAddress() {
-  const copyBtn = document.getElementById('copyAddressBtn');
-  const notification = document.getElementById('copyNotification');
-  
-  if (!copyBtn || !notification) return;
-  
-  copyBtn.addEventListener('click', function() {
-    const address = copyBtn.getAttribute('data-address');
-    
-    // Попытка копирования через Clipboard API
-    if (navigator.clipboard && navigator.clipboard.writeText) {
-      navigator.clipboard.writeText(address)
-        .then(function() {
-          showNotification();
-        })
-        .catch(function(err) {
-          console.error('Ошибка копирования через Clipboard API:', err);
-          fallbackCopy(address);
-        });
-    } else {
-      // Fallback для старых браузеров
-      fallbackCopy(address);
-    }
-  });
-  
-  // Показать уведомление о копировании
-  function showNotification() {
-    notification.classList.add('show');
-    
-    // Автоматически скрыть через 2.5 секунды
-    setTimeout(function() {
-      notification.classList.remove('show');
-    }, 2500);
-  }
-  
-  // Fallback метод копирования для старых браузеров
-  function fallbackCopy(text) {
-    const textArea = document.createElement('textarea');
-    textArea.value = text;
-    textArea.style.position = 'fixed';
-    textArea.style.top = '-9999px';
-    textArea.style.left = '-9999px';
-    textArea.setAttribute('readonly', '');
-    
-    document.body.appendChild(textArea);
-    textArea.focus();
-    textArea.select();
-    
-    try {
-      const successful = document.execCommand('copy');
-      if (successful) {
-        showNotification();
-      } else {
-        console.error('Ошибка копирования через execCommand');
-      }
-    } catch (err) {
-      console.error('Ошибка при копировании:', err);
-    }
-    
-    document.body.removeChild(textArea);
-  }
 }
 
 // =============================================================================

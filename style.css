@@ -1693,54 +1693,6 @@ a.request__button {
   box-shadow: 0 4px 15px rgba(40, 167, 69, 0.4);
 }
 
-/* Уведомление о копировании */
-.map__notification {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%) scale(0);
-  z-index: 100;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  background: linear-gradient(135deg, rgba(0, 150, 0, 0.95) 0%, rgba(0, 180, 0, 0.95) 100%);
-  backdrop-filter: blur(10px);
-  padding: 16px 24px;
-  border-radius: 12px;
-  border: 2px solid rgba(0, 255, 0, 0.5);
-  box-shadow: 
-    0 10px 40px rgba(0, 0, 0, 0.6),
-    0 0 30px rgba(0, 255, 0, 0.4);
-  color: white;
-  font-size: 16px;
-  font-weight: 600;
-  opacity: 0;
-  pointer-events: none;
-  transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-}
-
-.map__notification.show {
-  opacity: 1;
-  transform: translate(-50%, -50%) scale(1);
-}
-
-.map__notification-icon {
-  flex-shrink: 0;
-  animation: checkmark 0.6s ease-in-out;
-}
-
-@keyframes checkmark {
-  0% {
-    transform: scale(0) rotate(-45deg);
-  }
-  50% {
-    transform: scale(1.2) rotate(5deg);
-  }
-  100% {
-    transform: scale(1) rotate(0deg);
-  }
-}
-
 /* Fallback для карты */
 .map__fallback {
   padding: 40px;
@@ -2889,17 +2841,6 @@ a.request__button {
   .map__button-icon {
     width: 16px;
     height: 16px;
-  }
-
-  .map__notification {
-    padding: 12px 18px;
-    font-size: 14px;
-    max-width: 90%;
-  }
-
-  .map__notification-icon {
-    width: 18px;
-    height: 18px;
   }
 
   .request {
