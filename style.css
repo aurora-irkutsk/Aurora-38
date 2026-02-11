@@ -2928,6 +2928,230 @@ a.request__button {
   font-style: italic;
 }
 
+/* Prices Page */
+.prices-content {
+  padding: 60px 0;
+  background: #0a0a0a;
+  min-height: 100vh;
+}
+
+.prices-content__title {
+  font-size: 48px;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.prices-intro {
+  max-width: 900px;
+  margin: 0 auto 50px;
+  padding: 30px 40px;
+  background: rgba(255, 140, 0, 0.1);
+  backdrop-filter: blur(10px);
+  border-radius: 12px;
+  border: 2px solid rgba(255, 140, 0, 0.3);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  text-align: center;
+}
+
+.prices-intro p {
+  font-size: 18px;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.85);
+  margin: 0;
+}
+
+.prices-list {
+  max-width: 1000px;
+  margin: 0 auto 80px;
+  display: grid;
+  gap: 20px;
+}
+
+.price-item {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border-radius: 12px;
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.price-item:hover {
+  border-color: rgba(255, 140, 0, 0.4);
+  box-shadow: 0 8px 25px rgba(255, 140, 0, 0.2);
+  transform: translateY(-3px);
+}
+
+.price-item__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 25px 30px;
+  background: rgba(255, 255, 255, 0.03);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  gap: 20px;
+}
+
+.price-item__title {
+  font-size: 22px;
+  font-weight: 600;
+  color: #ffa500;
+  margin: 0;
+  flex: 1;
+}
+
+.price-item__cost {
+  font-size: 24px;
+  font-weight: 700;
+  color: #ff8c00;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.price-item__desc {
+  padding: 25px 30px;
+}
+
+.price-item__desc p {
+  font-size: 16px;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.75);
+  margin: 0;
+}
+
+.prices-info {
+  max-width: 1000px;
+  margin: 0 auto 80px;
+}
+
+.prices-info h2 {
+  font-size: 36px;
+  font-weight: 700;
+  color: #fff;
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.prices-info__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 25px;
+}
+
+.prices-info__item {
+  padding: 30px;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border-radius: 12px;
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.prices-info__item:hover {
+  border-color: rgba(255, 140, 0, 0.3);
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(255, 140, 0, 0.2);
+}
+
+.prices-info__icon {
+  font-size: 48px;
+  margin-bottom: 15px;
+}
+
+.prices-info__item h3 {
+  font-size: 20px;
+  font-weight: 600;
+  color: #ffa500;
+  margin-bottom: 12px;
+}
+
+.prices-info__item p {
+  font-size: 15px;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.75);
+  margin: 0;
+}
+
+.prices-cta {
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: center;
+  padding: 50px 40px;
+  background: linear-gradient(135deg, rgba(255, 140, 0, 0.15) 0%, rgba(255, 165, 0, 0.1) 100%);
+  border-radius: 12px;
+  border: 2px solid rgba(255, 140, 0, 0.4);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 8px 25px rgba(255, 140, 0, 0.2);
+}
+
+.prices-cta h2 {
+  font-size: 32px;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 20px;
+}
+
+.prices-cta p {
+  font-size: 18px;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.85);
+  margin-bottom: 30px;
+}
+
+.prices-cta p strong {
+  color: #ffa500;
+}
+
+.prices-cta__buttons {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.prices-cta__button {
+  padding: 15px 40px;
+  font-size: 18px;
+  font-weight: 600;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  display: inline-block;
+  border: 2px solid transparent;
+  cursor: pointer;
+}
+
+.prices-cta__button--primary {
+  background: #ff8c00;
+  color: #fff;
+  border-color: #ff8c00;
+}
+
+.prices-cta__button--primary:hover {
+  background: #ffa500;
+  border-color: #ffa500;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(255, 140, 0, 0.4);
+}
+
+.prices-cta__button--secondary {
+  background: transparent;
+  color: #ff8c00;
+  border-color: #ff8c00;
+}
+
+.prices-cta__button--secondary:hover {
+  background: #ff8c00;
+  color: #fff;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(255, 140, 0, 0.4);
+}
+
 /* =============================================================================
    МОБИЛЬНАЯ И ПЛАНШЕТНАЯ АДАПТАЦИЯ ДЛЯ НОВЫХ СТРАНИЦ
    ========================================================================== */
@@ -3037,8 +3261,13 @@ a.request__button {
   }
 
   .about-why__grid {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: 1fr;
     gap: 15px;
+  }
+  
+  .about-why__card {
+    background: rgba(255, 140, 0, 0.2);
+    border-color: rgba(255, 140, 0, 0.5);
   }
 
   .about-why__number {
@@ -3064,6 +3293,89 @@ a.request__button {
   }
 
   .review__rating {
+    font-size: 16px;
+  }
+
+  /* Prices mobile */
+  .prices-content__title {
+    font-size: 32px;
+  }
+
+  .prices-intro {
+    margin: 0 15px 40px;
+    padding: 20px 25px;
+  }
+
+  .prices-intro p {
+    font-size: 16px;
+  }
+
+  .prices-list {
+    padding: 0 15px;
+    gap: 15px;
+  }
+
+  .price-item__header {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 20px;
+    gap: 10px;
+  }
+
+  .price-item__title {
+    font-size: 18px;
+  }
+
+  .price-item__cost {
+    font-size: 22px;
+  }
+
+  .price-item__desc {
+    padding: 20px;
+  }
+
+  .price-item__desc p {
+    font-size: 15px;
+  }
+
+  .prices-info {
+    padding: 0 15px;
+  }
+
+  .prices-info h2 {
+    font-size: 28px;
+    margin-bottom: 30px;
+  }
+
+  .prices-info__grid {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+
+  .prices-info__item {
+    padding: 25px 20px;
+  }
+
+  .prices-cta {
+    margin: 0 15px;
+    padding: 30px 25px;
+  }
+
+  .prices-cta h2 {
+    font-size: 24px;
+  }
+
+  .prices-cta p {
+    font-size: 16px;
+  }
+
+  .prices-cta__buttons {
+    flex-direction: column;
+  }
+
+  .prices-cta__button {
+    width: 100%;
+    padding: 12px 20px;
     font-size: 16px;
   }
 }
