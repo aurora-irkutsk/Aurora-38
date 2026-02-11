@@ -9,6 +9,7 @@ document.addEventListener('DOMContentLoaded', function () {
   initPhoneValidation();
   initFormProtection();
   initSuccessModal();
+  initFAQ();
 });
 
 // =============================================================================
@@ -420,6 +421,34 @@ function initSuccessModal() {
         console.error('Ошибка:', error);
         alert('Произошла ошибка при отправке формы. Попробуйте позже или позвоните нам напрямую.');
       }
+    });
+  });
+}
+
+// =============================================================================
+// FAQ ACCORDION
+// =============================================================================
+
+function initFAQ() {
+  const faqItems = document.querySelectorAll('.faq-item');
+  
+  if (faqItems.length === 0) return;
+  
+  faqItems.forEach(item => {
+    const question = item.querySelector('.faq-item__question');
+    
+    if (!question) return;
+    
+    question.addEventListener('click', () => {
+      // Закрываем все остальные элементы
+      faqItems.forEach(otherItem => {
+        if (otherItem !== item && otherItem.classList.contains('active')) {
+          otherItem.classList.remove('active');
+        }
+      });
+      
+      // Переключаем текущий элемент
+      item.classList.toggle('active');
     });
   });
 }

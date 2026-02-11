@@ -65,5 +65,29 @@
       <image:title>Перетяжка кожаной мебели в Иркутске</image:title>
     </image:image>
   </url>
+  
+  <!-- Вопросы и ответы -->
+  <url>
+    <loc>https://peretyazhka-aurora.ru/faq.html</loc>
+    <lastmod>2026-02-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <!-- О компании -->
+  <url>
+    <loc>https://peretyazhka-aurora.ru/about.html</loc>
+    <lastmod>2026-02-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  <!-- Политика конфиденциальности -->
+  <url>
+    <loc>https://peretyazhka-aurora.ru/privacy.html</loc>
+    <lastmod>2026-02-11</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
 
 </urlset>

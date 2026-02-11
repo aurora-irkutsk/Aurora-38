@@ -2317,6 +2317,778 @@ a.request__button {
 }
 
 /* =============================================================================
+   НОВЫЕ СТРАНИЦЫ: FAQ, ABOUT, PRIVACY
+   ========================================================================== */
+
+/* Privacy Policy Page */
+.privacy-content {
+  padding: 60px 0;
+  background: #0a0a0a;
+  min-height: 100vh;
+}
+
+.privacy-content__title {
+  font-size: 48px;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 40px;
+  text-align: center;
+}
+
+.privacy-content__text {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 40px;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border-radius: 12px;
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+  line-height: 1.8;
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.privacy-content__intro {
+  font-size: 18px;
+  margin-bottom: 30px;
+  color: rgba(255, 255, 255, 0.9);
+  font-weight: 500;
+}
+
+.privacy-content__text h2 {
+  font-size: 28px;
+  font-weight: 600;
+  color: #ffa500;
+  margin-top: 40px;
+  margin-bottom: 20px;
+}
+
+.privacy-content__text ul {
+  margin: 15px 0;
+  padding-left: 25px;
+}
+
+.privacy-content__text li {
+  margin-bottom: 10px;
+}
+
+.privacy-content__text strong {
+  color: #ff8c00;
+}
+
+.privacy-content__text a {
+  color: #ff8c00;
+  text-decoration: underline;
+}
+
+.privacy-content__text a:hover {
+  color: #ffa500;
+}
+
+.privacy-content__date {
+  margin-top: 40px;
+  font-size: 16px;
+  color: rgba(255, 255, 255, 0.5);
+  font-style: italic;
+}
+
+/* FAQ Page */
+.faq-content {
+  padding: 60px 0;
+  background: #0a0a0a;
+  min-height: 100vh;
+}
+
+.faq-content__title {
+  font-size: 48px;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.faq-content__intro {
+  text-align: center;
+  font-size: 18px;
+  color: rgba(255, 255, 255, 0.8);
+  margin-bottom: 50px;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.faq-content__intro a {
+  color: #ff8c00;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.faq-content__intro a:hover {
+  color: #ffa500;
+  text-decoration: underline;
+}
+
+.faq-list {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.faq-item {
+  margin-bottom: 20px;
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease;
+}
+
+.faq-item:hover {
+  border-color: rgba(255, 140, 0, 0.3);
+  box-shadow: 0 8px 25px rgba(255, 140, 0, 0.2);
+  transform: translateY(-2px);
+}
+
+.faq-item.active {
+  border-color: rgba(144, 238, 144, 0.6);
+  box-shadow: 0 0 20px rgba(144, 238, 144, 0.3);
+  background: rgba(144, 238, 144, 0.05);
+}
+
+.faq-item__question {
+  width: 100%;
+  background: transparent;
+  border: none;
+  padding: 20px 25px;
+  font-size: 18px;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.9);
+  text-align: left;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: all 0.3s ease;
+}
+
+.faq-item__question:hover {
+  color: #ffa500;
+}
+
+.faq-item.active .faq-item__question {
+  color: #90ee90;
+}
+
+.faq-item__icon {
+  font-size: 24px;
+  font-weight: 700;
+  color: #ff8c00;
+  transition: transform 0.3s ease, color 0.3s ease;
+  flex-shrink: 0;
+  margin-left: 15px;
+}
+
+.faq-item.active .faq-item__icon {
+  transform: rotate(45deg);
+  color: #90ee90;
+}
+
+.faq-item__answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease;
+  background: transparent;
+}
+
+.faq-item.active .faq-item__answer {
+  max-height: 1500px;
+}
+
+.faq-item__answer p,
+.faq-item__answer ul {
+  padding: 0 25px 20px;
+  margin: 0;
+  line-height: 1.8;
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.faq-item__answer p:first-child {
+  padding-top: 10px;
+}
+
+.faq-item__answer ul {
+  padding-left: 45px;
+  padding-top: 10px;
+}
+
+.faq-item__answer li {
+  margin-bottom: 8px;
+}
+
+.faq-item__answer strong {
+  color: #ffa500;
+}
+
+.faq-item__answer a {
+  color: #ff8c00;
+  text-decoration: none;
+}
+
+.faq-item__answer a:hover {
+  color: #ffa500;
+  text-decoration: underline;
+}
+
+.faq-cta {
+  max-width: 800px;
+  margin: 60px auto 0;
+  text-align: center;
+  padding: 40px;
+  background: linear-gradient(135deg, rgba(255, 140, 0, 0.15) 0%, rgba(255, 165, 0, 0.1) 100%);
+  border-radius: 12px;
+  border: 2px solid rgba(255, 140, 0, 0.4);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 8px 25px rgba(255, 140, 0, 0.2);
+}
+
+.faq-cta h2 {
+  font-size: 32px;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 15px;
+}
+
+.faq-cta p {
+  font-size: 18px;
+  color: rgba(255, 255, 255, 0.85);
+  margin-bottom: 30px;
+}
+
+.faq-cta__buttons {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.faq-cta__button {
+  padding: 15px 40px;
+  font-size: 18px;
+  font-weight: 600;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  display: inline-block;
+}
+
+.faq-cta__button--primary {
+  background: #ff8c00;
+  color: #fff;
+  border: 2px solid #ff8c00;
+}
+
+.faq-cta__button--primary:hover {
+  background: #ffa500;
+  border-color: #ffa500;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(255, 140, 0, 0.4);
+}
+
+.faq-cta__button--secondary {
+  background: transparent;
+  color: #ff8c00;
+  border: 2px solid #ff8c00;
+}
+
+.faq-cta__button--secondary:hover {
+  background: #ff8c00;
+  color: #fff;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(255, 140, 0, 0.4);
+}
+
+/* About Page */
+.about-content {
+  padding: 60px 0;
+  background: #0a0a0a;
+  min-height: 100vh;
+}
+
+.about-content__title {
+  font-size: 48px;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 60px;
+  text-align: center;
+}
+
+.about-story,
+.about-values,
+.about-why,
+.about-process,
+.about-equipment {
+  max-width: 1200px;
+  margin: 0 auto 80px;
+}
+
+.about-story__title,
+.about-values__title,
+.about-why__title,
+.about-process__title,
+.about-equipment__title {
+  font-size: 36px;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.about-story__text {
+  line-height: 1.8;
+  color: rgba(255, 255, 255, 0.75);
+  font-size: 18px;
+  padding: 40px;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border-radius: 12px;
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+}
+
+.about-story__text p {
+  margin-bottom: 20px;
+}
+
+.about-story__text strong {
+  color: #ffa500;
+}
+
+.about-values__list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+  margin-top: 40px;
+}
+
+.about-values__item {
+  text-align: center;
+  padding: 30px;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border-radius: 12px;
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease;
+}
+
+.about-values__item:hover {
+  background: rgba(255, 140, 0, 0.1);
+  border-color: rgba(255, 140, 0, 0.3);
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(255, 140, 0, 0.2);
+}
+
+.about-values__icon {
+  margin-bottom: 20px;
+}
+
+.about-values__item-title {
+  font-size: 22px;
+  font-weight: 600;
+  color: #ffa500;
+  margin-bottom: 15px;
+}
+
+.about-values__desc {
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.75);
+  font-size: 16px;
+}
+
+.about-why__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 25px;
+  margin-top: 40px;
+}
+
+.about-why__card {
+  text-align: center;
+  padding: 30px 20px;
+  background: rgba(255, 140, 0, 0.1);
+  backdrop-filter: blur(10px);
+  border-radius: 12px;
+  border: 2px solid rgba(255, 140, 0, 0.4);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease;
+}
+
+.about-why__card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(255, 140, 0, 0.3);
+  border-color: rgba(255, 140, 0, 0.6);
+}
+
+.about-why__number {
+  font-size: 48px;
+  font-weight: 700;
+  color: #ff8c00;
+  margin-bottom: 10px;
+}
+
+.about-why__label {
+  font-size: 16px;
+  font-weight: 600;
+  color: #ffa500;
+  margin-bottom: 10px;
+}
+
+.about-why__text {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.75);
+  line-height: 1.6;
+}
+
+.about-process__text {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto 40px;
+  font-size: 18px;
+  color: rgba(255, 255, 255, 0.75);
+  line-height: 1.8;
+}
+
+.about-process__steps {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 25px;
+  margin-top: 40px;
+}
+
+.about-process__step {
+  padding: 25px;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border-radius: 12px;
+  border-left: 4px solid #ff8c00;
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  border-left: 4px solid #ff8c00;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease;
+}
+
+.about-process__step:hover {
+  background: rgba(255, 140, 0, 0.08);
+  border-color: rgba(255, 140, 0, 0.3);
+  transform: translateX(5px);
+  box-shadow: 0 8px 20px rgba(255, 140, 0, 0.2);
+}
+
+.about-process__step-number {
+  font-size: 28px;
+  font-weight: 700;
+  color: #ff8c00;
+  margin-bottom: 10px;
+}
+
+.about-process__step-title {
+  font-size: 18px;
+  font-weight: 600;
+  color: #ffa500;
+  margin-bottom: 10px;
+}
+
+.about-process__step-desc {
+  font-size: 15px;
+  color: rgba(255, 255, 255, 0.75);
+  line-height: 1.7;
+}
+
+.about-equipment__text {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 40px;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border-radius: 12px;
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+  line-height: 1.8;
+  color: rgba(255, 255, 255, 0.75);
+  font-size: 18px;
+}
+
+.about-equipment__text ul {
+  margin: 20px 0;
+  padding-left: 25px;
+}
+
+.about-equipment__text li {
+  margin-bottom: 10px;
+}
+
+.about-equipment__text strong {
+  color: #ffa500;
+}
+
+.about-cta {
+  max-width: 900px;
+  margin: 80px auto 0;
+  text-align: center;
+  padding: 50px;
+  background: linear-gradient(135deg, #ff8c00 0%, #ffa500 100%);
+  border-radius: 12px;
+  color: #fff;
+}
+
+.about-cta__title {
+  font-size: 36px;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 20px;
+}
+
+.about-cta__text {
+  font-size: 18px;
+  color: #fff;
+  margin-bottom: 30px;
+  opacity: 0.95;
+}
+
+.about-cta__buttons {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.about-cta__button {
+  padding: 15px 40px;
+  font-size: 18px;
+  font-weight: 600;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  display: inline-block;
+}
+
+.about-cta__button--primary {
+  background: #fff;
+  color: #ff8c00;
+  border: 2px solid #fff;
+}
+
+.about-cta__button--primary:hover {
+  background: transparent;
+  color: #fff;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(255, 255, 255, 0.3);
+}
+
+.about-cta__button--secondary {
+  background: transparent;
+  color: #fff;
+  border: 2px solid #fff;
+}
+
+.about-cta__button--secondary:hover {
+  background: #fff;
+  color: #ff8c00;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(255, 255, 255, 0.3);
+}
+
+/* Review author and date styles */
+.review__author {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+  padding: 0 15px;
+}
+
+.review__author strong {
+  font-size: 18px;
+  color: #333;
+}
+
+.review__rating {
+  color: #ffa500;
+  font-size: 18px;
+  letter-spacing: 2px;
+}
+
+.review__date {
+  display: block;
+  margin-top: 10px;
+  padding: 0 15px;
+  font-size: 14px;
+  color: #888;
+  font-style: italic;
+}
+
+/* =============================================================================
+   МОБИЛЬНАЯ И ПЛАНШЕТНАЯ АДАПТАЦИЯ ДЛЯ НОВЫХ СТРАНИЦ
+   ========================================================================== */
+
+@media (max-width: 768px) {
+  .privacy-content__title,
+  .faq-content__title,
+  .about-content__title {
+    font-size: 32px;
+    margin-bottom: 30px;
+  }
+
+  .privacy-content,
+  .faq-content,
+  .about-content {
+    padding: 40px 0;
+  }
+
+  .privacy-content__text {
+    margin: 0 15px;
+    padding: 25px 20px;
+  }
+
+  .faq-list,
+  .about-story,
+  .about-values,
+  .about-why,
+  .about-process,
+  .about-equipment {
+    padding: 0 15px;
+  }
+
+  .about-story__text,
+  .about-equipment__text {
+    padding: 25px 20px;
+  }
+
+  .privacy-content__text h2,
+  .about-story__title,
+  .about-values__title,
+  .about-why__title,
+  .about-process__title,
+  .about-equipment__title {
+    font-size: 24px;
+  }
+
+  .faq-item {
+    margin-bottom: 15px;
+  }
+
+  .faq-item__question {
+    padding: 15px;
+    font-size: 16px;
+    flex-wrap: wrap;
+  }
+
+  .faq-item__question span:first-child {
+    flex: 1;
+    padding-right: 10px;
+  }
+
+  .faq-item__icon {
+    font-size: 20px;
+    margin-left: 10px;
+  }
+
+  .faq-item__answer p,
+  .faq-item__answer ul {
+    padding: 0 15px 15px;
+    font-size: 15px;
+  }
+
+  .faq-item__answer ul {
+    padding-left: 35px;
+  }
+
+  .faq-cta,
+  .about-cta {
+    padding: 30px 20px;
+    margin: 40px 15px 0;
+  }
+
+  .faq-cta h2,
+  .about-cta__title {
+    font-size: 24px;
+  }
+
+  .faq-cta p,
+  .about-cta__text {
+    font-size: 16px;
+  }
+
+  .faq-cta__buttons,
+  .about-cta__buttons {
+    flex-direction: column;
+  }
+
+  .faq-cta__button,
+  .about-cta__button {
+    width: 100%;
+    padding: 12px 20px;
+    font-size: 16px;
+  }
+
+  .about-values__list {
+    grid-template-columns: 1fr;
+  }
+
+  .about-why__grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+  }
+
+  .about-why__number {
+    font-size: 36px;
+  }
+
+  .about-why__label {
+    font-size: 14px;
+  }
+
+  .about-why__text {
+    font-size: 12px;
+  }
+
+  .about-process__steps {
+    grid-template-columns: 1fr;
+  }
+
+  .review__author {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 5px;
+  }
+
+  .review__rating {
+    font-size: 16px;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  .privacy-content__title,
+  .faq-content__title,
+  .about-content__title {
+    font-size: 40px;
+  }
+
+  .about-values__list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .about-why__grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .about-process__steps {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* =============================================================================
    ДЕСКТОПЫ (≥1025px) - СТИЛЬ ФУТЕРА ДЛЯ ШАПКИ
    ========================================================================== */
 
