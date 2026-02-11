@@ -2616,6 +2616,8 @@ a.request__button {
   .burger.active span:nth-child(2) {
     opacity: 0;
     width: 0;
+    margin-left: 0;
+    visibility: hidden;
   }
 
   .burger.active span:nth-child(3) {
