@@ -14,10 +14,8 @@
   <meta name="ICBM" content="52.223115, 104.243542">
 
   <!-- Preconnect (Early Performance Optimization) -->
-  <link rel="preconnect" href="https://www.googletagmanager.com">
   <link rel="preconnect" href="https://mc.yandex.ru">
   <link rel="preconnect" href="https://formspree.io">
-  <link rel="dns-prefetch" href="https://www.google-analytics.com">
 
   <!-- Open Graph -->
   <meta property="og:title" content="Перетяжка кожаной мебели в Иркутске — Aurora 38">
@@ -103,6 +101,7 @@
 
   <!-- CSS -->
   <link rel="stylesheet" href="/style.css">
+  <link rel="stylesheet" href="cookie-consent.css">
   <noscript>
     <style>
       .hero__content { background: rgba(0, 0, 0, 0.6); padding: 40px; border-radius: 12px; }
@@ -769,13 +768,6 @@
   </div>
 
   <!-- Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-9Q6F5B1VV9"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-9Q6F5B1VV9');
-  </script>
 
   <!-- Yandex.Metrika -->
   <script type="text/javascript">
@@ -809,6 +801,34 @@
       <h3 class="success-modal__title">Спасибо!</h3>
       <p class="success-modal__text">Форма была успешно отправлена.<br>Мы свяжемся с вами в ближайшее время.</p>
       <button class="success-modal__button" id="successModalBtn">Вернуться на сайт</button>
+    </div>
+  </div>
+
+  <script src="/analytics.js"></script>
+  <script src="/cookie-consent.js"></script>
+
+  <!-- Cookie Consent Banner -->
+  <div id="cookieConsentBanner" class="cookie-consent">
+    <div class="cookie-consent__container">
+      <div class="cookie-consent__content">
+        <h3 class="cookie-consent__title">
+          <span class="cookie-consent__icon">🍪</span>
+          Мы используем файлы cookie
+        </h3>
+        <p class="cookie-consent__text">
+          Наш сайт использует файлы cookie для улучшения работы сайта, персонализации и анализа посещаемости. 
+          Продолжая использовать наш сайт, вы соглашаетесь с нашей 
+          <a href="/privacy.html" target="_blank">Политикой конфиденциальности</a>.
+        </p>
+      </div>
+      <div class="cookie-consent__actions">
+        <button id="acceptCookies" class="cookie-consent__button cookie-consent__button--accept">
+          Принять
+        </button>
+        <button id="declineCookies" class="cookie-consent__button cookie-consent__button--decline">
+          Отклонить
+        </button>
+      </div>
     </div>
   </div>
 

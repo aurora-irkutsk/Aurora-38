@@ -7,11 +7,10 @@
   <meta name="description" content="Страница не найдена — Aurora 38, перетяжка мебели в Иркутске" />
   <meta name="theme-color" content="#333333">
   <link rel="stylesheet" href="/style.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
-    rel="stylesheet" />
+  <link rel="stylesheet" href="/cookie-consent.css" />
   <title>Ошибка 404 — Страница не найдена | Aurora 38</title>
   <style>
-    /* Дополнительные стили только для 404 */
+    /* 404 Page Styles */
     .error-page {
       display: flex;
       flex-direction: column;
@@ -19,61 +18,272 @@
       justify-content: center;
       min-height: 100vh;
       text-align: center;
-      padding: 20px;
-      background: #f9f9f9;
-      color: #333;
+      padding: 40px 20px;
+      background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .error-page::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-image: 
+        radial-gradient(circle at 20% 30%, rgba(217, 119, 6, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 80% 70%, rgba(245, 158, 11, 0.1) 0%, transparent 50%);
+      pointer-events: none;
+    }
+
+    .error-content {
+      position: relative;
+      z-index: 1;
+      max-width: 700px;
     }
 
     .error-code {
-      font-size: 100px;
-      font-weight: 800;
-      color: orange;
+      font-size: 160px;
+      font-weight: 900;
+      background: linear-gradient(135deg, #d97706 0%, #f59e0b 50%, #fbbf24 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
       margin: 0 0 20px;
-      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+      line-height: 1;
+      text-shadow: 0 4px 20px rgba(217, 119, 6, 0.3);
+      animation: glow 2s ease-in-out infinite;
+    }
+
+    @keyframes glow {
+      0%, 100% { filter: brightness(1); }
+      50% { filter: brightness(1.2); }
     }
 
     .error-title {
-      font-size: 32px;
-      margin: 0 0 20px;
-      color: #2c3e50;
+      font-size: 36px;
+      font-weight: 700;
+      color: #ffffff;
+      margin: 0 0 16px;
+      line-height: 1.2;
+    }
+
+    .error-subtitle {
+      font-size: 18px;
+      color: #d97706;
+      margin: 0 0 24px;
+      font-weight: 600;
     }
 
     .error-text {
-      font-size: 18px;
-      max-width: 600px;
-      margin: 0 0 30px;
-      line-height: 1.6;
-      color: #555;
+      font-size: 16px;
+      max-width: 500px;
+      margin: 0 auto 40px;
+      line-height: 1.7;
+      color: #cbd5e0;
+    }
+
+    .error-buttons {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      flex-wrap: wrap;
     }
 
     .error-button {
-      display: inline-block;
-      background: orange;
-      color: #2c3e50;
-      font-weight: 600;
-      padding: 14px 32px;
-      border-radius: 8px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 16px 32px;
+      border-radius: 12px;
       text-decoration: none;
-      font-size: 18px;
-      transition: background 0.3s;
+      font-size: 16px;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      min-width: 180px;
+      cursor: pointer;
+      border: none;
+      font-family: inherit;
     }
 
-    .error-button:hover {
-      background: #ff9800;
-      color: #2c3e50;
+    .error-button--primary {
+      background: linear-gradient(135deg, #d97706 0%, #f59e0b 100%);
+      color: #ffffff;
+      box-shadow: 0 4px 16px rgba(217, 119, 6, 0.4);
+    }
+
+    .error-button--primary:hover {
+      background: linear-gradient(135deg, #b45309 0%, #d97706 100%);
+      box-shadow: 0 6px 20px rgba(217, 119, 6, 0.5);
+      transform: translateY(-2px);
+    }
+
+    .error-button--secondary {
+      background: transparent;
+      color: #f59e0b;
+      border: 2px solid #d97706;
+    }
+
+    .error-button--secondary:hover {
+      background: rgba(217, 119, 6, 0.1);
+      border-color: #f59e0b;
+      transform: translateY(-2px);
+    }
+
+    .error-icon {
+      font-size: 80px;
+      margin-bottom: 20px;
+      animation: bounce 2s ease-in-out infinite;
+    }
+
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+
+    /* Mobile */
+    @media (max-width: 768px) {
+      .error-code {
+        font-size: 100px;
+      }
+
+      .error-title {
+        font-size: 28px;
+      }
+
+      .error-subtitle {
+        font-size: 16px;
+      }
+
+      .error-text {
+        font-size: 15px;
+      }
+
+      .error-buttons {
+        flex-direction: column;
+        width: 100%;
+      }
+
+      .error-button {
+        width: 100%;
+      }
+
+      .error-icon {
+        font-size: 60px;
+      }
     }
   </style>
 </head>
 
 <body>
   <main class="error-page">
-    <h1 class="error-code">404</h1>
-    <h2 class="error-title">Страница не найдена</h2>
-    <p class="error-text">
-      К сожалению, запрашиваемая вами страница была удалена, перемещена или никогда не существовала.
-    </p>
-    <a href="/" class="error-button">Вернуться на главную</a>
+    <div class="error-content">
+      <div class="error-icon">🛋️</div>
+      <h1 class="error-code">404</h1>
+      <h2 class="error-title">Страница не найдена</h2>
+      <p class="error-subtitle">Хотите обновить мебель быстро и недорого?</p>
+      <p class="error-text">
+        К сожалению, запрашиваемая страница не существует. Но мы всегда готовы помочь вам с перетяжкой мебели! 
+        Оставьте заявку, и наш мастер свяжется с вами в течение 5 минут.
+      </p>
+      <div class="error-buttons">
+        <a href="/" class="error-button error-button--primary">На главную</a>
+        <button id="open404Modal" class="error-button error-button--secondary">Оставить заявку</button>
+      </div>
+    </div>
   </main>
+
+  <!-- Request Modal -->
+  <div class="call-modal" id="requestModal404">
+    <div class="modal__content">
+      <span class="modal__close" id="closeRequestModal404">&times;</span>
+      <h3 class="modal__title">Хотите обновить мебель быстро и недорого?</h3>
+      <p class="modal__text">Оставьте номер телефона — мастер перезвонит вам в течение 5 минут и рассчитает стоимость.</p>
+      <form class="modal__form" id="requestForm404" action="https://formspree.io/f/xvgvojvw" method="POST">
+        <input type="text" name="name" class="modal__input" placeholder="Ваше имя *" required>
+        <input type="tel" name="phone" class="modal__input" placeholder="Ваш телефон *" required>
+        <textarea name="message" class="modal__input" placeholder="Что нужно перетянуть?" rows="3"></textarea>
+        <input type="text" name="_gotcha" style="display:none !important" tabindex="-1" autocomplete="off">
+        <input type="hidden" name="_subject" value="Заявка со страницы 404">
+        <button type="submit" class="modal__button">Отправить заявку</button>
+        <p class="modal__agreement">Отправляя форму, вы соглашаетесь с нашей <a href="/privacy.html">Политикой конфиденциальности</a>.</p>
+      </form>
+    </div>
+  </div>
+
+  <script src="/main.js"></script>
+  <script>
+    // Modal for 404 page
+    document.addEventListener('DOMContentLoaded', function() {
+      const modal = document.getElementById('requestModal404');
+      const openBtn = document.getElementById('open404Modal');
+      const closeBtn = document.getElementById('closeRequestModal404');
+
+      if (openBtn) {
+        openBtn.addEventListener('click', function() {
+          modal.classList.add('call-modal--active');
+          document.body.style.overflow = 'hidden';
+        });
+      }
+
+      if (closeBtn) {
+        closeBtn.addEventListener('click', function() {
+          modal.classList.remove('call-modal--active');
+          document.body.style.overflow = '';
+        });
+      }
+
+      // Close on backdrop click
+      modal.addEventListener('click', function(e) {
+        if (e.target === modal) {
+          modal.classList.remove('call-modal--active');
+          document.body.style.overflow = '';
+        }
+      });
+
+      // Form submit
+      const form = document.getElementById('requestForm404');
+      if (form) {
+        form.addEventListener('submit', function(e) {
+          // Let Formspree handle the submission
+          setTimeout(function() {
+            modal.classList.remove('call-modal--active');
+            document.body.style.overflow = '';
+            alert('Спасибо! Мы получили вашу заявку и скоро свяжемся с вами.');
+          }, 500);
+        });
+      }
+    });
+  </script>
+
+  <script src="/cookie-consent.js"></script>
+
+  <!-- Cookie Consent Banner -->
+  <div id="cookieConsentBanner" class="cookie-consent">
+    <div class="cookie-consent__container">
+      <div class="cookie-consent__content">
+        <h3 class="cookie-consent__title">
+          <span class="cookie-consent__icon">🍪</span>
+          Мы используем файлы cookie
+        </h3>
+        <p class="cookie-consent__text">
+          Наш сайт использует файлы cookie для улучшения работы сайта, персонализации и анализа посещаемости. 
+          Продолжая использовать наш сайт, вы соглашаетесь с нашей 
+          <a href="/privacy.html" target="_blank">Политикой конфиденциальности</a>.
+        </p>
+      </div>
+      <div class="cookie-consent__actions">
+        <button id="acceptCookies" class="cookie-consent__button cookie-consent__button--accept">
+          Принять
+        </button>
+        <button id="declineCookies" class="cookie-consent__button cookie-consent__button--decline">
+          Отклонить
+        </button>
+      </div>
+    </div>
+  </div>
+
 </body>
 
 </html>

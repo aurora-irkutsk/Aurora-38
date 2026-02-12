@@ -6,12 +6,9 @@ document.addEventListener('DOMContentLoaded', function() {
         const links = document.querySelectorAll(selector);
         links.forEach(function(link) {
             link.addEventListener('click', function() {
-                if (typeof gtag !== 'undefined') {
-                    gtag('event', eventName, {
-                        'event_category': 'Contact',
-                        'event_label': eventLabel,
-                        'value': eventValue || 1
-                    });
+                // Отправка события в Яндекс.Метрику
+                if (typeof ym !== 'undefined') {
+                    ym(104935828, 'reachGoal', eventName);
                 }
             });
         });
@@ -27,12 +24,9 @@ document.addEventListener('DOMContentLoaded', function() {
         const form = document.getElementById(formId);
         if (form) {
             form.addEventListener('submit', function() {
-                if (typeof gtag !== 'undefined') {
-                    gtag('event', eventName, {
-                        'event_category': 'Lead',
-                        'event_label': eventLabel,
-                        'value': eventValue || 10
-                    });
+                // Отправка события в Яндекс.Метрику
+                if (typeof ym !== 'undefined') {
+                    ym(104935828, 'reachGoal', eventName);
                 }
             });
         }
@@ -47,24 +41,16 @@ document.addEventListener('DOMContentLoaded', function() {
     pageViews++;
     sessionStorage.setItem('pageViews', pageViews);
     
-    if (pageViews === 3 && typeof gtag !== 'undefined') {
-        gtag('event', 'engaged_user', {
-            'event_category': 'Engagement',
-            'event_label': '3+ Pages Viewed',
-            'value': 1
-        });
+    if (pageViews === 3 && typeof ym !== 'undefined') {
+        ym(104935828, 'reachGoal', 'engaged_user');
     }
     
     // Клик по кнопке "Рассчитать по фото"
     const calculateButtons = document.querySelectorAll('.hero__button');
     calculateButtons.forEach(function(btn) {
         btn.addEventListener('click', function() {
-            if (typeof gtag !== 'undefined') {
-                gtag('event', 'click_calculate', {
-                    'event_category': 'Lead',
-                    'event_label': 'Calculate by Photo',
-                    'value': 5
-                });
+            if (typeof ym !== 'undefined') {
+                ym(104935828, 'reachGoal', 'click_calculate');
             }
         });
     });
@@ -73,13 +59,8 @@ document.addEventListener('DOMContentLoaded', function() {
     const serviceLinks = document.querySelectorAll('.service__link');
     serviceLinks.forEach(function(link) {
         link.addEventListener('click', function() {
-            const serviceName = this.closest('.service').querySelector('.service__title').textContent;
-            if (typeof gtag !== 'undefined') {
-                gtag('event', 'click_service', {
-                    'event_category': 'Navigation',
-                    'event_label': serviceName,
-                    'value': 1
-                });
+            if (typeof ym !== 'undefined') {
+                ym(104935828, 'reachGoal', 'click_service');
             }
         });
     });
