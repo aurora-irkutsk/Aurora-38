@@ -2,12 +2,35 @@
 document.addEventListener('DOMContentLoaded', function() {
     // Проверяем, был ли уже дан ответ на cookies (работает для всего сайта)
     const cookieConsent = localStorage.getItem('cookieConsent');
+    const cookieConsentDate = localStorage.getItem('cookieConsentDate');
     
-    // Показываем баннер ТОЛЬКО если:
-    // 1. Пользователь еще не принял и не отклонил cookies
-    // 2. Это первое посещение сайта
+    // Проверяем срок действия согласия (30 дней)
+    let shouldShowBanner = false;
+    
     if (!cookieConsent) {
-        // Показываем баннер только если ответа еще не было
+        // Если ответа нет - показываем
+        shouldShowBanner = true;
+    } else if (cookieConsentDate) {
+        // Если есть ответ и дата - проверяем, прошло ли 30 дней
+        const consentTimestamp = parseInt(cookieConsentDate);
+        const currentTimestamp = new Date().getTime();
+        const daysPassed = (currentTimestamp - consentTimestamp) / (1000 * 60 * 60 * 24);
+        
+        if (daysPassed > 30) {
+            // Прошло больше 30 дней - показываем снова
+            shouldShowBanner = true;
+            // Очищаем старые данные
+            localStorage.removeItem('cookieConsent');
+            localStorage.removeItem('cookieConsentDate');
+        }
+    } else {
+        // Есть согласие, но нет даты (старая версия) - обновляем
+        shouldShowBanner = true;
+        localStorage.removeItem('cookieConsent');
+    }
+    
+    if (shouldShowBanner) {
+        // Показываем баннер
         setTimeout(function() {
             const banner = document.getElementById('cookieConsentBanner');
             if (banner) {
@@ -21,6 +44,7 @@ document.addEventListener('DOMContentLoaded', function() {
     if (acceptBtn) {
         acceptBtn.addEventListener('click', function() {
             localStorage.setItem('cookieConsent', 'accepted');
+            localStorage.setItem('cookieConsentDate', new Date().getTime().toString());
             hideBanner();
             
             // Отправляем событие в Яндекс.Метрику
@@ -35,6 +59,7 @@ document.addEventListener('DOMContentLoaded', function() {
     if (declineBtn) {
         declineBtn.addEventListener('click', function() {
             localStorage.setItem('cookieConsent', 'declined');
+            localStorage.setItem('cookieConsentDate', new Date().getTime().toString());
             hideBanner();
             
             // Отправляем событие в Яндекс.Метрику
