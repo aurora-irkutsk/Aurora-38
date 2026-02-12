@@ -2063,6 +2063,28 @@ a.request__button {
   line-height: 1.5;
 }
 
+/* Prices Page Button Toggle */
+.prices-cta__button--desktop-only {
+  display: inline-flex !important;
+}
+
+.prices-cta__button--mobile-only {
+  display: none !important;
+}
+
+@media (max-width: 768px) {
+  .prices-cta__button--desktop-only {
+    display: none !important;
+  }
+  
+  .prices-cta__button--mobile-only {
+    display: inline-flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    text-align: center !important;
+  }
+}
+
 /* =============================================================================
    FOOTER
    ========================================================================== */
