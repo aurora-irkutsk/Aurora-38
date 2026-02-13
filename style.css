@@ -5098,3 +5098,11 @@ a.request__button {
     font-size: 36px;
   }
 }
+
+
+/* Скрыть кнопку "Позвонить" под картой на desktop (показывать только на мобильных и планшетах) */
+@media (min-width: 1025px) {
+  .map__button--secondary {
+    display: none !important;
+  }
+}
