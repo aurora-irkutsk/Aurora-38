@@ -3,32 +3,17 @@
 User-agent: *
 Allow: /
 
-# Блокируем служебные папки
-Disallow: /admin/
-Disallow: /cgi-bin/
-Disallow: /tmp/
-Disallow: /_next/
-
 # Sitemap
 Sitemap: https://peretyazhka-aurora.ru/sitemap.xml
 
-# Основные поисковики
-User-agent: Googlebot
-Allow: /
-
-User-agent: Yandex
-Allow: /
-
-User-agent: Bingbot
-Allow: /
-
-# Блокируем плохих ботов
+# Замедляем агрессивных ботов
 User-agent: AhrefsBot
 Crawl-delay: 10
 
 User-agent: SemrushBot
 Crawl-delay: 10
 
+# Блокируем нежелательных ботов
 User-agent: MJ12bot
 Disallow: /
 

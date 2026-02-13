@@ -8,7 +8,7 @@
   <!-- Главная страница -->
   <url>
     <loc>https://peretyazhka-aurora.ru/</loc>
-    <lastmod>2026-02-10</lastmod>
+    <lastmod>2026-02-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <!-- Добавлены изображения для Google Image Search -->
@@ -21,7 +21,7 @@
   <!-- Перетяжка диванов -->
   <url>
     <loc>https://peretyazhka-aurora.ru/sofa.html</loc>
-    <lastmod>2026-02-10</lastmod>
+    <lastmod>2026-02-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
     <image:image>
@@ -33,7 +33,7 @@
   <!-- Перетяжка кресел -->
   <url>
     <loc>https://peretyazhka-aurora.ru/armchair.html</loc>
-    <lastmod>2026-02-10</lastmod>
+    <lastmod>2026-02-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
     <image:image>
@@ -45,7 +45,7 @@
   <!-- Перетяжка стульев -->
   <url>
     <loc>https://peretyazhka-aurora.ru/chair.html</loc>
-    <lastmod>2026-02-10</lastmod>
+    <lastmod>2026-02-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
     <image:image>
@@ -57,7 +57,7 @@
   <!-- Кожаная мебель -->
   <url>
     <loc>https://peretyazhka-aurora.ru/leather.html</loc>
-    <lastmod>2026-02-10</lastmod>
+    <lastmod>2026-02-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
     <image:image>
@@ -69,7 +69,7 @@
   <!-- Вопросы и ответы -->
   <url>
     <loc>https://peretyazhka-aurora.ru/faq.html</loc>
-    <lastmod>2026-02-11</lastmod>
+    <lastmod>2026-02-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -77,7 +77,7 @@
   <!-- О компании -->
   <url>
     <loc>https://peretyazhka-aurora.ru/about.html</loc>
-    <lastmod>2026-02-11</lastmod>
+    <lastmod>2026-02-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -85,7 +85,7 @@
   <!-- Цены -->
   <url>
     <loc>https://peretyazhka-aurora.ru/prices.html</loc>
-    <lastmod>2026-02-11</lastmod>
+    <lastmod>2026-02-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
@@ -93,7 +93,7 @@
   <!-- Приватность -->
   <url>
     <loc>https://peretyazhka-aurora.ru/privacy.html</loc>
-    <lastmod>2026-02-11</lastmod>
+    <lastmod>2026-02-14</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
@@ -101,7 +101,7 @@
   <!-- Блог - главная страница -->
   <url>
     <loc>https://peretyazhka-aurora.ru/blog.html</loc>
-    <lastmod>2026-02-11</lastmod>
+    <lastmod>2026-02-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -109,7 +109,7 @@
   <!-- Статья: Как выбрать ткань для перетяжки дивана -->
   <url>
     <loc>https://peretyazhka-aurora.ru/blog/kak-vybrat-tkan-dlya-peretyazhki-divana.html</loc>
-    <lastmod>2026-01-20</lastmod>
+    <lastmod>2026-02-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <image:image>
@@ -121,7 +121,7 @@
   <!-- Статья: Антивандальные ткани -->
   <url>
     <loc>https://peretyazhka-aurora.ru/blog/antivandalnye-tkani-chto-eto.html</loc>
-    <lastmod>2026-01-18</lastmod>
+    <lastmod>2026-02-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <image:image>
@@ -133,7 +133,7 @@
   <!-- Статья: Натуральная кожа vs экокожа -->
   <url>
     <loc>https://peretyazhka-aurora.ru/blog/naturalnaya-kozha-vs-ekokozha.html</loc>
-    <lastmod>2026-01-10</lastmod>
+    <lastmod>2026-02-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <image:image>
@@ -145,7 +145,7 @@
   <!-- Статья: Как ухаживать за мягкой мебелью -->
   <url>
     <loc>https://peretyazhka-aurora.ru/blog/kak-uhazhivat-za-myagkoj-mebelyu.html</loc>
-    <lastmod>2026-01-15</lastmod>
+    <lastmod>2026-02-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <image:image>
@@ -157,7 +157,7 @@
   <!-- Статья: 7 признаков, что пора перетягивать мебель -->
   <url>
     <loc>https://peretyazhka-aurora.ru/blog/7-priznakov-chto-pora-pertyaginat-mebel.html</loc>
-    <lastmod>2026-01-05</lastmod>
+    <lastmod>2026-02-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <image:image>
@@ -169,7 +169,7 @@
   <!-- Статья: Преображение советского дивана -->
   <url>
     <loc>https://peretyazhka-aurora.ru/blog/peretyazhka-sovetskogo-divana.html</loc>
-    <lastmod>2026-01-03</lastmod>
+    <lastmod>2026-02-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <image:image>
