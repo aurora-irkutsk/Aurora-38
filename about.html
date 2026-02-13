@@ -29,6 +29,42 @@
     <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
     <link rel="manifest" href="/site.webmanifest">
     
+    <!-- Schema.org JSON-LD -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "AboutPage",
+      "name": "О компании Aurora 38",
+      "description": "Профессиональная перетяжка мебели с 2008 года. Команда опытных мастеров, собственное производство, гарантия качества.",
+      "url": "https://peretyazhka-aurora.ru/about.html",
+      "mainEntity": {
+        "@type": "LocalBusiness",
+        "name": "Aurora 38",
+        "@id": "https://peretyazhka-aurora.ru/#organization",
+        "description": "Перетяжка и ремонт мебели в Иркутске",
+        "foundingDate": "2008",
+        "telephone": "+7-902-560-52-25",
+        "email": "info@peretyazhka-aurora.ru",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Иркутск",
+          "addressRegion": "Иркутская область",
+          "addressCountry": "RU"
+        },
+        "geo": {
+          "@type": "GeoCoordinates",
+          "latitude": "52.2978",
+          "longitude": "104.2964"
+        },
+        "areaServed": {
+          "@type": "City",
+          "name": "Иркутск"
+        },
+        "priceRange": "$$"
+      }
+    }
+    </script>
+    
     <!-- Stylesheets -->
     <link rel="stylesheet" href="/style.css">
     <link rel="stylesheet" href="/cookie-consent.css">
@@ -88,10 +124,18 @@
         <!-- Breadcrumbs -->
         <section class="breadcrumbs">
             <div class="container">
-                <nav class="breadcrumb" aria-label="breadcrumb">
-                    <a href="/">Главная</a>
-                    <span class="breadcrumb__separator">→</span>
-                    <span class="breadcrumb__current">О компании</span>
+                <nav aria-label="breadcrumb">
+                    <ol itemscope itemtype="https://schema.org/BreadcrumbList" class="breadcrumb">
+                        <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+                            <a itemprop="item" href="/"><span itemprop="name">Главная</span></a>
+                            <meta itemprop="position" content="1" />
+                            <span class="breadcrumb__separator">→</span>
+                        </li>
+                        <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+                            <span itemprop="name" class="breadcrumb__current">О компании</span>
+                            <meta itemprop="position" content="2" />
+                        </li>
+                    </ol>
                 </nav>
             </div>
         </section>

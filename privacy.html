@@ -29,6 +29,22 @@
     <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
     <link rel="manifest" href="/site.webmanifest">
     
+    <!-- Schema.org JSON-LD -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "name": "Политика приватности",
+      "description": "Политика обработки персональных данных Aurora 38",
+      "url": "https://peretyazhka-aurora.ru/privacy.html",
+      "isPartOf": {
+        "@type": "WebSite",
+        "name": "Aurora 38",
+        "url": "https://peretyazhka-aurora.ru"
+      }
+    }
+    </script>
+    
     <!-- Stylesheets -->
     <link rel="stylesheet" href="/style.css">
     <link rel="stylesheet" href="/cookie-consent.css">
@@ -88,10 +104,18 @@
         <!-- Breadcrumbs -->
         <section class="breadcrumbs">
             <div class="container">
-                <nav class="breadcrumb" aria-label="breadcrumb">
-                    <a href="/">Главная</a>
-                    <span class="breadcrumb__separator">→</span>
-                    <span class="breadcrumb__current">Приватность</span>
+                <nav aria-label="breadcrumb">
+                    <ol itemscope itemtype="https://schema.org/BreadcrumbList" class="breadcrumb">
+                        <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+                            <a itemprop="item" href="/"><span itemprop="name">Главная</span></a>
+                            <meta itemprop="position" content="1" />
+                            <span class="breadcrumb__separator">→</span>
+                        </li>
+                        <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+                            <span itemprop="name" class="breadcrumb__current">Приватность</span>
+                            <meta itemprop="position" content="2" />
+                        </li>
+                    </ol>
                 </nav>
             </div>
         </section>

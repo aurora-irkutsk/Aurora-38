@@ -29,6 +29,91 @@
     <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
     <link rel="manifest" href="/site.webmanifest">
     
+    <!-- Schema.org JSON-LD -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ItemList",
+      "name": "Цены на перетяжку мебели",
+      "description": "Прайс-лист на услуги перетяжки и ремонта мебели в Иркутске",
+      "url": "https://peretyazhka-aurora.ru/prices.html",
+      "itemListElement": [
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Перетяжка дивана",
+            "description": "Перетяжка диванов всех типов и размеров",
+            "provider": {
+              "@type": "LocalBusiness",
+              "name": "Aurora 38",
+              "@id": "https://peretyazhka-aurora.ru/#organization"
+            }
+          },
+          "priceSpecification": {
+            "@type": "PriceSpecification",
+            "priceCurrency": "RUB",
+            "minPrice": "8000"
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Перетяжка кресла",
+            "description": "Перетяжка кресел и офисных стульев",
+            "provider": {
+              "@type": "LocalBusiness",
+              "name": "Aurora 38",
+              "@id": "https://peretyazhka-aurora.ru/#organization"
+            }
+          },
+          "priceSpecification": {
+            "@type": "PriceSpecification",
+            "priceCurrency": "RUB",
+            "minPrice": "3000"
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Перетяжка стула",
+            "description": "Перетяжка стульев всех типов",
+            "provider": {
+              "@type": "LocalBusiness",
+              "name": "Aurora 38",
+              "@id": "https://peretyazhka-aurora.ru/#organization"
+            }
+          },
+          "priceSpecification": {
+            "@type": "PriceSpecification",
+            "priceCurrency": "RUB",
+            "minPrice": "1500"
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Перетяжка кожаной мебели",
+            "description": "Перетяжка мебели натуральной кожей и экокожей",
+            "provider": {
+              "@type": "LocalBusiness",
+              "name": "Aurora 38",
+              "@id": "https://peretyazhka-aurora.ru/#organization"
+            }
+          },
+          "priceSpecification": {
+            "@type": "PriceSpecification",
+            "priceCurrency": "RUB",
+            "minPrice": "10000"
+          }
+        }
+      ]
+    }
+    </script>
+    
     <!-- Stylesheets -->
     <link rel="stylesheet" href="/style.css">
     <link rel="stylesheet" href="/cookie-consent.css">
@@ -87,10 +172,18 @@
         <!-- Breadcrumbs -->
         <section class="breadcrumbs">
             <div class="container">
-                <nav class="breadcrumb" aria-label="breadcrumb">
-                    <a href="/">Главная</a>
-                    <span class="breadcrumb__separator">→</span>
-                    <span class="breadcrumb__current">Цены</span>
+                <nav aria-label="breadcrumb">
+                    <ol itemscope itemtype="https://schema.org/BreadcrumbList" class="breadcrumb">
+                        <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+                            <a itemprop="item" href="/"><span itemprop="name">Главная</span></a>
+                            <meta itemprop="position" content="1" />
+                            <span class="breadcrumb__separator">→</span>
+                        </li>
+                        <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+                            <span itemprop="name" class="breadcrumb__current">Цены</span>
+                            <meta itemprop="position" content="2" />
+                        </li>
+                    </ol>
                 </nav>
             </div>
         </section>
