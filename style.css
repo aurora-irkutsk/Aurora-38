@@ -3065,13 +3065,15 @@ a.request__button {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin-top: 16px;
   margin-bottom: 10px;
-  padding: 0 15px;
+  padding: 0 20px;
 }
 
 .review__author strong {
   font-size: 18px;
-  color: #333;
+  color: #ffffff;
+  font-weight: 600;
 }
 
 .review__rating {
