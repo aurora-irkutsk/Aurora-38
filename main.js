@@ -10,6 +10,7 @@ document.addEventListener('DOMContentLoaded', function () {
   initFormProtection();
   initSuccessModal();
   initFAQ();
+  initReviewsLink();
 });
 
 // =============================================================================
@@ -449,6 +450,31 @@ function initFAQ() {
       
       // Переключаем текущий элемент
       item.classList.toggle('active');
+    });
+  });
+}
+
+// =============================================================================
+// ОБРАБОТКА ССЫЛКИ "ОТЗЫВЫ" В БУРГЕР-МЕНЮ
+// =============================================================================
+
+function initReviewsLink() {
+  const reviewsLinks = document.querySelectorAll('.reviews-link');
+  
+  reviewsLinks.forEach(link => {
+    link.addEventListener('click', (e) => {
+      e.preventDefault();
+      
+      const reviewsSection = document.getElementById('reviews');
+      
+      // Если на текущей странице есть блок отзывов
+      if (reviewsSection) {
+        // Прокручиваем к блоку отзывов
+        reviewsSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      } else {
+        // Если блока нет, переходим на главную страницу с якорем
+        window.location.href = '/#reviews';
+      }
     });
   });
 }
