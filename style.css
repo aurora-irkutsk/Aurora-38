@@ -3083,12 +3083,40 @@ a.request__button {
 }
 
 .review__date {
+  display: none;
+}
+
+/* Review card link wrapper */
+.review-link {
   display: block;
-  margin-top: 10px;
-  padding: 0 15px;
+  text-decoration: none;
+  color: inherit;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.review-link:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(255, 165, 0, 0.3);
+}
+
+.review-link:hover .review {
+  border-color: #ffa500;
+}
+
+/* 2GIS link text at bottom of review cards */
+.review__2gis-link {
+  display: block;
+  text-align: center;
+  margin-top: 15px;
+  padding: 12px 20px 20px;
   font-size: 14px;
-  color: #888;
-  font-style: italic;
+  color: #ffa500;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.review-link:hover .review__2gis-link {
+  color: #ffb733;
 }
 
 /* Prices Page */
