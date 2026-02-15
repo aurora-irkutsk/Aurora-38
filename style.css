@@ -162,14 +162,14 @@ a.request__button {
 .header__nav {
   display: flex;
   align-items: center;
-  gap: clamp(12px, 1.5vw, 20px);
+  gap: clamp(8px, 1vw, 12px);
   margin-left: auto;
   flex-shrink: 0;
 }
 
 .header__nav-link {
   position: relative;
-  font-size: 15px;
+  font-size: 13px;
   font-weight: 500;
   text-decoration: none;
   color: whitesmoke;
@@ -183,7 +183,7 @@ a.request__button {
   left: 0;
   width: 0;
   height: 1px;
-  background: orange;
+  background: linear-gradient(90deg, transparent, #ff8c00, transparent);
   transition: width 0.15s ease;
 }
 
@@ -197,7 +197,8 @@ a.request__button {
 
 .header__button {
   background: transparent;
-  border: 2px solid orange;
+  border: 1px solid #ff8c00;
+  box-shadow: 0 0 8px rgba(255, 140, 0, 0.4), inset 0 1px 0 rgba(255, 200, 100, 0.3);
   border-radius: 8px;
   padding: 14px 20px;
   color: white;
@@ -208,8 +209,8 @@ a.request__button {
 }
 
 .header__button:hover {
-  background-color: orange;
-  color: whitesmoke;
+  transform: scale(1.05);
+  background: transparent;
 }
 
 /* =============================================================================
@@ -267,7 +268,8 @@ a.request__button {
 .hero__button {
   display: inline-block;
   background: transparent;
-  border: 2px solid orange;
+  border: 1px solid #ff8c00;
+  box-shadow: 0 0 8px rgba(255, 140, 0, 0.4), inset 0 1px 0 rgba(255, 200, 100, 0.3);
   color: whitesmoke;
   font-weight: 600;
   padding: 14px 32px;
@@ -279,9 +281,8 @@ a.request__button {
 
 .hero__button:hover,
 .hero__button:focus {
-  background: #ff9800;
-  color: whitesmoke;
-  border-color: #ff9800;
+  transform: scale(1.05);
+  background: transparent;
 }
 
 .hero__button:active {
@@ -294,7 +295,7 @@ a.request__button {
 
 .services {
   padding: 80px 0;
-  background: #0a0a0a;
+  background: #1a1a1a;
   position: relative;
   overflow: hidden;
 }
@@ -306,7 +307,7 @@ a.request__button {
   left: -50%;
   width: 200%;
   height: 100%;
-  background: radial-gradient(circle at 50% 50%, rgba(255, 140, 0, 0.05) 0%, transparent 50%);
+  background: none;
   animation: pulseGlow 8s ease-in-out infinite;
   pointer-events: none;
 }
@@ -319,7 +320,7 @@ a.request__button {
   color: #ffffff;
   position: relative;
   z-index: 1;
-  text-shadow: 0 0 30px rgba(255, 140, 0, 0.4);
+  text-shadow: none;
   letter-spacing: 0.5px;
 }
 
@@ -331,7 +332,7 @@ a.request__button {
   background: linear-gradient(90deg, transparent, #ff8c00, #ffa500, #ff8c00, transparent);
   margin: 16px auto 0;
   border-radius: 2px;
-  box-shadow: 0 0 15px rgba(255, 140, 0, 0.8), 0 0 30px rgba(255, 140, 0, 0.4);
+  box-shadow: none;
 }
 
 .services__list {
@@ -347,13 +348,10 @@ a.request__button {
 .service {
   background: linear-gradient(145deg, rgba(20, 20, 20, 0.9), rgba(15, 15, 15, 0.95));
   backdrop-filter: blur(10px);
-  border: 1.5px solid rgba(255, 140, 0, 0.15);
+  border: none;
   border-radius: 16px;
   overflow: hidden;
-  box-shadow: 
-    0 10px 40px rgba(0, 0, 0, 0.6),
-    0 0 0 1px rgba(255, 140, 0, 0.05),
-    inset 0 1px 0 rgba(255, 255, 255, 0.03);
+  box-shadow: none;
   transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   display: flex;
   flex-direction: column;
@@ -381,29 +379,24 @@ a.request__button {
   position: absolute;
   inset: 0;
   border-radius: 16px;
-  padding: 2px;
-  background: linear-gradient(145deg, rgba(255, 140, 0, 0), rgba(255, 140, 0, 0.3), rgba(255, 140, 0, 0));
+  padding: 1.5px;
+  background: linear-gradient(145deg, transparent, #ff8c00, #ffa500, #ff8c00, transparent);
   -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
   -webkit-mask-composite: xor;
   mask-composite: exclude;
-  opacity: 0;
+  opacity: 1;
   transition: opacity 0.5s ease;
   pointer-events: none;
 }
 
 .service:hover {
-  transform: translateY(-15px) scale(1.03);
-  box-shadow: 
-    0 25px 70px rgba(0, 0, 0, 0.7),
-    0 0 20px rgba(255, 140, 0, 0.4),
-    0 0 40px rgba(255, 140, 0, 0.2),
-    inset 0 1px 0 rgba(255, 255, 255, 0.08);
-  border-color: rgba(255, 140, 0, 0.6);
+  transform: translateY(-12px);
+  box-shadow: none;
   background: linear-gradient(145deg, rgba(25, 25, 25, 0.95), rgba(20, 20, 20, 1));
 }
 
 .service:hover::before {
-  opacity: 1;
+  opacity: 0;
   transform: rotate(45deg);
 }
 
@@ -500,7 +493,7 @@ a.request__button {
   height: 1px;
   background: linear-gradient(90deg, transparent, #ff8c00, #ffa500, #ff8c00, transparent);
   transform: translateX(-50%);
-  box-shadow: 0 0 10px rgba(255, 140, 0, 0.6);
+  box-shadow: none;
   transition: width 0.15s ease;
 }
 
@@ -519,7 +512,7 @@ a.request__button {
 
 .advantages-cards {
   padding: 80px 0;
-  background: #0a0a0a;
+  background: #1a1a1a;
   position: relative;
   overflow: hidden;
 }
@@ -531,7 +524,7 @@ a.request__button {
   left: -50%;
   width: 200%;
   height: 100%;
-  background: radial-gradient(circle at 50% 50%, rgba(255, 140, 0, 0.05) 0%, transparent 50%);
+  background: none;
   animation: pulseGlow 8s ease-in-out infinite;
   pointer-events: none;
 }
@@ -555,7 +548,7 @@ a.request__button {
   color: #ffffff;
   position: relative;
   z-index: 1;
-  text-shadow: 0 0 30px rgba(255, 140, 0, 0.4);
+  text-shadow: none;
   letter-spacing: 0.5px;
 }
 
@@ -567,7 +560,7 @@ a.request__button {
   background: linear-gradient(90deg, transparent, #ff8c00, #ffa500, #ff8c00, transparent);
   margin: 16px auto 0;
   border-radius: 2px;
-  box-shadow: 0 0 15px rgba(255, 140, 0, 0.8), 0 0 30px rgba(255, 140, 0, 0.4);
+  box-shadow: none;
 }
 
 .advantages-cards__list {
@@ -583,15 +576,12 @@ a.request__button {
 .advantage-cards__item {
   background: linear-gradient(145deg, rgba(20, 20, 20, 0.9), rgba(15, 15, 15, 0.95));
   backdrop-filter: blur(10px);
-  border: 1.5px solid rgba(255, 140, 0, 0.15);
+  border: none;
   padding: 35px 24px;
   border-radius: 16px;
   text-align: center;
   transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-  box-shadow: 
-    0 10px 40px rgba(0, 0, 0, 0.6),
-    0 0 0 1px rgba(255, 140, 0, 0.05),
-    inset 0 1px 0 rgba(255, 255, 255, 0.03);
+  box-shadow: none;
   position: relative;
   overflow: hidden;
   cursor: pointer;
@@ -615,29 +605,24 @@ a.request__button {
   position: absolute;
   inset: 0;
   border-radius: 16px;
-  padding: 2px;
-  background: linear-gradient(145deg, rgba(255, 140, 0, 0), rgba(255, 140, 0, 0.3), rgba(255, 140, 0, 0));
+  padding: 1.5px;
+  background: linear-gradient(145deg, transparent, #ff8c00, #ffa500, #ff8c00, transparent);
   -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
   -webkit-mask-composite: xor;
   mask-composite: exclude;
-  opacity: 0;
+  opacity: 1;
   transition: opacity 0.5s ease;
   pointer-events: none;
 }
 
 .advantage-cards__item:hover {
-  transform: translateY(-15px) scale(1.03);
-  box-shadow: 
-    0 25px 70px rgba(0, 0, 0, 0.7),
-    0 0 20px rgba(255, 140, 0, 0.4),
-    0 0 40px rgba(255, 140, 0, 0.2),
-    inset 0 1px 0 rgba(255, 255, 255, 0.08);
-  border-color: rgba(255, 140, 0, 0.6);
+  transform: translateY(-12px);
+  box-shadow: none;
   background: linear-gradient(145deg, rgba(25, 25, 25, 0.95), rgba(20, 20, 20, 1));
 }
 
 .advantage-cards__item:hover::before {
-  opacity: 1;
+  opacity: 0;
   transform: rotate(45deg);
 }
 
@@ -657,24 +642,13 @@ a.request__button {
   font-weight: 700;
   border-radius: 50%;
   margin: 0 auto 20px;
-  box-shadow: 
-    0 0 25px rgba(255, 140, 0, 0.7),
-    0 0 50px rgba(255, 140, 0, 0.4),
-    0 5px 15px rgba(0, 0, 0, 0.5),
-    inset 0 -3px 10px rgba(0, 0, 0, 0.3),
-    inset 0 2px 5px rgba(255, 255, 255, 0.3);
+  box-shadow: none;
   transition: all 0.4s ease;
 }
 
 .advantage-cards__item:hover .advantage-cards__number {
   transform: scale(1.15) rotate(360deg);
-  box-shadow: 
-    0 0 35px rgba(255, 140, 0, 0.9),
-    0 0 70px rgba(255, 140, 0, 0.6),
-    0 0 100px rgba(255, 140, 0, 0.3),
-    0 8px 20px rgba(0, 0, 0, 0.6),
-    inset 0 -3px 10px rgba(0, 0, 0, 0.3),
-    inset 0 2px 5px rgba(255, 255, 255, 0.4);
+  box-shadow: none;
 }
 
 .advantage-cards__item-title {
@@ -710,7 +684,7 @@ a.request__button {
 
 .steps {
   padding: 80px 0;
-  background: #0a0a0a;
+  background: #1a1a1a;
   position: relative;
   overflow: hidden;
 }
@@ -722,7 +696,7 @@ a.request__button {
   left: -50%;
   width: 200%;
   height: 100%;
-  background: radial-gradient(circle at 50% 50%, rgba(255, 140, 0, 0.05) 0%, transparent 50%);
+  background: none;
   animation: pulseGlow 8s ease-in-out infinite;
   pointer-events: none;
 }
@@ -735,7 +709,7 @@ a.request__button {
   color: #ffffff;
   position: relative;
   z-index: 1;
-  text-shadow: 0 0 30px rgba(255, 140, 0, 0.4);
+  text-shadow: none;
   letter-spacing: 0.5px;
 }
 
@@ -747,7 +721,7 @@ a.request__button {
   background: linear-gradient(90deg, transparent, #ff8c00, #ffa500, #ff8c00, transparent);
   margin: 16px auto 0;
   border-radius: 2px;
-  box-shadow: 0 0 15px rgba(255, 140, 0, 0.8), 0 0 30px rgba(255, 140, 0, 0.4);
+  box-shadow: none;
 }
 
 .steps__list {
@@ -763,13 +737,10 @@ a.request__button {
 .step {
   background: linear-gradient(145deg, rgba(20, 20, 20, 0.9), rgba(15, 15, 15, 0.95));
   backdrop-filter: blur(10px);
-  border: 1.5px solid rgba(255, 140, 0, 0.15);
+  border: none;
   padding: 35px 24px;
   border-radius: 16px;
-  box-shadow: 
-    0 10px 40px rgba(0, 0, 0, 0.6),
-    0 0 0 1px rgba(255, 140, 0, 0.05),
-    inset 0 1px 0 rgba(255, 255, 255, 0.03);
+  box-shadow: none;
   text-align: center;
   transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   position: relative;
@@ -795,29 +766,24 @@ a.request__button {
   position: absolute;
   inset: 0;
   border-radius: 16px;
-  padding: 2px;
-  background: linear-gradient(145deg, rgba(255, 140, 0, 0), rgba(255, 140, 0, 0.3), rgba(255, 140, 0, 0));
+  padding: 1.5px;
+  background: linear-gradient(145deg, transparent, #ff8c00, #ffa500, #ff8c00, transparent);
   -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
   -webkit-mask-composite: xor;
   mask-composite: exclude;
-  opacity: 0;
+  opacity: 1;
   transition: opacity 0.5s ease;
   pointer-events: none;
 }
 
 .step:hover {
-  transform: translateY(-15px) scale(1.03);
-  box-shadow: 
-    0 25px 70px rgba(0, 0, 0, 0.7),
-    0 0 20px rgba(255, 140, 0, 0.4),
-    0 0 40px rgba(255, 140, 0, 0.2),
-    inset 0 1px 0 rgba(255, 255, 255, 0.08);
-  border-color: rgba(255, 140, 0, 0.6);
+  transform: translateY(-12px);
+  box-shadow: none;
   background: linear-gradient(145deg, rgba(25, 25, 25, 0.95), rgba(20, 20, 20, 1));
 }
 
 .step:hover::before {
-  opacity: 1;
+  opacity: 0;
   transform: rotate(45deg);
 }
 
@@ -837,24 +803,13 @@ a.request__button {
   font-weight: 700;
   border-radius: 50%;
   margin: 0 auto 20px;
-  box-shadow: 
-    0 0 25px rgba(255, 140, 0, 0.7),
-    0 0 50px rgba(255, 140, 0, 0.4),
-    0 5px 15px rgba(0, 0, 0, 0.5),
-    inset 0 -3px 10px rgba(0, 0, 0, 0.3),
-    inset 0 2px 5px rgba(255, 255, 255, 0.3);
+  box-shadow: none;
   transition: all 0.4s ease;
 }
 
 .step:hover .step__number {
   transform: scale(1.15) rotate(360deg);
-  box-shadow: 
-    0 0 35px rgba(255, 140, 0, 0.9),
-    0 0 70px rgba(255, 140, 0, 0.6),
-    0 0 100px rgba(255, 140, 0, 0.3),
-    0 8px 20px rgba(0, 0, 0, 0.6),
-    inset 0 -3px 10px rgba(0, 0, 0, 0.3),
-    inset 0 2px 5px rgba(255, 255, 255, 0.4);
+  box-shadow: none;
 }
 
 .step__title {
@@ -890,7 +845,7 @@ a.request__button {
 
 .portfolio {
   padding: 80px 0;
-  background: #0a0a0a;
+  background: #1a1a1a;
   position: relative;
   overflow: hidden;
 }
@@ -902,7 +857,7 @@ a.request__button {
   left: -50%;
   width: 200%;
   height: 100%;
-  background: radial-gradient(circle at 50% 50%, rgba(255, 140, 0, 0.05) 0%, transparent 50%);
+  background: none;
   animation: pulseGlow 8s ease-in-out infinite;
   pointer-events: none;
 }
@@ -915,7 +870,7 @@ a.request__button {
   color: #ffffff;
   position: relative;
   z-index: 1;
-  text-shadow: 0 0 30px rgba(255, 140, 0, 0.4);
+  text-shadow: none;
   letter-spacing: 0.5px;
 }
 
@@ -927,12 +882,12 @@ a.request__button {
   background: linear-gradient(90deg, transparent, #ff8c00, #ffa500, #ff8c00, transparent);
   margin: 16px auto 0;
   border-radius: 2px;
-  box-shadow: 0 0 15px rgba(255, 140, 0, 0.8), 0 0 30px rgba(255, 140, 0, 0.4);
+  box-shadow: none;
 }
 
 .portfolio__list {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  grid-template-columns: repeat(5, 1fr);
   gap: 24px;
   max-width: 1400px;
   margin: 0 auto;
@@ -943,13 +898,10 @@ a.request__button {
 .portfolio__item {
   background: linear-gradient(145deg, rgba(20, 20, 20, 0.9), rgba(15, 15, 15, 0.95));
   backdrop-filter: blur(10px);
-  border: 1.5px solid rgba(255, 140, 0, 0.15);
+  border: none;
   border-radius: 16px;
   overflow: hidden;
-  box-shadow: 
-    0 10px 40px rgba(0, 0, 0, 0.6),
-    0 0 0 1px rgba(255, 140, 0, 0.05),
-    inset 0 1px 0 rgba(255, 255, 255, 0.03);
+  box-shadow: none;
   transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   cursor: pointer;
   position: relative;
@@ -974,29 +926,24 @@ a.request__button {
   position: absolute;
   inset: 0;
   border-radius: 16px;
-  padding: 2px;
-  background: linear-gradient(145deg, rgba(255, 140, 0, 0), rgba(255, 140, 0, 0.3), rgba(255, 140, 0, 0));
+  padding: 1.5px;
+  background: linear-gradient(145deg, transparent, #ff8c00, #ffa500, #ff8c00, transparent);
   -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
   -webkit-mask-composite: xor;
   mask-composite: exclude;
-  opacity: 0;
+  opacity: 1;
   transition: opacity 0.5s ease;
   pointer-events: none;
 }
 
 .portfolio__item:hover {
-  transform: translateY(-12px) scale(1.02);
-  box-shadow: 
-    0 25px 70px rgba(0, 0, 0, 0.7),
-    0 0 20px rgba(255, 140, 0, 0.4),
-    0 0 40px rgba(255, 140, 0, 0.2),
-    inset 0 1px 0 rgba(255, 255, 255, 0.08);
-  border-color: rgba(255, 140, 0, 0.6);
+  transform: translateY(-12px);
+  box-shadow: none;
   background: linear-gradient(145deg, rgba(25, 25, 25, 0.95), rgba(20, 20, 20, 1));
 }
 
 .portfolio__item:hover::before {
-  opacity: 1;
+  opacity: 0;
   transform: rotate(45deg);
 }
 
@@ -1042,7 +989,7 @@ a.request__button {
 
 .reviews {
   padding: 80px 0;
-  background: #0a0a0a;
+  background: #1a1a1a;
   position: relative;
   overflow: hidden;
 }
@@ -1054,7 +1001,7 @@ a.request__button {
   left: -50%;
   width: 200%;
   height: 100%;
-  background: radial-gradient(circle at 50% 50%, rgba(255, 140, 0, 0.05) 0%, transparent 50%);
+  background: none;
   animation: pulseGlow 8s ease-in-out infinite;
   pointer-events: none;
 }
@@ -1067,7 +1014,7 @@ a.request__button {
   color: #ffffff;
   position: relative;
   z-index: 1;
-  text-shadow: 0 0 30px rgba(255, 140, 0, 0.4);
+  text-shadow: none;
   letter-spacing: 0.5px;
 }
 
@@ -1079,7 +1026,7 @@ a.request__button {
   background: linear-gradient(90deg, transparent, #ff8c00, #ffa500, #ff8c00, transparent);
   margin: 16px auto 0;
   border-radius: 2px;
-  box-shadow: 0 0 15px rgba(255, 140, 0, 0.8), 0 0 30px rgba(255, 140, 0, 0.4);
+  box-shadow: none;
 }
 
 .reviews__list {
@@ -1095,12 +1042,9 @@ a.request__button {
 .review {
   background: linear-gradient(145deg, rgba(20, 20, 20, 0.9), rgba(15, 15, 15, 0.95));
   backdrop-filter: blur(10px);
-  border: 1.5px solid rgba(255, 140, 0, 0.15);
+  border: none;
   border-radius: 16px;
-  box-shadow: 
-    0 10px 40px rgba(0, 0, 0, 0.6),
-    0 0 0 1px rgba(255, 140, 0, 0.05),
-    inset 0 1px 0 rgba(255, 255, 255, 0.03);
+  box-shadow: none !important;
   overflow: hidden;
   display: flex;
   flex-direction: column;
@@ -1117,11 +1061,12 @@ a.request__button {
   left: -50%;
   width: 200%;
   height: 200%;
-  background: radial-gradient(circle, rgba(255, 140, 0, 0.15) 0%, transparent 60%);
+  background: none;
   opacity: 0;
   transition: opacity 0.5s ease, transform 0.5s ease;
   pointer-events: none;
   z-index: 0;
+  display: none;
 }
 
 .review::after {
@@ -1129,29 +1074,24 @@ a.request__button {
   position: absolute;
   inset: 0;
   border-radius: 16px;
-  padding: 2px;
-  background: linear-gradient(145deg, rgba(255, 140, 0, 0), rgba(255, 140, 0, 0.3), rgba(255, 140, 0, 0));
+  padding: 1.5px;
+  background: linear-gradient(145deg, transparent, #ff8c00, #ffa500, #ff8c00, transparent);
   -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
   -webkit-mask-composite: xor;
   mask-composite: exclude;
-  opacity: 0;
+  opacity: 1;
   transition: opacity 0.5s ease;
   pointer-events: none;
 }
 
 .review:hover {
-  transform: translateY(-12px) scale(1.02);
-  box-shadow: 
-    0 25px 70px rgba(0, 0, 0, 0.7),
-    0 0 20px rgba(255, 140, 0, 0.4),
-    0 0 40px rgba(255, 140, 0, 0.2),
-    inset 0 1px 0 rgba(255, 255, 255, 0.08);
-  border-color: rgba(255, 140, 0, 0.6);
+  transform: translateY(-12px);
+  box-shadow: none !important;
   background: linear-gradient(145deg, rgba(25, 25, 25, 0.95), rgba(20, 20, 20, 1));
 }
 
 .review:hover::before {
-  opacity: 1;
+  opacity: 0;
   transform: rotate(45deg);
 }
 
@@ -1170,7 +1110,7 @@ a.request__button {
 }
 
 .review:hover .review__photo-wrapper {
-  transform: scale(1.05);
+  transform: none;
 }
 
 .review__photo {
@@ -1210,7 +1150,7 @@ a.request__button {
   padding: 100px 0;
   color: white;
   text-align: center;
-  background: #0a0a0a;
+  background: #1a1a1a;
   overflow: hidden;
 }
 
@@ -1220,7 +1160,7 @@ a.request__button {
   left: -50%;
   width: 200%;
   height: 100%;
-  background: radial-gradient(circle at 50% 50%, rgba(255, 140, 0, 0.05) 0%, transparent 50%);
+  background: none;
   animation: pulseGlow 8s ease-in-out infinite;
   pointer-events: none;
 }
@@ -1232,7 +1172,7 @@ a.request__button {
   margin: 0 auto;
   background: linear-gradient(145deg, rgba(20, 20, 20, 0.9), rgba(15, 15, 15, 0.95));
   backdrop-filter: blur(10px);
-  border: 1.5px solid rgba(255, 140, 0, 0.15);
+  border: none;
   padding: 50px 40px;
   border-radius: 16px;
   box-shadow: 
@@ -1256,27 +1196,40 @@ a.request__button {
 }
 
 .request__content:hover {
-  transform: translateY(-5px);
-  box-shadow: 
-    0 25px 70px rgba(0, 0, 0, 0.7),
-    0 0 40px rgba(255, 140, 0, 0.5),
-    0 0 80px rgba(255, 140, 0, 0.3),
-    0 0 120px rgba(255, 140, 0, 0.15),
-    inset 0 1px 0 rgba(255, 255, 255, 0.08);
-  border-color: rgba(255, 140, 0, 0.6);
+  transform: none;
+  box-shadow: none;
+}
+
+.request__content::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 16px;
+  padding: 1.5px;
+  background: linear-gradient(145deg, transparent, #ff8c00, #ffa500, #ff8c00, transparent);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: 1;
+  transition: opacity 0.5s ease;
+  pointer-events: none;
 }
 
 .request__content:hover::before {
-  opacity: 1;
+  opacity: 0;
   transform: rotate(45deg);
+}
+
+.request__content:hover::after {
+  opacity: 1;
 }
 
 .request__title {
   font-size: 40px;
   font-weight: 800;
   margin-bottom: 16px;
-  color: #ffffff;
-  text-shadow: 0 0 30px rgba(255, 140, 0, 0.4);
+  color: #ffa500;
+  text-shadow: 0 0 10px rgba(255, 140, 0, 0.5);
   position: relative;
   z-index: 1;
 }
@@ -1301,17 +1254,39 @@ a.request__button {
   width: 100%;
   padding: 14px 20px;
   font-size: 16px;
-  border: 1.5px solid rgba(255, 140, 0, 0.2);
+  border: none;
   border-radius: 8px;
   outline: none;
-  background: rgba(255, 255, 255, 0.95);
+  background: rgba(255, 255, 255, 0.15);
+  color: rgba(255, 255, 255, 0.9);
   transition: all 0.3s ease;
 }
 
 .request__input:focus {
-  border-color: rgba(255, 140, 0, 0.6);
-  box-shadow: 0 0 20px rgba(255, 140, 0, 0.3);
-  background: rgba(255, 255, 255, 1);
+  border-color: transparent;
+  box-shadow: none;
+  background: rgba(255, 255, 255, 0.25);
+  color: rgba(255, 255, 255, 1);
+}
+.request__input::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.call-modal .modal__input::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+.request__agreement a,
+.modal__agreement a {
+  color: #ffa500;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.request__agreement a:hover,
+.modal__agreement a:hover {
+  color: #ff8c00;
+  text-shadow: 0 0 10px rgba(255, 140, 0, 0.5);
+  text-decoration: underline;
 }
 
 .request__button {
@@ -1319,7 +1294,8 @@ a.request__button {
   font-size: 18px;
   font-weight: 600;
   background: transparent;
-  border: 2px solid rgba(255, 140, 0, 0.6);
+  border: 1px solid #ff8c00;
+  box-shadow: 0 0 8px rgba(255, 140, 0, 0.4), inset 0 1px 0 rgba(255, 200, 100, 0.3);
   color: rgba(255, 255, 255, 0.85);
   border-radius: 8px;
   cursor: pointer;
@@ -1329,16 +1305,13 @@ a.request__button {
 }
 
 .request__button:hover {
-  background-color: rgba(255, 140, 0, 0.15);
-  border-color: #ffa500;
-  color: #ffa500;
-  box-shadow: 0 0 20px rgba(255, 140, 0, 0.4);
-  text-shadow: 0 0 10px rgba(255, 140, 0, 0.5);
+  transform: scale(1.05);
+  background: transparent;
 }
 
 .request__button:active {
   transform: scale(0.98);
-  box-shadow: 0 0 15px rgba(255, 140, 0, 0.3);
+  box-shadow: none;
 }
 
 .request__agreement {
@@ -1358,7 +1331,7 @@ a.request__button {
   position: relative;
   padding: 80px 0;
   color: white;
-  background: #0a0a0a;
+  background: #1a1a1a;
   overflow: hidden;
 }
 
@@ -1369,7 +1342,7 @@ a.request__button {
   left: -50%;
   width: 200%;
   height: 100%;
-  background: radial-gradient(circle at 50% 50%, rgba(255, 140, 0, 0.05) 0%, transparent 50%);
+  background: none;
   animation: pulseGlow 8s ease-in-out infinite;
   pointer-events: none;
 }
@@ -1382,7 +1355,7 @@ a.request__button {
   position: relative;
   z-index: 1;
   color: #ffffff;
-  text-shadow: 0 0 30px rgba(255, 140, 0, 0.4);
+  text-shadow: none;
   letter-spacing: 0.5px;
 }
 
@@ -1394,7 +1367,7 @@ a.request__button {
   background: linear-gradient(90deg, transparent, #ff8c00, #ffa500, #ff8c00, transparent);
   margin: 16px auto 0;
   border-radius: 2px;
-  box-shadow: 0 0 15px rgba(255, 140, 0, 0.8), 0 0 30px rgba(255, 140, 0, 0.4);
+  box-shadow: none;
 }
 
 .contacts__wrapper {
@@ -1411,7 +1384,7 @@ a.request__button {
   flex: 1;
   background: linear-gradient(145deg, rgba(20, 20, 20, 0.9), rgba(15, 15, 15, 0.95));
   backdrop-filter: blur(10px);
-  border: 1.5px solid rgba(255, 140, 0, 0.15);
+  border: none;
   padding: 35px 30px;
   border-radius: 16px;
   box-shadow: 
@@ -1439,19 +1412,42 @@ a.request__button {
 }
 
 .contacts__info:hover {
-  transform: translateY(-5px);
-  box-shadow: 
-    0 25px 70px rgba(0, 0, 0, 0.7),
-    0 0 40px rgba(255, 140, 0, 0.5),
-    0 0 80px rgba(255, 140, 0, 0.3),
-    0 0 120px rgba(255, 140, 0, 0.15),
-    inset 0 1px 0 rgba(255, 255, 255, 0.08);
-  border-color: rgba(255, 140, 0, 0.6);
+  transform: none;
+  box-shadow: none;
+}
+
+.contacts__info::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 16px;
+  padding: 1.5px;
+  background: linear-gradient(145deg, transparent, #ff8c00, #ffa500, #ff8c00, transparent);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: 1;
+  transition: opacity 0.5s ease;
+  pointer-events: none;
 }
 
 .contacts__info:hover::before {
-  opacity: 1;
+  opacity: 0;
   transform: rotate(45deg);
+}
+
+.contacts__info:hover::after {
+  opacity: 1;
+}
+/* Orange gradient border on card hover */
+.service:hover::after,
+.advantage-cards__item:hover::after,
+.step:hover::after,
+.portfolio__item:hover::after,
+.review:hover::after,
+.request__content:hover::after,
+.contacts__info:hover::after {
+  background: linear-gradient(145deg, transparent, #ff8c00, #ffa500, #ff8c00, transparent);
 }
 
 .contacts__info p {
@@ -1477,7 +1473,7 @@ a.request__button {
   position: relative;
   border-radius: 16px;
   overflow: hidden;
-  border: 1.5px solid rgba(255, 140, 0, 0.15);
+  border: none;
   transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   background: linear-gradient(145deg, rgba(20, 20, 20, 0.9), rgba(15, 15, 15, 0.95));
   box-shadow: 
@@ -1501,18 +1497,12 @@ a.request__button {
 }
 
 .contacts__map:hover {
-  transform: translateY(-5px);
-  border-color: rgba(255, 140, 0, 0.6);
-  box-shadow: 
-    0 25px 70px rgba(0, 0, 0, 0.7),
-    0 0 40px rgba(255, 140, 0, 0.5),
-    0 0 80px rgba(255, 140, 0, 0.3),
-    0 0 120px rgba(255, 140, 0, 0.15),
-    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  transform: none;
+  box-shadow: none;
 }
 
 .contacts__map:hover::before {
-  opacity: 1;
+  opacity: 0;
   transform: rotate(45deg);
 }
 
@@ -1544,7 +1534,7 @@ a.request__button {
   backdrop-filter: blur(10px);
   padding: 10px 16px;
   border-radius: 8px;
-  border: 1px solid rgba(255, 140, 0, 0.3);
+  border: none;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
   color: rgba(255, 255, 255, 0.9);
   font-size: 14px;
@@ -1554,8 +1544,8 @@ a.request__button {
 
 .map__travel-info:hover {
   background: rgba(0, 0, 0, 0.95);
-  border-color: rgba(255, 140, 0, 0.5);
-  box-shadow: 0 6px 20px rgba(255, 140, 0, 0.3);
+  border-color: transparent;
+  box-shadow: none;
 }
 
 .map__icon {
@@ -1628,21 +1618,18 @@ a.request__button {
 .map__button--primary {
   background: linear-gradient(135deg, #ff8c00 0%, #ffa500 100%);
   color: white;
-  border: 2px solid rgba(255, 140, 0, 0.6);
+  border: none;
 }
 
 .map__button--primary:hover {
   background: linear-gradient(135deg, #ffa500 0%, #ff8c00 100%);
-  box-shadow: 
-    0 6px 25px rgba(255, 140, 0, 0.5),
-    0 0 30px rgba(255, 140, 0, 0.3);
+  box-shadow: none;
   transform: translateY(-3px);
-  border-color: #ffa500;
 }
 
 .map__button--primary:active {
   transform: translateY(-1px);
-  box-shadow: 0 4px 15px rgba(255, 140, 0, 0.4);
+  box-shadow: none;
 }
 
 /* Вторичная кнопка - "Копировать адрес" */
@@ -1650,16 +1637,13 @@ a.request__button {
   background: rgba(0, 0, 0, 0.85);
   backdrop-filter: blur(10px);
   color: rgba(255, 255, 255, 0.9);
-  border: 2px solid rgba(255, 140, 0, 0.3);
+  border: none;
 }
 
 .map__button--secondary:hover {
   background: rgba(20, 20, 20, 0.95);
-  border-color: rgba(255, 140, 0, 0.6);
   color: #ffa500;
-  box-shadow: 
-    0 6px 25px rgba(0, 0, 0, 0.5),
-    0 0 30px rgba(255, 140, 0, 0.2);
+  box-shadow: none;
   transform: translateY(-3px);
 }
 
@@ -1694,7 +1678,7 @@ a.request__button {
   text-align: center;
   background: rgba(20, 20, 20, 0.9);
   border-radius: 12px;
-  border: 2px solid rgba(255, 140, 0, 0.3);
+  border: none;
 }
 
 .map__fallback p {
@@ -1715,7 +1699,7 @@ a.request__button {
 }
 
 .map__fallback a:hover {
-  box-shadow: 0 6px 20px rgba(255, 140, 0, 0.5);
+  box-shadow: none;
   transform: translateY(-2px);
 }
 
@@ -1774,7 +1758,7 @@ a.request__button {
 
 .about {
   padding: 80px 0;
-  background: #0a0a0a;
+  background: #1a1a1a;
   position: relative;
   overflow: hidden;
 }
@@ -1786,7 +1770,7 @@ a.request__button {
   left: -50%;
   width: 200%;
   height: 100%;
-  background: radial-gradient(circle at 50% 50%, rgba(255, 140, 0, 0.05) 0%, transparent 50%);
+  background: none;
   animation: pulseGlow 8s ease-in-out infinite;
   pointer-events: none;
 }
@@ -1799,7 +1783,7 @@ a.request__button {
   color: #ffffff;
   position: relative;
   z-index: 1;
-  text-shadow: 0 0 30px rgba(255, 140, 0, 0.4);
+  text-shadow: none;
   letter-spacing: 0.5px;
 }
 
@@ -1811,7 +1795,7 @@ a.request__button {
   background: linear-gradient(90deg, transparent, #ff8c00, #ffa500, #ff8c00, transparent);
   margin: 16px auto 0;
   border-radius: 2px;
-  box-shadow: 0 0 15px rgba(255, 140, 0, 0.8), 0 0 30px rgba(255, 140, 0, 0.4);
+  box-shadow: none;
 }
 
 .about__content {
@@ -1845,7 +1829,7 @@ a.request__button {
 
 .included-services {
   padding: 80px 0;
-  background: #0a0a0a;
+  background: #1a1a1a;
   position: relative;
   overflow: hidden;
 }
@@ -1857,7 +1841,7 @@ a.request__button {
   left: -50%;
   width: 200%;
   height: 100%;
-  background: radial-gradient(circle at 50% 50%, rgba(255, 140, 0, 0.05) 0%, transparent 50%);
+  background: none;
   animation: pulseGlow 8s ease-in-out infinite;
   pointer-events: none;
 }
@@ -1870,7 +1854,7 @@ a.request__button {
   color: #ffffff;
   position: relative;
   z-index: 1;
-  text-shadow: 0 0 30px rgba(255, 140, 0, 0.4);
+  text-shadow: none;
   letter-spacing: 0.5px;
 }
 
@@ -1882,7 +1866,7 @@ a.request__button {
   background: linear-gradient(90deg, transparent, #ff8c00, #ffa500, #ff8c00, transparent);
   margin: 16px auto 0;
   border-radius: 2px;
-  box-shadow: 0 0 15px rgba(255, 140, 0, 0.8), 0 0 30px rgba(255, 140, 0, 0.4);
+  box-shadow: none;
 }
 
 .included-services__list {
@@ -1900,14 +1884,11 @@ a.request__button {
 .included-services__item {
   background: linear-gradient(145deg, rgba(20, 20, 20, 0.9), rgba(15, 15, 15, 0.95));
   backdrop-filter: blur(10px);
-  border: 1.5px solid rgba(255, 140, 0, 0.15);
+  border: none;
   padding: 30px 24px;
   border-radius: 16px;
   transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-  box-shadow: 
-    0 10px 40px rgba(0, 0, 0, 0.6),
-    0 0 0 1px rgba(255, 140, 0, 0.05),
-    inset 0 1px 0 rgba(255, 255, 255, 0.03);
+  box-shadow: none;
   position: relative;
   overflow: hidden;
   cursor: pointer;
@@ -1932,25 +1913,22 @@ a.request__button {
 .included-services__item::after {
   content: "";
   position: absolute;
-  top: -50%;
-  left: -50%;
-  width: 200%;
-  height: 200%;
-  background: radial-gradient(circle, rgba(255, 140, 0, 0.15) 0%, transparent 60%);
-  opacity: 0;
-  transition: opacity 0.5s ease, transform 0.5s ease;
+  inset: 0;
+  border-radius: 16px;
+  padding: 1.5px;
+  background: linear-gradient(145deg, transparent, #ff8c00, #ffa500, #ff8c00, transparent);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: 1;
+  transition: opacity 0.5s ease;
   pointer-events: none;
+  z-index: 0;
 }
 
 .included-services__item:hover {
   transform: translateY(-10px) scale(1.02);
-  box-shadow: 
-    0 25px 70px rgba(0, 0, 0, 0.7),
-    0 0 40px rgba(255, 140, 0, 0.5),
-    0 0 80px rgba(255, 140, 0, 0.3),
-    0 0 120px rgba(255, 140, 0, 0.15),
-    inset 0 1px 0 rgba(255, 255, 255, 0.08);
-  border-color: rgba(255, 140, 0, 0.6);
+  box-shadow: none;
   background: linear-gradient(145deg, rgba(25, 25, 25, 0.95), rgba(20, 20, 20, 1));
   color: rgba(255, 255, 255, 0.95);
 }
@@ -1961,7 +1939,6 @@ a.request__button {
 
 .included-services__item:hover::after {
   opacity: 1;
-  transform: rotate(45deg);
 }
 
 /* =============================================================================
@@ -1970,7 +1947,7 @@ a.request__button {
 
 .related-services {
   padding: 80px 0;
-  background: #0a0a0a;
+  background: #1a1a1a;
   position: relative;
 }
 
@@ -1982,7 +1959,7 @@ a.request__button {
   position: relative;
   z-index: 1;
   color: rgba(255, 255, 255, 0.95);
-  text-shadow: 0 0 30px rgba(255, 140, 0, 0.4);
+  text-shadow: none;
   letter-spacing: 0.5px;
 }
 
@@ -1994,7 +1971,7 @@ a.request__button {
   background: linear-gradient(90deg, transparent, #ff8c00, #ffa500, #ff8c00, transparent);
   margin: 16px auto 0;
   border-radius: 2px;
-  box-shadow: 0 0 15px rgba(255, 140, 0, 0.8), 0 0 30px rgba(255, 140, 0, 0.4);
+  box-shadow: none;
 }
 
 .related-services__grid {
@@ -2009,20 +1986,32 @@ a.request__button {
   overflow: hidden;
   text-decoration: none;
   transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
-  box-shadow: 
-    0 10px 40px rgba(0, 0, 0, 0.5),
-    0 0 20px rgba(255, 140, 0, 0.1);
-  border: 1px solid rgba(255, 140, 0, 0.2);
+  box-shadow: none;
+  border: none;
   position: relative;
 }
 
 .related-services__card:hover {
   transform: translateY(-10px);
-  box-shadow: 
-    0 20px 60px rgba(0, 0, 0, 0.7),
-    0 0 40px rgba(255, 140, 0, 0.4),
-    0 0 80px rgba(255, 140, 0, 0.2);
-  border-color: rgba(255, 140, 0, 0.6);
+  box-shadow: none;
+}
+.related-services__card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 12px;
+  padding: 1.5px;
+  background: linear-gradient(145deg, transparent, #ff8c00, #ffa500, #ff8c00, transparent);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: 1;
+  transition: opacity 0.5s ease;
+  pointer-events: none;
+}
+
+.related-services__card:hover::after {
+  opacity: 1;
 }
 
 .related-services__image {
@@ -2085,7 +2074,7 @@ a.request__button {
    ========================================================================== */
 
 .footer {
-  background: #0a0a0a;
+  background: #1a1a1a;
   color: rgba(255, 255, 255, 0.85);
   padding: 60px 0 30px;
   position: relative;
@@ -2099,7 +2088,7 @@ a.request__button {
   left: -50%;
   width: 200%;
   height: 100%;
-  background: radial-gradient(circle at 50% 50%, rgba(255, 140, 0, 0.05) 0%, transparent 50%);
+  background: none;
   animation: pulseGlow 8s ease-in-out infinite;
   pointer-events: none;
 }
@@ -2153,10 +2142,10 @@ a.request__button {
   left: 50%;
   width: 0;
   height: 1px;
-  background: linear-gradient(90deg, transparent, #ff8c00, #ffa500, #ff8c00, transparent);
+  background: linear-gradient(90deg, transparent, #ff8c00, transparent);
   transform: translateX(-50%);
   transition: width 0.15s ease;
-  box-shadow: 0 0 10px rgba(255, 140, 0, 0.6);
+  box-shadow: none;
 }
 
 .footer__link:hover {
@@ -2170,7 +2159,7 @@ a.request__button {
 }
 
 .footer__bottom {
-  border-top: 1.5px solid rgba(255, 140, 0, 0.2);
+  border-top: none;
   padding-top: 30px;
   text-align: center;
   position: relative;
@@ -2201,7 +2190,7 @@ a.request__button {
 }
 
 .request__input:focus:valid {
-  border-color: orange;
+  border-color: transparent;
 }
 
 /* =============================================================================
@@ -2336,7 +2325,8 @@ a.request__button {
 .call-modal .modal__title {
   font-size: 24px;
   font-weight: 700;
-  color: white;
+  color: #ffa500;
+  text-shadow: 0 0 10px rgba(255, 140, 0, 0.5);
   margin-bottom: 10px;
   text-align: center;
 }
@@ -2352,23 +2342,27 @@ a.request__button {
   width: 100%;
   padding: 14px;
   margin-bottom: 16px;
-  border: 1px solid #333;
+  border: none;
   border-radius: 8px;
   font-size: 16px;
+  background: rgba(255, 255, 255, 0.15);
+  color: rgba(255, 255, 255, 0.9);
   box-sizing: border-box;
-  transition: border-color 0.3s;
+  transition: all 0.3s;
 }
 
 .call-modal .modal__input:focus {
   outline: none;
-  border-color: orange;
+  background: rgba(255, 255, 255, 0.25);
+  color: rgba(255, 255, 255, 1);
 }
 
 .call-modal .modal__button {
   width: 100%;
   padding: 14px;
   background: transparent;
-  border: 2px solid rgba(255, 140, 0, 0.6);
+  border: 1px solid #ff8c00;
+  box-shadow: 0 0 8px rgba(255, 140, 0, 0.4), inset 0 1px 0 rgba(255, 200, 100, 0.3);
   color: rgba(255, 255, 255, 0.85);
   font-size: 18px;
   font-weight: 600;
@@ -2378,16 +2372,13 @@ a.request__button {
 }
 
 .call-modal .modal__button:hover {
-  background-color: rgba(255, 140, 0, 0.15);
-  border-color: #ffa500;
-  color: #ffa500;
-  box-shadow: 0 0 20px rgba(255, 140, 0, 0.4);
-  text-shadow: 0 0 10px rgba(255, 140, 0, 0.5);
+  transform: scale(1.05);
+  background: transparent;
 }
 
 .call-modal .modal__button:active {
   transform: scale(0.98);
-  box-shadow: 0 0 15px rgba(255, 140, 0, 0.3);
+  box-shadow: none;
 }
 
 .call-modal .modal__agreement {
@@ -2406,11 +2397,11 @@ a.request__button {
 
 @keyframes buttonPulse {
   0%, 100% {
-    box-shadow: 0 0 8px 1px rgba(255, 140, 0, 0.3);
+    box-shadow: none;
     transform: scale(1);
   }
   50% {
-    box-shadow: 0 0 15px 4px rgba(255, 140, 0, 0.5);
+    box-shadow: none;
     transform: scale(1.015);
   }
 }
@@ -2418,13 +2409,16 @@ a.request__button {
 /* Цвет ссылки в формах */
 .request__agreement a,
 .modal__agreement a {
-  color: #ffffff !important;
-  text-decoration: underline;
+  color: #ffa500 !important;
+  text-decoration: none;
+  transition: all 0.3s ease;
 }
 
 .request__agreement a:hover,
 .modal__agreement a:hover {
-  opacity: 0.8;
+  color: #ff8c00;
+  text-shadow: 0 0 10px rgba(255, 140, 0, 0.5);
+  text-decoration: underline;
 }
 
 /* =============================================================================
@@ -2434,7 +2428,7 @@ a.request__button {
 /* Privacy Policy Page */
 .privacy-content {
   padding: 60px 0;
-  background: #0a0a0a;
+  background: #1a1a1a;
   min-height: 100vh;
 }
 
@@ -2446,7 +2440,7 @@ a.request__button {
   color: #ffffff;
   position: relative;
   z-index: 1;
-  text-shadow: 0 0 30px rgba(255, 140, 0, 0.4);
+  text-shadow: none;
   letter-spacing: 0.5px;
 }
 
@@ -2458,7 +2452,7 @@ a.request__button {
   background: linear-gradient(90deg, transparent, #ff8c00, #ffa500, #ff8c00, transparent);
   margin: 16px auto 0;
   border-radius: 2px;
-  box-shadow: 0 0 15px rgba(255, 140, 0, 0.8), 0 0 30px rgba(255, 140, 0, 0.4);
+  box-shadow: none;
 }
 
 .privacy-content__text {
@@ -2521,7 +2515,7 @@ a.request__button {
 /* FAQ Page */
 .faq-content {
   padding: 60px 0;
-  background: #0a0a0a;
+  background: #1a1a1a;
   min-height: 100vh;
 }
 
@@ -2533,7 +2527,7 @@ a.request__button {
   color: #ffffff;
   position: relative;
   z-index: 1;
-  text-shadow: 0 0 30px rgba(255, 140, 0, 0.4);
+  text-shadow: none;
   letter-spacing: 0.5px;
 }
 
@@ -2545,7 +2539,7 @@ a.request__button {
   background: linear-gradient(90deg, transparent, #ff8c00, #ffa500, #ff8c00, transparent);
   margin: 16px auto 0;
   border-radius: 2px;
-  box-shadow: 0 0 15px rgba(255, 140, 0, 0.8), 0 0 30px rgba(255, 140, 0, 0.4);
+  box-shadow: none;
 }
 
 .faq-content__intro {
@@ -2576,19 +2570,43 @@ a.request__button {
 
 .faq-item {
   margin-bottom: 20px;
-  border: 2px solid rgba(255, 255, 255, 0.1);
+  border: none;
   border-radius: 12px;
   overflow: hidden;
   background: rgba(255, 255, 255, 0.05);
   backdrop-filter: blur(10px);
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
   transition: all 0.3s ease;
+  position: relative;
 }
 
 .faq-item:hover {
-  border-color: rgba(255, 140, 0, 0.3);
-  box-shadow: 0 8px 25px rgba(255, 140, 0, 0.2);
+  border-color: transparent;
+  box-shadow: none;
   transform: translateY(-2px);
+}
+.faq-item::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 12px;
+  padding: 1.5px;
+  background: linear-gradient(145deg, transparent, #ff8c00, #ffa500, #ff8c00, transparent);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: 1;
+  transition: opacity 0.5s ease;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.faq-item:hover::after,
+.faq-item.active::after {
+  opacity: 1;
+}
+.faq-item.active::after {
+  background: #90EE90;
 }
 
 .faq-item.active {
@@ -2688,9 +2706,10 @@ a.request__button {
   padding: 40px;
   background: linear-gradient(135deg, rgba(255, 140, 0, 0.15) 0%, rgba(255, 165, 0, 0.1) 100%);
   border-radius: 12px;
-  border: 2px solid rgba(255, 140, 0, 0.4);
+  border: 1.5px solid #90EE90;
   backdrop-filter: blur(10px);
-  box-shadow: 0 8px 25px rgba(255, 140, 0, 0.2);
+  box-shadow: 0 0 8px rgba(144, 238, 144, 0.4), inset 0 1px 0 rgba(200, 255, 200, 0.3);
+  position: relative;
 }
 
 .faq-cta h2 {
@@ -2726,33 +2745,35 @@ a.request__button {
 .faq-cta__button--primary {
   background: #ff8c00;
   color: #fff;
-  border: 2px solid #ff8c00;
+  border: 1.5px solid #ffffff;
+  box-shadow: 0 0 8px rgba(255, 255, 255, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.3);
 }
 
 .faq-cta__button--primary:hover {
   background: #ffa500;
-  border-color: #ffa500;
+  border-color: transparent;
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(255, 140, 0, 0.4);
+  box-shadow: none;
 }
 
 .faq-cta__button--secondary {
   background: transparent;
   color: #ff8c00;
-  border: 2px solid #ff8c00;
+  border: 1.5px solid #ffffff;
+  box-shadow: 0 0 8px rgba(255, 255, 255, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.3);
 }
 
 .faq-cta__button--secondary:hover {
   background: #ff8c00;
   color: #fff;
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(255, 140, 0, 0.4);
+  box-shadow: none;
 }
 
 /* About Page */
 .about-content {
   padding: 60px 0;
-  background: #0a0a0a;
+  background: #1a1a1a;
   min-height: 100vh;
 }
 
@@ -2764,7 +2785,7 @@ a.request__button {
   color: #ffffff;
   position: relative;
   z-index: 1;
-  text-shadow: 0 0 30px rgba(255, 140, 0, 0.4);
+  text-shadow: none;
   letter-spacing: 0.5px;
 }
 
@@ -2776,7 +2797,7 @@ a.request__button {
   background: linear-gradient(90deg, transparent, #ff8c00, #ffa500, #ff8c00, transparent);
   margin: 16px auto 0;
   border-radius: 2px;
-  box-shadow: 0 0 15px rgba(255, 140, 0, 0.8), 0 0 30px rgba(255, 140, 0, 0.4);
+  box-shadow: none;
 }
 
 .about-story,
@@ -2840,9 +2861,9 @@ a.request__button {
 
 .about-values__item:hover {
   background: rgba(255, 140, 0, 0.1);
-  border-color: rgba(255, 140, 0, 0.3);
+  border-color: transparent;
   transform: translateY(-5px);
-  box-shadow: 0 8px 25px rgba(255, 140, 0, 0.2);
+  box-shadow: none;
 }
 
 .about-values__icon {
@@ -2875,15 +2896,15 @@ a.request__button {
   background: rgba(255, 140, 0, 0.1);
   backdrop-filter: blur(10px);
   border-radius: 12px;
-  border: 2px solid rgba(255, 140, 0, 0.4);
+  border: none;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
   transition: all 0.3s ease;
 }
 
 .about-why__card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 8px 25px rgba(255, 140, 0, 0.3);
-  border-color: rgba(255, 140, 0, 0.6);
+  box-shadow: none;
+  border-color: transparent;
 }
 
 .about-why__number {
@@ -2927,18 +2948,18 @@ a.request__button {
   background: rgba(255, 255, 255, 0.05);
   backdrop-filter: blur(10px);
   border-radius: 12px;
-  border-left: 4px solid #ff8c00;
+  border-left: 4px solid rgba(255, 255, 255, 0.3);
   border: 2px solid rgba(255, 255, 255, 0.1);
-  border-left: 4px solid #ff8c00;
+  border-left: 4px solid rgba(255, 255, 255, 0.3);
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
   transition: all 0.3s ease;
 }
 
 .about-process__step:hover {
   background: rgba(255, 140, 0, 0.08);
-  border-color: rgba(255, 140, 0, 0.3);
+  border-color: transparent;
   transform: translateX(5px);
-  box-shadow: 0 8px 20px rgba(255, 140, 0, 0.2);
+  box-shadow: none;
 }
 
 .about-process__step-number {
@@ -2993,15 +3014,19 @@ a.request__button {
   margin: 80px auto 0;
   text-align: center;
   padding: 50px;
-  background: linear-gradient(135deg, #ff8c00 0%, #ffa500 100%);
+  background: linear-gradient(135deg, rgba(255, 140, 0, 0.15) 0%, rgba(255, 165, 0, 0.1) 100%);
   border-radius: 12px;
+  border: 1.5px solid #90EE90;
+  box-shadow: 0 0 8px rgba(144, 238, 144, 0.4), inset 0 1px 0 rgba(200, 255, 200, 0.3);
+  position: relative;
   color: #fff;
 }
 
 .about-cta__title {
   font-size: 36px;
   font-weight: 700;
-  color: #fff;
+  color: #ffa500;
+  text-shadow: 0 0 10px rgba(255, 140, 0, 0.5);
   margin-bottom: 20px;
 }
 
@@ -3030,9 +3055,10 @@ a.request__button {
 }
 
 .about-cta__button--primary {
-  background: #fff;
-  color: #ff8c00;
-  border: 2px solid #fff;
+  background: #ff8c00;
+  color: #fff;
+  border: 1.5px solid #ffffff;
+  box-shadow: 0 0 8px rgba(255, 255, 255, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.3);
 }
 
 .about-cta__button--primary:hover {
@@ -3044,8 +3070,9 @@ a.request__button {
 
 .about-cta__button--secondary {
   background: transparent;
-  color: #fff;
-  border: 2px solid #fff;
+  color: #ff8c00;
+  border: 1.5px solid #ffffff;
+  box-shadow: 0 0 8px rgba(255, 255, 255, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.3);
 }
 
 .about-cta__button--secondary:hover {
@@ -3090,12 +3117,12 @@ a.request__button {
 }
 
 .review-link:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 20px rgba(255, 165, 0, 0.3);
+  transform: none;
+  box-shadow: none;
 }
 
 .review-link:hover .review {
-  border-color: #ffa500;
+  border-color: transparent;
 }
 
 /* 2GIS link text at bottom of review cards */
@@ -3108,6 +3135,8 @@ a.request__button {
   color: #ffa500;
   font-weight: 500;
   transition: color 0.3s ease;
+  text-decoration: none !important;
+  border-bottom: none !important;
 }
 
 .review-link:hover .review__2gis-link {
@@ -3117,7 +3146,7 @@ a.request__button {
 /* Prices Page */
 .prices-content {
   padding: 60px 0;
-  background: #0a0a0a;
+  background: #1a1a1a;
   min-height: 100vh;
 }
 
@@ -3129,7 +3158,7 @@ a.request__button {
   color: #ffffff;
   position: relative;
   z-index: 1;
-  text-shadow: 0 0 30px rgba(255, 140, 0, 0.4);
+  text-shadow: none;
   letter-spacing: 0.5px;
 }
 
@@ -3141,7 +3170,7 @@ a.request__button {
   background: linear-gradient(90deg, transparent, #ff8c00, #ffa500, #ff8c00, transparent);
   margin: 16px auto 0;
   border-radius: 2px;
-  box-shadow: 0 0 15px rgba(255, 140, 0, 0.8), 0 0 30px rgba(255, 140, 0, 0.4);
+  box-shadow: none;
 }
 
 .prices-intro {
@@ -3151,7 +3180,7 @@ a.request__button {
   background: rgba(255, 140, 0, 0.1);
   backdrop-filter: blur(10px);
   border-radius: 12px;
-  border: 2px solid rgba(255, 140, 0, 0.3);
+  border: none;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
   text-align: center;
 }
@@ -3174,16 +3203,35 @@ a.request__button {
   background: rgba(255, 255, 255, 0.05);
   backdrop-filter: blur(10px);
   border-radius: 12px;
-  border: 2px solid rgba(255, 255, 255, 0.1);
+  border: none;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
   overflow: hidden;
   transition: all 0.3s ease;
+  position: relative;
 }
 
 .price-item:hover {
-  border-color: rgba(255, 140, 0, 0.4);
-  box-shadow: 0 8px 25px rgba(255, 140, 0, 0.2);
+  border-color: transparent;
+  box-shadow: none;
   transform: translateY(-3px);
+}
+.price-item::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 16px;
+  padding: 1.5px;
+  background: linear-gradient(145deg, transparent, #ff8c00, #ffa500, #ff8c00, transparent);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: 1;
+  transition: opacity 0.5s ease;
+  pointer-events: none;
+}
+
+.price-item:hover::after {
+  opacity: 1;
 }
 
 .price-item__header {
@@ -3247,16 +3295,35 @@ a.request__button {
   background: rgba(255, 255, 255, 0.05);
   backdrop-filter: blur(10px);
   border-radius: 12px;
-  border: 2px solid rgba(255, 255, 255, 0.1);
+  border: none;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
   text-align: center;
   transition: all 0.3s ease;
+  position: relative;
 }
 
 .prices-info__item:hover {
-  border-color: rgba(255, 140, 0, 0.3);
+  border-color: transparent;
   transform: translateY(-5px);
-  box-shadow: 0 8px 20px rgba(255, 140, 0, 0.2);
+  box-shadow: none;
+}
+.prices-info__item::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 12px;
+  padding: 1.5px;
+  background: linear-gradient(145deg, transparent, #ff8c00, #ffa500, #ff8c00, transparent);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: 1;
+  transition: opacity 0.5s ease;
+  pointer-events: none;
+}
+
+.prices-info__item:hover::after {
+  opacity: 1;
 }
 
 .prices-info__icon {
@@ -3297,15 +3364,25 @@ a.request__button {
   padding: 50px 40px;
   background: linear-gradient(135deg, rgba(255, 140, 0, 0.15) 0%, rgba(255, 165, 0, 0.1) 100%);
   border-radius: 12px;
-  border: 2px solid rgba(255, 140, 0, 0.4);
+  border: 1.5px solid #90EE90;
   backdrop-filter: blur(10px);
-  box-shadow: 0 8px 25px rgba(255, 140, 0, 0.2);
+  box-shadow: 0 0 8px rgba(144, 238, 144, 0.4), inset 0 1px 0 rgba(200, 255, 200, 0.3);
+  position: relative;
+}
+.prices-cta h2,
+.faq-cta h2 {
+  font-size: 32px;
+  font-weight: 700;
+  color: #ffa500;
+  text-shadow: 0 0 10px rgba(255, 140, 0, 0.5);
+  margin-bottom: 20px;
 }
 
 .prices-cta h2 {
   font-size: 32px;
   font-weight: 700;
-  color: #fff;
+  color: #ffa500;
+  text-shadow: 0 0 10px rgba(255, 140, 0, 0.5);
   margin-bottom: 20px;
 }
 
@@ -3342,27 +3419,29 @@ a.request__button {
 .prices-cta__button--primary {
   background: #ff8c00;
   color: #fff;
-  border-color: #ff8c00;
+  border: 1.5px solid #ffffff;
+  box-shadow: 0 0 8px rgba(255, 255, 255, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.3);
 }
 
 .prices-cta__button--primary:hover {
   background: #ffa500;
-  border-color: #ffa500;
+  border-color: transparent;
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(255, 140, 0, 0.4);
+  box-shadow: none;
 }
 
 .prices-cta__button--secondary {
   background: transparent;
   color: #ff8c00;
-  border-color: #ff8c00;
+  border: 1.5px solid #ffffff;
+  box-shadow: 0 0 8px rgba(255, 255, 255, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.3);
 }
 
 .prices-cta__button--secondary:hover {
   background: #ff8c00;
   color: #fff;
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(255, 140, 0, 0.4);
+  box-shadow: none;
 }
 
 /* =============================================================================
@@ -3481,7 +3560,7 @@ a.request__button {
   
   .about-why__card {
     background: rgba(255, 140, 0, 0.2);
-    border-color: rgba(255, 140, 0, 0.5);
+    border-color: transparent;
   }
 
   .about-why__number {
@@ -3574,6 +3653,14 @@ a.request__button {
     margin: 0 15px;
     padding: 30px 25px;
   }
+.prices-cta h2,
+.faq-cta h2 {
+  font-size: 32px;
+  font-weight: 700;
+  color: #ffa500;
+  text-shadow: 0 0 10px rgba(255, 140, 0, 0.5);
+  margin-bottom: 20px;
+}
 
   .prices-cta h2 {
     font-size: 24px;
@@ -3624,6 +3711,16 @@ a.request__button {
 }
 
 @media (min-width: 769px) and (max-width: 1024px) {
+  /* Remove orange glow from cards on tablets */
+  .advantage-cards__item::before,
+  .step::before,
+  .service::before,
+  .portfolio__item::before,
+  .contacts__info::before,
+  .request__content::before {
+    display: none !important;
+  }
+
   .privacy-content__title,
   .faq-content__title,
   .about-content__title,
@@ -3660,7 +3757,7 @@ a.request__button {
 
 @media (min-width: 1025px) {
   .header {
-    background: #0a0a0a;
+    background: #1a1a1a;
     overflow: hidden;
   }
 
@@ -3671,7 +3768,7 @@ a.request__button {
     left: -50%;
     width: 200%;
     height: 100%;
-    background: radial-gradient(circle at 50% 50%, rgba(255, 140, 0, 0.05) 0%, transparent 50%);
+    background: none;
     animation: pulseGlow 8s ease-in-out infinite;
     pointer-events: none;
     z-index: 0;
@@ -3700,10 +3797,10 @@ a.request__button {
     left: 50%;
     width: 0;
     height: 1px;
-    background: linear-gradient(90deg, transparent, #ff8c00, #ffa500, #ff8c00, transparent);
+    background: linear-gradient(90deg, transparent, #ff8c00, transparent);
     transform: translateX(-50%);
     transition: width 0.15s ease;
-    box-shadow: 0 0 10px rgba(255, 140, 0, 0.6);
+    box-shadow: none;
   }
 
   .header__nav-link:hover {
@@ -3717,24 +3814,22 @@ a.request__button {
   }
 
   .header__button {
-    border: 2px solid rgba(255, 140, 0, 0.6);
+    border: 1px solid #ff8c00;
+    box-shadow: 0 0 8px rgba(255, 140, 0, 0.4), inset 0 1px 0 rgba(255, 200, 100, 0.3);
     background: transparent;
     color: rgba(255, 255, 255, 0.85);
     transition: all 0.3s ease;
-    animation: buttonPulse 2s ease-in-out infinite;
   }
 
   .header__button:hover {
-    background-color: rgba(255, 140, 0, 0.15);
-    border-color: #ffa500;
-    color: #ffa500;
-    box-shadow: 0 0 20px rgba(255, 140, 0, 0.4);
-    text-shadow: 0 0 10px rgba(255, 140, 0, 0.5);
+    transform: scale(1.05);
+    background: transparent;
   }
 
   /* Стиль для кнопки "Рассчитать по фото" (один в один с "Вызвать мастера") */
   .hero__button {
-    border: 2px solid rgba(255, 140, 0, 0.6);
+    border: 1px solid #ff8c00;
+    box-shadow: 0 0 8px rgba(255, 140, 0, 0.4), inset 0 1px 0 rgba(255, 200, 100, 0.3);
     background: transparent;
     color: rgba(255, 255, 255, 0.85);
     transition: all 0.3s ease;
@@ -3748,16 +3843,13 @@ a.request__button {
 
   .hero__button:hover,
   .hero__button:focus {
-    background-color: rgba(255, 140, 0, 0.15);
-    border-color: #ffa500;
-    color: #ffa500;
-    box-shadow: 0 0 20px rgba(255, 140, 0, 0.4);
-    text-shadow: 0 0 10px rgba(255, 140, 0, 0.5);
+    transform: scale(1.05);
+    background: transparent;
   }
 
   .hero__button:active {
     transform: scale(0.98);
-    box-shadow: 0 0 15px rgba(255, 140, 0, 0.3);
+    box-shadow: none;
   }
 }
 
@@ -3956,7 +4048,8 @@ a.request__button {
   }
 
   .mobile-cta {
-    border: 2px solid rgba(255, 140, 0, 0.6);
+    border: 1px solid #ff8c00;
+    box-shadow: 0 0 8px rgba(255, 140, 0, 0.4), inset 0 1px 0 rgba(255, 200, 100, 0.3);
     background: transparent;
     color: rgba(255, 255, 255, 0.85) !important;
     padding: 14px 32px;
@@ -3964,16 +4057,12 @@ a.request__button {
     font-weight: 400;
     font-size: 18px;
     transition: all 0.3s ease;
-    box-shadow: 0 0 10px 2px rgba(255, 140, 0, 0.3);
   }
 
   .mobile-cta:hover,
   .mobile-cta:active {
-    background-color: rgba(255, 140, 0, 0.15);
-    border-color: #ffa500;
-    color: #ffa500 !important;
-    box-shadow: 0 0 20px rgba(255, 140, 0, 0.4);
-    text-shadow: 0 0 10px rgba(255, 140, 0, 0.5);
+    transform: scale(1.05);
+    background: transparent;
   }
 
   .hero {
@@ -4033,52 +4122,33 @@ a.request__button {
   .step,
   .service,
   .portfolio__item,
-  .review,
   .included-services__item,
   .contacts__info,
   .contacts__map,
   .request__content {
     /* Яркое постоянное свечение для мобильных */
-    box-shadow: 
-      0 10px 40px rgba(0, 0, 0, 0.6),
-      0 0 30px rgba(255, 140, 0, 0.6),
-      0 0 60px rgba(255, 140, 0, 0.35),
-      0 0 90px rgba(255, 140, 0, 0.2),
-      inset 0 1px 0 rgba(255, 255, 255, 0.08) !important;
-    border-color: rgba(255, 140, 0, 0.5) !important;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6) !important;
+    
   }
 
   .advantage-cards__item::before,
   .step::before,
   .service::before,
   .portfolio__item::before,
-  .review::before,
-
-  /* Убираем оранжевое свечение из базовых стилей карточек на мобильных */
-  .review,
-  .advantage-cards__item,
-  .step,
-  .portfolio__item,
-  .service,
-  .request__content,
-  .contacts__info,
-  .contacts__map,
-  .included-services__item {
-    box-shadow: 
-      0 10px 40px rgba(0, 0, 0, 0.6),
-      inset 0 1px 0 rgba(255, 255, 255, 0.03) !important;
-  }
-  .included-services__item::after,
   .contacts__info::before,
   .request__content::before {
-    opacity: 0.5 !important;
+    display: none !important;
+  }
+
+  /* Remove orange glow from reviews on mobile */
+  .review {
+    box-shadow: none !important;
   }
 
   .advantage-cards__number,
   .step__number {
     box-shadow: 
-      0 0 15px rgba(255, 140, 0, 0.4),
-      0 0 30px rgba(255, 140, 0, 0.25),
+      
       0 5px 15px rgba(0, 0, 0, 0.5),
       inset 0 -3px 10px rgba(0, 0, 0, 0.3),
       inset 0 2px 5px rgba(255, 255, 255, 0.3);
@@ -4089,14 +4159,12 @@ a.request__button {
   .step:hover,
   .service:hover,
   .portfolio__item:hover,
-  .review:hover,
   .included-services__item:hover,
   .contacts__info:hover,
   .contacts__map:hover,
   .request__content:hover {
     transform: none !important;
     box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6) !important;
-    border: 0.5px solid rgba(255, 140, 0, 0.5) !important;
   }
 
   .advantage-cards__item:hover .advantage-cards__number,
@@ -4107,9 +4175,17 @@ a.request__button {
   .advantage-cards__item:active,
   .step:active,
   .service:active,
-  .portfolio__item:active,
-  .review:active {
+  .portfolio__item:active {
     transform: scale(0.98);
+  }
+
+  /* Remove orange glow from reviews hover state on mobile */
+  .review:hover {
+    box-shadow: none !important;
+  }
+
+  .review:hover {
+    transform: none !important;
   }
 
   /* Оптимизация изображений на мобильных */
@@ -4238,6 +4314,31 @@ a.request__button {
     justify-content: center;
     text-align: center;
   }
+
+  /* Global rule: Remove ALL orange glow on mobile devices */
+  .advantage-cards__item,
+  .step,
+  .service,
+  .portfolio__item,
+  .included-services__item,
+  .contacts__info,
+  .contacts__map,
+  .request__content,
+  .advantage-cards__number,
+  .step__number {
+    box-shadow: none !important;
+  }
+
+  .advantage-cards__item:hover,
+  .step:hover,
+  .service:hover,
+  .portfolio__item:hover,
+  .included-services__item:hover,
+  .contacts__info:hover,
+  .contacts__map:hover,
+  .request__content:hover {
+    box-shadow: none !important;
+  }
 }
 
 /* =============================================================================
@@ -4245,6 +4346,16 @@ a.request__button {
    ========================================================================== */
 
 @media (min-width: 769px) and (max-width: 1024px) {
+  /* Remove orange glow from cards on tablets */
+  .advantage-cards__item::before,
+  .step::before,
+  .service::before,
+  .portfolio__item::before,
+  .contacts__info::before,
+  .request__content::before {
+    display: none !important;
+  }
+
   /* Скрываем навигацию и кнопку на планшетах */
   .header__nav,
   .header__button {
@@ -4340,7 +4451,8 @@ a.request__button {
   }
 
   .mobile-cta {
-    border: 2px solid rgba(255, 140, 0, 0.6);
+    border: 1px solid #ff8c00;
+    box-shadow: 0 0 8px rgba(255, 140, 0, 0.4), inset 0 1px 0 rgba(255, 200, 100, 0.3);
     background: transparent;
     color: white;
     padding: 14px 28px;
@@ -4351,9 +4463,8 @@ a.request__button {
   }
 
   .mobile-cta:hover {
-    background-color: rgba(255, 140, 0, 0.15);
-    border-color: #ffa500;
-    color: #ffa500;
+    transform: scale(1.05);
+    background: transparent;
   }
 
   .header__inner {
@@ -4423,6 +4534,27 @@ a.request__button {
 
   .contacts__wrapper {
     gap: 30px;
+  }
+
+  /* Disable card lift effect on tablets */
+  .advantage-cards__item:hover,
+  .step:hover,
+  .service:hover,
+  .portfolio__item:hover,
+  .review:hover,
+  .included-services__item:hover {
+    transform: none !important;
+  }
+
+  .advantage-cards__item:hover .advantage-cards__number,
+  .step:hover .step__number {
+    transform: none !important;
+  }
+
+  .service:hover .service__photo-wrapper,
+  .portfolio__item:hover .portfolio__img,
+  .review:hover .review__photo-wrapper {
+    transform: none !important;
   }
 }
 
@@ -4572,8 +4704,8 @@ a.request__button {
   max-width: 500px;
   border-radius: 20px;
   text-align: center;
-  box-shadow: 0 10px 50px rgba(255, 140, 0, 0.3);
-  border: 2px solid rgba(255, 140, 0, 0.3);
+  box-shadow: none;
+  border: none;
   animation: modalSlideIn 0.4s ease;
 }
 
@@ -4654,13 +4786,13 @@ a.request__button {
   border-radius: 50px;
   cursor: pointer;
   transition: all 0.3s ease;
-  box-shadow: 0 5px 20px rgba(255, 140, 0, 0.4);
+  box-shadow: none;
 }
 
 .success-modal__button:hover {
   background: linear-gradient(135deg, #ffa500 0%, #ff8c00 100%);
   transform: translateY(-2px);
-  box-shadow: 0 8px 25px rgba(255, 140, 0, 0.6);
+  box-shadow: none;
 }
 
 .success-modal__button:active {
@@ -4687,7 +4819,7 @@ a.request__button {
 /* Blog Hero */
 .blog-hero {
   padding: 80px 0 60px;
-  background: #0a0a0a;
+  background: #1a1a1a;
   text-align: center;
 }
 
@@ -4699,7 +4831,7 @@ a.request__button {
   color: #ffffff;
   position: relative;
   z-index: 1;
-  text-shadow: 0 0 30px rgba(255, 140, 0, 0.4);
+  text-shadow: none;
   letter-spacing: 0.5px;
 }
 
@@ -4711,7 +4843,9 @@ a.request__button {
   background: linear-gradient(90deg, transparent, #ff8c00, #ffa500, #ff8c00, transparent);
   margin: 16px auto 0;
   border-radius: 2px;
-  box-shadow: 0 0 15px rgba(255, 140, 0, 0.8), 0 0 30px rgba(255, 140, 0, 0.4);
+  box-shadow: none;
+  position: relative;
+  z-index: 0;
 }
 
 .blog-hero__subtitle {
@@ -4725,7 +4859,7 @@ a.request__button {
 /* Blog Content */
 .blog-content {
   padding: 60px 0 80px;
-  background: #0a0a0a;
+  background: #1a1a1a;
   min-height: 60vh;
 }
 
@@ -4742,17 +4876,37 @@ a.request__button {
   background: linear-gradient(145deg, rgba(20, 20, 20, 0.9), rgba(15, 15, 15, 0.95));
   border-radius: 16px;
   overflow: hidden;
-  border: 1.5px solid rgba(255, 140, 0, 0.15);
+  border: none;
   transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6);
+  position: relative;
+  z-index: 1;
 }
 
 .blog-card:hover {
   transform: translateY(-10px);
-  border-color: rgba(255, 140, 0, 0.5);
+  border-color: transparent;
   box-shadow: 
     0 20px 60px rgba(0, 0, 0, 0.7),
     0 0 40px rgba(255, 140, 0, 0.4);
+}
+.blog-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 16px;
+  padding: 1.5px;
+  background: linear-gradient(145deg, transparent, #ff8c00, #ffa500, #ff8c00, transparent);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: 1;
+  transition: opacity 0.5s ease;
+  pointer-events: none;
+}
+
+.blog-card:hover::after {
+  opacity: 1;
 }
 
 .blog-card__link {
@@ -4838,7 +4992,7 @@ a.request__button {
 /* Blog CTA */
 .blog-cta {
   padding: 80px 0;
-  background: #0a0a0a;
+  background: #1a1a1a;
 }
 
 .blog-cta__content {
@@ -4848,15 +5002,17 @@ a.request__button {
   padding: 50px 40px;
   background: linear-gradient(135deg, rgba(255, 140, 0, 0.15) 0%, rgba(255, 165, 0, 0.1) 100%);
   border-radius: 16px;
-  border: 2px solid rgba(255, 140, 0, 0.4);
+  border: 1.5px solid #90EE90;
   backdrop-filter: blur(10px);
-  box-shadow: 0 10px 30px rgba(255, 140, 0, 0.2);
+  box-shadow: 0 0 8px rgba(144, 238, 144, 0.4), inset 0 1px 0 rgba(200, 255, 200, 0.3);
+  position: relative;
 }
 
 .blog-cta__title {
   font-size: 32px;
   font-weight: 700;
-  color: #fff;
+  color: #ffa500;
+  text-shadow: 0 0 10px rgba(255, 140, 0, 0.5);
   margin-bottom: 20px;
 }
 
@@ -4888,27 +5044,29 @@ a.request__button {
 .blog-cta__button--primary {
   background: #ff8c00;
   color: #fff;
-  border-color: #ff8c00;
+  border: 1.5px solid #ffffff;
+  box-shadow: 0 0 8px rgba(255, 255, 255, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.3);
 }
 
 .blog-cta__button--primary:hover {
   background: #ffa500;
-  border-color: #ffa500;
+  border-color: transparent;
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(255, 140, 0, 0.4);
+  box-shadow: none;
 }
 
 .blog-cta__button--secondary {
   background: transparent;
   color: #ff8c00;
-  border-color: #ff8c00;
+  border: 1.5px solid #ffffff;
+  box-shadow: 0 0 8px rgba(255, 255, 255, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.3);
 }
 
 .blog-cta__button--secondary:hover {
   background: #ff8c00;
   color: #fff;
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(255, 140, 0, 0.4);
+  box-shadow: none;
 }
 
 /* Hide/show buttons based on device */
@@ -4933,7 +5091,7 @@ a.request__button {
 /* Blog Article Page */
 .article-hero {
   padding: 100px 0 60px;
-  background: #0a0a0a;
+  background: #1a1a1a;
   text-align: center;
 }
 
@@ -4969,7 +5127,7 @@ a.request__button {
 
 .article-content {
   padding: 60px 0;
-  background: #0a0a0a;
+  background: #1a1a1a;
   min-height: 60vh;
 }
 
@@ -5035,7 +5193,7 @@ a.request__button {
 
 .article-content__wrapper blockquote {
   background: rgba(255, 255, 255, 0.95);
-  border-left: 4px solid #ff8c00;
+  border-left: 4px solid rgba(255, 255, 255, 0.3);
   padding: 20px 25px;
   margin: 30px 0;
   border-radius: 8px;
@@ -5133,6 +5291,16 @@ a.request__button {
 }
 
 @media (min-width: 769px) and (max-width: 1024px) {
+  /* Remove orange glow from cards on tablets */
+  .advantage-cards__item::before,
+  .step::before,
+  .service::before,
+  .portfolio__item::before,
+  .contacts__info::before,
+  .request__content::before {
+    display: none !important;
+  }
+
   .blog-grid {
     grid-template-columns: repeat(2, 1fr);
     gap: 25px;
@@ -5149,4 +5317,37 @@ a.request__button {
   .map__button--secondary {
     display: none !important;
   }
+}
+
+/* =============================================================================
+   DISABLE CARD HOVER LIFT ON MOBILE AND TABLET
+   ========================================================================== */
+
+@media (max-width: 1024px) {
+  .service:hover,
+  .advantage-cards__item:hover,
+  .step:hover,
+  .portfolio__item:hover,
+  .included-services__item:hover,
+  .related-services__card:hover {
+    transform: scale(1.03) !important;
+  }
+.related-services__card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 12px;
+  padding: 1.5px;
+  background: linear-gradient(145deg, transparent, #ff8c00, #ffa500, #ff8c00, transparent);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: 1;
+  transition: opacity 0.5s ease;
+  pointer-events: none;
+}
+
+.related-services__card:hover::after {
+  opacity: 1;
+}
 }
