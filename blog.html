@@ -243,8 +243,26 @@
                     <p class="blog-cta__text">Отправьте фото вашей мебели в Telegram — мастер рассчитает стоимость и предложит лучший вариант обивки.</p>
                     <div class="blog-cta__buttons">
                         <a href="tg://resolve?phone=79025605225" class="blog-cta__button blog-cta__button--primary">Рассчитать по фото</a>
-                        <a href="tg://resolve?phone=79025605225" class="blog-cta__button blog-cta__button--secondary">Оставить заявку</a>
+                        <a href="#request" class="blog-cta__button blog-cta__button--secondary">Оставить заявку</a>
                     </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Request Form Section -->
+        <section class="request" id="request">
+            <div class="request__bg"></div>
+            <div class="container">
+                <div class="request__content">
+                    <h2 class="request__title">Хотите обновить мебель быстро и недорого?</h2>
+                    <p class="request__text">Оставьте заявку — перезвоним в течение 30 минут, обсудим сроки и точно рассчитаем цену!</p>
+                    <form class="request__form" id="requestForm" action="https://formspree.io/f/xvgvojvw" method="POST">
+                        <input type="text" name="name" class="request__input" placeholder="Ваше имя *" required>
+                        <input type="tel" name="phone" class="request__input" placeholder="Ваш телефон *" required>
+                        <input type="text" name="_gotcha" style="display:none !important" tabindex="-1" autocomplete="off">
+                        <button type="submit" class="request__button">Отправить</button>
+                        <p class="request__agreement">Мы бережно относимся к вашим данным. Отправляя форму, вы соглашаетесь с нашей <a href="/privacy.html">Политикой приватности</a> — ваши данные защищены по закону (152-ФЗ).</p>
+                    </form>
                 </div>
             </div>
         </section>
