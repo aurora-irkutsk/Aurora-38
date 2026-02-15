@@ -276,31 +276,8 @@ function initPhoneValidation() {
       });
     }
 
-    // Валидация при отправке формы
-    form.addEventListener('submit', (e) => {
-      let isValid = true;
-      if (phoneInput) {
-        const value = phoneInput.value.trim();
-        const digits = value.replace(/\D/g, '');
-        const has11Digits = digits.length === 11;
-        const startsWithPlus7 = value.startsWith('+7');
-        const startsWith8 = value.startsWith('8');
-
-        if (!has11Digits || !(startsWithPlus7 || startsWith8)) {
-          isValid = false;
-          phoneError.style.display = 'block';
-        } else {
-          phoneError.style.display = 'none';
-        }
-      }
-
-      if (!isValid) {
-        e.preventDefault();
-        if (submitButton) submitButton.disabled = true;
-      } else {
-        if (submitButton) submitButton.disabled = false;
-      }
-    });
+    // Валидация при отправке формы теперь обрабатывается в initSuccessModal()
+    // чтобы избежать конфликтов между обработчиками событий
   }
 
   // Инициализируем обе формы
@@ -389,6 +366,41 @@ function initSuccessModal() {
   forms.forEach((form) => {
     form.addEventListener('submit', async (e) => {
       e.preventDefault();
+
+      // Валидация телефона перед отправкой
+      const phoneInput = form.querySelector('input[name="phone"]');
+      if (phoneInput) {
+        const value = phoneInput.value.trim();
+        const digits = value.replace(/\D/g, '');
+        const has11Digits = digits.length === 11;
+        const startsWithPlus7 = value.startsWith('+7');
+        const startsWith8 = value.startsWith('8');
+
+        // Находим или создаем элемент ошибки
+        let phoneError = form.querySelector('#phoneError');
+        if (!phoneError) {
+          phoneError = document.createElement('div');
+          phoneError.id = 'phoneError';
+          phoneError.style.color = 'whitesmoke';
+          phoneError.style.fontWeight = '500';
+          phoneError.style.fontSize = 'clamp(1rem, 2.2vw, 1.2rem)';
+          phoneError.style.marginTop = '5px';
+          phoneError.style.display = 'none';
+          phoneError.innerHTML = 'Введите номер в формате: 8 902 560 52 25';
+
+          const button = form.querySelector('button[type="submit"]');
+          if (button && button.parentNode) {
+            button.parentNode.insertBefore(phoneError, button.nextSibling);
+          }
+        }
+
+        if (!has11Digits || !(startsWithPlus7 || startsWith8)) {
+          phoneError.style.display = 'block';
+          return; // Прерываем отправку
+        } else {
+          phoneError.style.display = 'none';
+        }
+      }
 
       const formData = new FormData(form);
       const action = form.getAttribute('action');
