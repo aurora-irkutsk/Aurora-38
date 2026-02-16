@@ -4111,11 +4111,13 @@ a.request__button {
     line-height: 1.4;
     margin-top: 30px;
     margin-bottom: 20px;
+    text-align: left;
   }
 
   .hero__text {
     font-size: clamp(10px, 5vw, 20px);
     max-width: none;
+    text-align: left;
   }
 
   .hero__button {
@@ -4504,10 +4506,12 @@ a.request__button {
 
   .hero__title {
     font-size: 42px;
+    text-align: left;
   }
 
   .hero__text {
     font-size: 20px;
+    text-align: left;
   }
 
   .services__list,
