@@ -694,6 +694,12 @@ a.request__button {
   transition: color 0.3s ease;
 }
 
+.advantage-cards__desc a {
+  color: rgba(255, 255, 255, 0.8) !important;
+  text-decoration: none;
+  pointer-events: none;
+}
+
 .advantage-cards__item:hover .advantage-cards__desc {
   color: rgba(255, 255, 255, 0.95);
 }
