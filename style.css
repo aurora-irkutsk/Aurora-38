@@ -10,6 +10,7 @@
 
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
 body {
@@ -17,6 +18,8 @@ body {
   margin: 0;
   padding-top: 90px;
   color: #333;
+  overflow-x: hidden;
+  max-width: 100vw;
 }
 
 h1,
@@ -169,7 +172,7 @@ a.request__button {
 
 .header__nav-link {
   position: relative;
-  font-size: 13px;
+  font-size: 15px;
   font-weight: 500;
   text-decoration: none;
   color: whitesmoke;
@@ -345,6 +348,12 @@ a.request__button {
   z-index: 1;
 }
 
+/* Repair services: 3 columns on desktop */
+.services__list--repair {
+  grid-template-columns: repeat(3, 1fr);
+  max-width: 1400px;
+}
+
 .service {
   background: linear-gradient(145deg, rgba(20, 20, 20, 0.9), rgba(15, 15, 15, 0.95));
   backdrop-filter: blur(10px);
@@ -471,6 +480,16 @@ a.request__button {
   color: rgba(255, 255, 255, 0.95);
 }
 
+.service__price {
+  font-size: 24px;
+  font-weight: 700;
+  color: #ff8c00;
+  margin: auto 20px 20px;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+}
+
 .service__link {
   display: inline-block;
   color: #ff8c00;
@@ -505,6 +524,7 @@ a.request__button {
 .service__link:hover::after {
   width: 100%;
 }
+
 
 /* =============================================================================
    ПРЕИМУЩЕСТВА
@@ -2159,6 +2179,8 @@ a.request__button {
 .footer__link:hover::before {
   width: 100%;
 }
+
+/* Скрыть ссылку "Главная" на мобильных и планшетах */
 
 .footer__bottom {
   border-top: none;
@@ -4495,6 +4517,11 @@ a.request__button {
     gap: 25px;
   }
 
+  /* Repair services: 2 columns on tablet */
+  .services__list--repair {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+
   .steps__list {
     grid-template-columns: repeat(2, 1fr) !important;
   }
@@ -4584,6 +4611,12 @@ a.request__button {
     width: 30px;
     height: 22px;
   }
+
+  /* Repair services: 1 column on mobile */
+  .services__list--repair {
+    grid-template-columns: 1fr !important;
+  }
+
 
   /* Средние экраны */
   .about__title {
