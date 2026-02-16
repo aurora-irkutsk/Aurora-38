@@ -3479,7 +3479,7 @@ a.request__button {
   .faq-content__title,
   .about-content__title,
   .prices-content__title {
-    font-size: 28px;
+    font-size: 26px;
     margin-bottom: 40px;
   }
 
@@ -3617,7 +3617,7 @@ a.request__button {
 
   /* Prices mobile */
   .prices-content__title {
-    font-size: 32px;
+    font-size: 26px;
   }
 
   .prices-intro {
@@ -3712,7 +3712,7 @@ a.request__button {
   }
 
   .related-services__title {
-    font-size: 32px;
+    font-size: 26px;
     margin-bottom: 40px;
     padding: 0 15px;
   }
@@ -3751,7 +3751,7 @@ a.request__button {
   .faq-content__title,
   .about-content__title,
   .prices-content__title {
-    font-size: 32px;
+    font-size: 26px;
   }
 
   .about-values__list {
@@ -3768,7 +3768,7 @@ a.request__button {
 
   /* Related Services Tablet */
   .related-services__title {
-    font-size: 40px;
+    font-size: 26px;
   }
 
   .related-services__grid {
@@ -4138,7 +4138,8 @@ a.request__button {
   .steps__title,
   .portfolio__title,
   .reviews__title,
-  .contacts__title {
+  .contacts__title,
+  .included-services__title {
     font-size: 26px;
     margin-bottom: 30px;
   }
@@ -4309,7 +4310,7 @@ a.request__button {
 
   /* Адаптивность текста блока "Почему стоит" на мобильных */
   .about__title {
-    font-size: clamp(22px, 6vw, 32px);
+    font-size: 26px;
   }
 
   .about__text {
@@ -4620,7 +4621,7 @@ a.request__button {
 
   /* Средние экраны */
   .about__title {
-    font-size: clamp(24px, 5.5vw, 30px);
+    font-size: 26px;
   }
 
   .about__text {
@@ -4661,7 +4662,7 @@ a.request__button {
 
   /* Большие мобильные */
   .about__title {
-    font-size: clamp(26px, 5vw, 32px);
+    font-size: 26px;
   }
 
   .about__text {
@@ -4702,7 +4703,7 @@ a.request__button {
 
   /* Меньший для маленьких экранов */
   .about__title {
-    font-size: clamp(20px, 5.5vw, 26px);
+    font-size: 26px;
   }
 
   .about__text {
@@ -5252,7 +5253,7 @@ a.request__button {
   }
 
   .blog-hero__title {
-    font-size: 28px;
+    font-size: 26px;
   }
 
   .blog-hero__subtitle {
