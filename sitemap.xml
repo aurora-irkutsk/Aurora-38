@@ -130,12 +130,16 @@
     <priority>0.7</priority>
   </url>
   
-  <!-- Цены -->
+  <!-- Цены на перетяжку мебели -->
   <url>
     <loc>https://peretyazhka-aurora.ru/prices.html</loc>
-    <lastmod>2026-02-14</lastmod>
+    <lastmod>2026-02-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://peretyazhka-aurora.ru/images/hero/hero-bg-desktop.webp</image:loc>
+      <image:title>Цены на перетяжку мебели в Иркутске</image:title>
+    </image:image>
   </url>
   
   <!-- Приватность -->
