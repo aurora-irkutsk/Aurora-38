@@ -66,7 +66,7 @@
     </image:image>
   </url>
   
-  <!-- Замена наполнителя -->
+  <!-- Замена наполнителя мягкой мебели -->
   <url>
     <loc>https://peretyazhka-aurora.ru/zamena-napolnitelya.html</loc>
     <lastmod>2026-02-16</lastmod>
@@ -74,11 +74,11 @@
     <priority>0.9</priority>
     <image:image>
       <image:loc>https://peretyazhka-aurora.ru/images/services/filler-replacement.webp</image:loc>
-      <image:title>Замена наполнителя мебели в Иркутске</image:title>
+      <image:title>Замена наполнителя мягкой мебели (диванов, кресел, пуфов) в Иркутске</image:title>
     </image:image>
   </url>
   
-  <!-- Замена механизмов трансформации -->
+  <!-- Замена механизмов мягкой мебели -->
   <url>
     <loc>https://peretyazhka-aurora.ru/zamena-mekhanizmov.html</loc>
     <lastmod>2026-02-16</lastmod>
@@ -86,7 +86,7 @@
     <priority>0.9</priority>
     <image:image>
       <image:loc>https://peretyazhka-aurora.ru/images/services/mechanism-replacement.webp</image:loc>
-      <image:title>Замена механизмов трансформации в Иркутске</image:title>
+      <image:title>Замена механизмов мягкой мебели (диванов, кресел) в Иркутске</image:title>
     </image:image>
   </url>
   
@@ -102,7 +102,7 @@
     </image:image>
   </url>
   
-  <!-- Ремонт каркаса -->
+  <!-- Ремонт каркаса мягкой мебели -->
   <url>
     <loc>https://peretyazhka-aurora.ru/remont-karkasa.html</loc>
     <lastmod>2026-02-16</lastmod>
@@ -110,7 +110,7 @@
     <priority>0.9</priority>
     <image:image>
       <image:loc>https://peretyazhka-aurora.ru/images/services/frame-repair.webp</image:loc>
-      <image:title>Ремонт каркаса мебели в Иркутске</image:title>
+      <image:title>Ремонт каркаса мягкой мебели (диванов, кресел) в Иркутске</image:title>
     </image:image>
   </url>
   
