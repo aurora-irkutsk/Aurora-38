@@ -866,6 +866,419 @@ a.request__button {
 }
 
 /* =============================================================================
+   ТИПЫ ДИВАНОВ
+   ========================================================================== */
+
+.sofa-types {
+  padding: 80px 0;
+  background: #1a1a1a;
+  position: relative;
+  overflow: hidden;
+}
+
+.sofa-types::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -50%;
+  width: 200%;
+  height: 100%;
+  background: none;
+  animation: pulseGlow 8s ease-in-out infinite;
+  pointer-events: none;
+}
+
+.sofa-types__title {
+  text-align: center;
+  font-size: 36px;
+  font-weight: 700;
+  margin-bottom: 60px;
+  color: #ffffff;
+  position: relative;
+  z-index: 1;
+  text-shadow: none;
+  letter-spacing: 0.5px;
+}
+
+.sofa-types__title::after {
+  content: "";
+  display: block;
+  width: 80px;
+  height: 4px;
+  background: linear-gradient(90deg, transparent, #ff8c00, #ffa500, #ff8c00, transparent);
+  margin: 16px auto 0;
+  border-radius: 2px;
+  box-shadow: none;
+}
+
+.sofa-types__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 30px;
+  max-width: 1400px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+.sofa-types__item {
+  background: linear-gradient(145deg, rgba(20, 20, 20, 0.9), rgba(15, 15, 15, 0.95));
+  backdrop-filter: blur(10px);
+  border: none;
+  padding: 35px 24px;
+  border-radius: 16px;
+  text-align: center;
+  transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  box-shadow: none;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.sofa-types__item::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255, 140, 0, 0.15) 0%, transparent 60%);
+  opacity: 0;
+  transition: opacity 0.5s ease, transform 0.5s ease;
+  pointer-events: none;
+}
+
+.sofa-types__item::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 16px;
+  padding: 1.5px;
+  background: linear-gradient(145deg, transparent, #ff8c00, #ffa500, #ff8c00, transparent);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: 1;
+  transition: opacity 0.5s ease;
+  pointer-events: none;
+}
+
+.sofa-types__item:hover {
+  transform: translateY(-12px);
+  box-shadow: none;
+  background: linear-gradient(145deg, rgba(25, 25, 25, 0.95), rgba(20, 20, 20, 1));
+}
+
+.sofa-types__item:hover::before {
+  opacity: 0;
+  transform: rotate(45deg);
+}
+
+.sofa-types__item:hover::after {
+  opacity: 1;
+}
+
+.sofa-types__number {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 50px;
+  background: linear-gradient(135deg, #ff8c00 0%, #ffa500 50%, #ff8c00 100%);
+  color: #0a0a0a;
+  font-size: 20px;
+  font-weight: 700;
+  border-radius: 50%;
+  margin: 0 auto 20px;
+  box-shadow: none;
+  transition: all 0.4s ease;
+}
+
+.sofa-types__item:hover .sofa-types__number {
+  transform: scale(1.15) rotate(360deg);
+  box-shadow: none;
+}
+
+.sofa-types__name {
+  font-size: 19px;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 14px;
+  line-height: 1.3;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+  transition: color 0.3s ease;
+}
+
+.sofa-types__item:hover .sofa-types__name {
+  color: #ffa500;
+  text-shadow: 0 0 10px rgba(255, 140, 0, 0.5);
+}
+
+.sofa-types__desc {
+  font-size: 15px;
+  color: rgba(255, 255, 255, 0.8);
+  line-height: 1.6;
+  text-shadow: 0 1px 5px rgba(0, 0, 0, 0.5);
+  transition: color 0.3s ease;
+}
+
+.sofa-types__item:hover .sofa-types__desc {
+  color: rgba(255, 255, 255, 0.95);
+}
+
+/* =============================================================================
+   ПОПУЛЯРНЫЕ МАТЕРИАЛЫ
+   ========================================================================== */
+
+.materials {
+  padding: 80px 0;
+  background: #1a1a1a;
+  position: relative;
+  overflow: hidden;
+}
+
+.materials::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -50%;
+  width: 200%;
+  height: 100%;
+  background: none;
+  animation: pulseGlow 8s ease-in-out infinite;
+  pointer-events: none;
+}
+
+.materials__title {
+  text-align: center;
+  font-size: 36px;
+  font-weight: 700;
+  margin-bottom: 60px;
+  color: #ffffff;
+  position: relative;
+  z-index: 1;
+  text-shadow: none;
+  letter-spacing: 0.5px;
+}
+
+.materials__title::after {
+  content: "";
+  display: block;
+  width: 80px;
+  height: 4px;
+  background: linear-gradient(90deg, transparent, #ff8c00, #ffa500, #ff8c00, transparent);
+  margin: 16px auto 0;
+  border-radius: 2px;
+  box-shadow: none;
+}
+
+.materials__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 30px;
+  max-width: 1400px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+.materials__item {
+  background: linear-gradient(145deg, rgba(20, 20, 20, 0.9), rgba(15, 15, 15, 0.95));
+  backdrop-filter: blur(10px);
+  border: none;
+  padding: 35px 24px;
+  border-radius: 16px;
+  text-align: center;
+  transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  box-shadow: none;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.materials__item::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255, 140, 0, 0.15) 0%, transparent 60%);
+  opacity: 0;
+  transition: opacity 0.5s ease, transform 0.5s ease;
+  pointer-events: none;
+}
+
+.materials__item::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 16px;
+  padding: 1.5px;
+  background: linear-gradient(145deg, transparent, #ff8c00, #ffa500, #ff8c00, transparent);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: 1;
+  transition: opacity 0.5s ease;
+  pointer-events: none;
+}
+
+.materials__item:hover {
+  transform: translateY(-12px);
+  box-shadow: none;
+  background: linear-gradient(145deg, rgba(25, 25, 25, 0.95), rgba(20, 20, 20, 1));
+}
+
+.materials__item:hover::before {
+  opacity: 0;
+  transform: rotate(45deg);
+}
+
+.materials__item:hover::after {
+  opacity: 1;
+}
+
+.materials__number {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 50px;
+  background: linear-gradient(135deg, #ff8c00 0%, #ffa500 50%, #ff8c00 100%);
+  color: #0a0a0a;
+  font-size: 20px;
+  font-weight: 700;
+  border-radius: 50%;
+  margin: 0 auto 20px;
+  box-shadow: none;
+  transition: all 0.4s ease;
+}
+
+.materials__item:hover .materials__number {
+  transform: scale(1.15) rotate(360deg);
+  box-shadow: none;
+}
+
+.materials__name {
+  font-size: 19px;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 14px;
+  line-height: 1.3;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+  transition: color 0.3s ease;
+}
+
+.materials__item:hover .materials__name {
+  color: #ffa500;
+  text-shadow: 0 0 10px rgba(255, 140, 0, 0.5);
+}
+
+.materials__desc {
+  font-size: 15px;
+  color: rgba(255, 255, 255, 0.8);
+  line-height: 1.6;
+  text-shadow: 0 1px 5px rgba(0, 0, 0, 0.5);
+  transition: color 0.3s ease;
+}
+
+.materials__item:hover .materials__desc {
+  color: rgba(255, 255, 255, 0.95);
+}
+
+/* =============================================================================
+   CTA БЛОК
+   ========================================================================== */
+
+.cta-block {
+  padding: 80px 0;
+  background: #1a1a1a;
+  position: relative;
+  overflow: hidden;
+}
+
+.cta-block__content {
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: center;
+  padding: 50px 40px;
+  background: linear-gradient(145deg, rgba(20, 20, 20, 0.9), rgba(15, 15, 15, 0.95));
+  border-radius: 12px;
+  border: 1.5px solid #90EE90;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 0 8px rgba(144, 238, 144, 0.4), inset 0 1px 0 rgba(200, 255, 200, 0.3);
+  position: relative;
+}
+
+.cta-block__title {
+  font-size: 32px;
+  font-weight: 700;
+  color: #ffa500;
+  text-shadow: 0 0 10px rgba(255, 140, 0, 0.5);
+  margin-bottom: 20px;
+}
+
+.cta-block__subtitle {
+  font-size: 18px;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.85);
+  margin-bottom: 30px;
+}
+
+.cta-block__highlight {
+  color: #ffa500;
+  font-weight: 700;
+}
+
+.cta-block__buttons {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.cta-block__btn {
+  padding: 15px 40px;
+  font-size: 18px;
+  font-weight: 600;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  display: inline-block;
+  border: 2px solid transparent;
+  cursor: pointer;
+}
+
+.cta-block__btn--primary {
+  background: #ff8c00;
+  color: #fff;
+  border: 1.5px solid #ffffff;
+  box-shadow: 0 0 8px rgba(255, 255, 255, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.3);
+}
+
+.cta-block__btn--primary:hover {
+  background: #ffa500;
+  border-color: transparent;
+  transform: translateY(-2px);
+  box-shadow: none;
+}
+
+.cta-block__btn--secondary {
+  background: transparent;
+  color: #ff8c00;
+  border: 1.5px solid #ffffff;
+  box-shadow: 0 0 8px rgba(255, 255, 255, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.3);
+}
+
+.cta-block__btn--secondary:hover {
+  background: #ff8c00;
+  color: #fff;
+  transform: translateY(-2px);
+  box-shadow: none;
+}
+
+/* =============================================================================
    ПОРТФОЛИО
    ========================================================================== */
 
@@ -4309,6 +4722,8 @@ a.request__button {
   .advantages-cards__list,
   .reviews__list,
   .steps__list,
+  .sofa-types__grid,
+  .materials__grid,
   .portfolio__list {
     grid-template-columns: 1fr !important;
     gap: 25px;
@@ -4317,6 +4732,9 @@ a.request__button {
   .services__title,
   .advantages-cards__title,
   .steps__title,
+  .sofa-types__title,
+  .materials__title,
+  .cta-block__title,
   .portfolio__title,
   .reviews__title,
   .contacts__title,
@@ -4542,6 +4960,8 @@ a.request__button {
 
   .advantage-cards__item:hover,
   .step:hover,
+  .sofa-types__item:hover,
+  .materials__item:hover,
   .service:hover,
   .portfolio__item:hover,
   .included-services__item:hover,
@@ -4560,6 +4980,8 @@ a.request__button {
   /* Remove orange glow from cards on tablets */
   .advantage-cards__item::before,
   .step::before,
+  .sofa-types__item::before,
+  .materials__item::before,
   .service::before,
   .portfolio__item::before,
   .contacts__info::before,
@@ -4712,7 +5134,9 @@ a.request__button {
     grid-template-columns: repeat(2, 1fr) !important;
   }
 
-  .steps__list {
+  .steps__list,
+  .sofa-types__grid,
+  .materials__grid {
     grid-template-columns: repeat(2, 1fr) !important;
   }
 
@@ -5037,6 +5461,33 @@ a.request__button {
   .success-modal__icon svg {
     width: 60px;
     height: 60px;
+  }
+
+  /* CTA блок на мобильных */
+  .cta-block__content {
+    padding: 40px 20px;
+    border-radius: 16px;
+  }
+
+  .cta-block__title {
+    font-size: 28px;
+    margin-bottom: 20px;
+  }
+
+  .cta-block__subtitle {
+    font-size: 16px;
+    margin-bottom: 30px;
+  }
+
+  .cta-block__buttons {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .cta-block__btn {
+    width: 100%;
+    padding: 16px 30px;
+    font-size: 16px;
   }
 }
 /* =============================================================================
