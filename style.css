@@ -2490,6 +2490,8 @@ a.request__button {
 
 .related-services__card {
   text-align: center;
+  display: flex;
+  flex-direction: column;
 }
 
 .related-services__name {
@@ -2498,11 +2500,13 @@ a.request__button {
 
 .related-services__description {
   text-align: left;
+  flex-grow: 1;
 }
 
 .related-services__card .service__link {
   display: inline-block;
   margin: 0 0 20px;
+  margin-top: auto;
 }
 
 /* Prices Page Button Toggle */
