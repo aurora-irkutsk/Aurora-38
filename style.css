@@ -2346,7 +2346,7 @@ a.request__button {
   top: 50%;
   transform: translateY(-50%);
   color: #ffa500;
-  font-weight: bold;
+  font-weight: 700;
   font-size: 24px;
   transition: color 0.3s ease;
 }
@@ -2430,6 +2430,9 @@ a.request__button {
   box-shadow: none;
   border: none;
   position: relative;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
 }
 
 .related-services__card:hover {
@@ -2475,6 +2478,7 @@ a.request__button {
   color: rgba(255, 255, 255, 0.95);
   margin: 20px 20px 10px;
   transition: color 0.3s ease;
+  text-align: left;
 }
 
 .related-services__card:hover .related-services__name {
@@ -2486,19 +2490,6 @@ a.request__button {
   color: rgba(255, 255, 255, 0.7);
   margin: 0 20px 20px;
   line-height: 1.5;
-}
-
-.related-services__card {
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-}
-
-.related-services__name {
-  text-align: left;
-}
-
-.related-services__description {
   text-align: left;
   flex-grow: 1;
 }
@@ -2688,7 +2679,7 @@ a.request__button {
   right: 30px;
   color: white;
   font-size: 40px;
-  font-weight: bold;
+  font-weight: 700;
   cursor: pointer;
   user-select: none;
 }
@@ -2776,7 +2767,7 @@ a.request__button {
   top: 15px;
   right: 20px;
   font-size: 32px;
-  font-weight: bold;
+  font-weight: 700;
   color: #999;
   cursor: pointer;
   transition: color 0.2s;
@@ -4590,7 +4581,7 @@ a.request__button {
   .header a[href^="tel"] {
     color: white !important;
     text-decoration: none;
-    font-weight: bold;
+    font-weight: 700;
     text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
   }
 
@@ -5398,7 +5389,7 @@ a.request__button {
   right: 20px;
   color: #ff8c00;
   font-size: 32px;
-  font-weight: bold;
+  font-weight: 700;
   cursor: pointer;
   transition: all 0.3s ease;
   line-height: 1;
@@ -6011,7 +6002,7 @@ a.request__button {
 }
 
 
-/* ������ ������ "���������" ��� ������ �� desktop (���������� ������ �� ��������� � ���������) */
+/* Скрываем кнопку "Маршрут" для карты на desktop (показываем только на планшетах и мобильных) */
 @media (min-width: 1025px) {
   .map__button--secondary {
     display: none !important;
@@ -6031,22 +6022,4 @@ a.request__button {
   .related-services__card:hover {
     transform: scale(1.03) !important;
   }
-.related-services__card::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  border-radius: 12px;
-  padding: 1.5px;
-  background: linear-gradient(145deg, transparent, #ff8c00, #ffa500, #ff8c00, transparent);
-  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-  -webkit-mask-composite: xor;
-  mask-composite: exclude;
-  opacity: 1;
-  transition: opacity 0.5s ease;
-  pointer-events: none;
-}
-
-.related-services__card:hover::after {
-  opacity: 1;
-}
 }
