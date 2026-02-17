@@ -2488,6 +2488,23 @@ a.request__button {
   line-height: 1.5;
 }
 
+.related-services__card {
+  text-align: center;
+}
+
+.related-services__name {
+  text-align: left;
+}
+
+.related-services__description {
+  text-align: left;
+}
+
+.related-services__card .service__link {
+  display: inline-block;
+  margin: 0 0 20px;
+}
+
 /* Prices Page Button Toggle */
 .prices-cta__button--desktop-only {
   display: inline-flex !important;
