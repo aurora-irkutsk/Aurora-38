@@ -332,61 +332,12 @@ function initSuccessModal() {
     document.body.style.overflow = 'hidden';
   };
 
-  // Функция показа ошибки в модальном окне
-  const showErrorModal = (message) => {
-    const modalTitle = successModal.querySelector('.success-modal__title');
-    const modalText = successModal.querySelector('.success-modal__text');
-    const modalIcon = successModal.querySelector('.success-modal__icon');
-    
-    if (modalTitle && modalText && modalIcon) {
-      // Временно меняем содержимое на ошибку
-      const originalTitle = modalTitle.textContent;
-      const originalText = modalText.innerHTML;
-      const originalIcon = modalIcon.innerHTML;
-      
-      modalTitle.textContent = 'Ошибка';
-      modalText.innerHTML = message;
-      modalIcon.innerHTML = '✕';
-      modalIcon.style.color = '#ff4444';
-      
-      successModal.style.display = 'block';
-      document.body.style.overflow = 'hidden';
-      
-      // Восстанавливаем оригинальное содержимое при закрытии
-      successModal.dataset.isError = 'true';
-      successModal.dataset.originalTitle = originalTitle;
-      successModal.dataset.originalText = originalText;
-      successModal.dataset.originalIcon = originalIcon;
-    }
-  };
-
   // Функция закрытия модального окна
   const closeModal = () => {
-    // Восстанавливаем оригинальное содержимое, если это было окно ошибки
-    if (successModal.dataset.isError === 'true') {
-      const modalTitle = successModal.querySelector('.success-modal__title');
-      const modalText = successModal.querySelector('.success-modal__text');
-      const modalIcon = successModal.querySelector('.success-modal__icon');
-      
-      if (modalTitle && modalText && modalIcon) {
-        modalTitle.textContent = successModal.dataset.originalTitle || 'Спасибо!';
-        modalText.innerHTML = successModal.dataset.originalText || 'Форма была успешно отправлена.';
-        modalIcon.innerHTML = successModal.dataset.originalIcon || '✓';
-        modalIcon.style.color = '';
-      }
-      
-      delete successModal.dataset.isError;
-      delete successModal.dataset.originalTitle;
-      delete successModal.dataset.originalText;
-      delete successModal.dataset.originalIcon;
-    }
-    
     successModal.style.display = 'none';
     document.body.style.overflow = '';
-    // Перенаправляем на главную страницу только если это не ошибка
-    if (successModal.dataset.isError !== 'true') {
-      window.location.href = window.location.pathname;
-    }
+    // Перенаправляем на главную страницу
+    window.location.href = window.location.pathname;
   };
 
   // Обработчики закрытия
@@ -478,11 +429,11 @@ function initSuccessModal() {
           openSuccessModal();
         } else {
           // Ошибка отправки
-          showErrorModal('Произошла ошибка при отправке формы.<br>Попробуйте позже или позвоните нам напрямую.');
+          alert('Произошла ошибка при отправке формы. Попробуйте позже или позвоните нам напрямую.');
         }
       } catch (error) {
-        // Убираем console.error для production
-        showErrorModal('Произошла ошибка при отправке формы.<br>Попробуйте позже или позвоните нам напрямую.');
+        console.error('Ошибка:', error);
+        alert('Произошла ошибка при отправке формы. Попробуйте позже или позвоните нам напрямую.');
       }
     });
   });
