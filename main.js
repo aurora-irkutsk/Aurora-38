@@ -213,6 +213,7 @@ function initPhoneValidation() {
       phoneError.style.fontSize = 'clamp(1rem, 2.2vw, 1.2rem)';
       phoneError.style.marginTop = '5px';
       phoneError.style.display = 'none';
+      phoneError.style.textAlign = 'center';
       phoneError.style.textShadow = '0 0 10px rgba(156, 255, 46, 0.5)';
       phoneError.innerHTML = 'Формат ввода: 8 902 560 52 25';
 
@@ -385,6 +386,7 @@ function initSuccessModal() {
           phoneError.style.fontSize = 'clamp(1rem, 2.2vw, 1.2rem)';
           phoneError.style.marginTop = '5px';
           phoneError.style.display = 'none';
+          phoneError.style.textAlign = 'center';
           phoneError.style.textShadow = '0 0 10px rgba(156, 255, 46, 0.5)';
           phoneError.innerHTML = 'Формат ввода: 8 902 560 52 25';
 
