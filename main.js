@@ -302,14 +302,11 @@ function initFormProtection() {
       const submitButton = form.querySelector('button[type="submit"]');
       if (!submitButton) return;
       
-      const originalText = submitButton.textContent;
       submitButton.disabled = true;
-      submitButton.textContent = 'Отправка...';
       
       // Разблокировать через 5 секунд на случай ошибки
       setTimeout(function() {
         submitButton.disabled = false;
-        submitButton.textContent = originalText;
       }, 5000);
     });
   });
