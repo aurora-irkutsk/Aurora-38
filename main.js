@@ -208,14 +208,12 @@ function initPhoneValidation() {
     if (!phoneError) {
       phoneError = document.createElement('div');
       phoneError.id = 'phoneError';
-      phoneError.style.color = '#9CFF2E';
-      phoneError.style.fontWeight = '600';
+      phoneError.style.color = 'whitesmoke';
+      phoneError.style.fontWeight = '500';
       phoneError.style.fontSize = 'clamp(1rem, 2.2vw, 1.2rem)';
       phoneError.style.marginTop = '5px';
       phoneError.style.display = 'none';
-      phoneError.style.textAlign = 'center';
-      phoneError.style.textShadow = '0 0 10px rgba(156, 255, 46, 0.5)';
-      phoneError.innerHTML = 'Формат ввода: 8 902 560 52 25';
+      phoneError.innerHTML = 'Введите номер в формате: 8 902 560 52 25';
 
       // Вставляем после кнопки отправки
       const button = form.querySelector('button[type="submit"]');
@@ -303,11 +301,14 @@ function initFormProtection() {
       const submitButton = form.querySelector('button[type="submit"]');
       if (!submitButton) return;
       
+      const originalText = submitButton.textContent;
       submitButton.disabled = true;
+      submitButton.textContent = 'Отправка...';
       
       // Разблокировать через 5 секунд на случай ошибки
       setTimeout(function() {
         submitButton.disabled = false;
+        submitButton.textContent = originalText;
       }, 5000);
     });
   });
@@ -381,14 +382,12 @@ function initSuccessModal() {
         if (!phoneError) {
           phoneError = document.createElement('div');
           phoneError.id = 'phoneError';
-          phoneError.style.color = '#9CFF2E';
-          phoneError.style.fontWeight = '600';
+          phoneError.style.color = 'whitesmoke';
+          phoneError.style.fontWeight = '500';
           phoneError.style.fontSize = 'clamp(1rem, 2.2vw, 1.2rem)';
           phoneError.style.marginTop = '5px';
           phoneError.style.display = 'none';
-          phoneError.style.textAlign = 'center';
-          phoneError.style.textShadow = '0 0 10px rgba(156, 255, 46, 0.5)';
-          phoneError.innerHTML = 'Формат ввода: 8 902 560 52 25';
+          phoneError.innerHTML = 'Введите номер в формате: 8 902 560 52 25';
 
           const button = form.querySelector('button[type="submit"]');
           if (button && button.parentNode) {
