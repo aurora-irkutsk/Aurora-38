@@ -2519,6 +2519,20 @@ a.request__button {
   display: inline-block;
   margin: 0 0 20px;
   margin-top: auto;
+  align-self: center;
+}
+
+.related-services__card:hover .service__link {
+  color: #ffa500;
+  text-shadow: 0 0 15px rgba(255, 140, 0, 0.8);
+}
+
+.related-services__card .service__link::after {
+  width: 0;
+}
+
+.related-services__card:hover .service__link::after {
+  width: 100%;
 }
 
 /* Prices Page Button Toggle */
