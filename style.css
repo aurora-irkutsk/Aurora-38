@@ -8,6 +8,18 @@
   box-sizing: border-box;
 }
 
+/* Плавная прокрутка для якорных ссылок (работает в современных браузерах) */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Отключаем плавную прокрутку для пользователей с prefers-reduced-motion */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
 html {
   scroll-behavior: smooth;
   overflow-x: hidden;

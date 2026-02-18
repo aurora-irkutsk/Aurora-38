@@ -1,4 +1,65 @@
 // =============================================================================
+// ПЛАВНАЯ ПРОКРУТКА ДЛЯ ЯКОРНЫХ ССЫЛОК (КРОССБРАУЗЕРНОЕ РЕШЕНИЕ)
+// =============================================================================
+
+function initSmoothScroll() {
+  // Находим все ссылки с якорями
+  const anchorLinks = document.querySelectorAll('a[href^="#"]:not([href="#"])');
+  
+  anchorLinks.forEach(link => {
+    link.addEventListener('click', function(e) {
+      const targetId = this.getAttribute('href');
+      const targetElement = document.querySelector(targetId);
+      
+      // Проверяем что элемент существует
+      if (!targetElement) return;
+      
+      // Отменяем стандартное поведение
+      e.preventDefault();
+      
+      // Проверяем поддержку scrollIntoView с behavior: smooth
+      if ('scrollBehavior' in document.documentElement.style) {
+        // Современные браузеры
+        targetElement.scrollIntoView({
+          behavior: 'smooth',
+          block: 'start'
+        });
+      } else {
+        // Fallback для старых браузеров (плавная анимация через JS)
+        const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset;
+        const startPosition = window.pageYOffset;
+        const distance = targetPosition - startPosition;
+        const duration = 800; // миллисекунды
+        let start = null;
+        
+        function animation(currentTime) {
+          if (start === null) start = currentTime;
+          const timeElapsed = currentTime - start;
+          const run = ease(timeElapsed, startPosition, distance, duration);
+          window.scrollTo(0, run);
+          if (timeElapsed < duration) requestAnimationFrame(animation);
+        }
+        
+        // Функция плавности (easeInOutQuad)
+        function ease(t, b, c, d) {
+          t /= d / 2;
+          if (t < 1) return c / 2 * t * t + b;
+          t--;
+          return -c / 2 * (t * (t - 2) - 1) + b;
+        }
+        
+        requestAnimationFrame(animation);
+      }
+      
+      // Обновляем URL (опционально, без перезагрузки)
+      if (history.pushState) {
+        history.pushState(null, null, targetId);
+      }
+    });
+  });
+}
+
+// =============================================================================
 // ИНИЦИАЛИЗАЦИЯ ПОСЛЕ ЗАГРУЗКИ DOM
 // =============================================================================
 
@@ -10,6 +71,7 @@ document.addEventListener('DOMContentLoaded', function () {
   initSuccessModal();
   initFAQ();
   initReviewsLink();
+  initSmoothScroll();
 });
 
 // =============================================================================
