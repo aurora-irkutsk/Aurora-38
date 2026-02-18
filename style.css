@@ -6050,3 +6050,67 @@ a.request__button {
   opacity: 1;
 }
 }
+
+/* =============================================================================
+   МЕДИА-ЗАПРОСЫ ДЛЯ ОРИЕНТАЦИИ УСТРОЙСТВА
+   ============================================================================= */
+
+/* Альбомная ориентация на мобильных устройствах (низкая высота экрана) */
+@media (orientation: landscape) and (max-height: 500px) {
+  /* Уменьшаем отступы для экономии вертикального пространства */
+  .hero {
+    min-height: 400px;
+    padding: 40px 0;
+  }
+  
+  .hero__title {
+    font-size: clamp(1.8rem, 4vw, 2.5rem);
+    margin-bottom: 15px;
+  }
+  
+  .hero__subtitle {
+    font-size: clamp(1rem, 2vw, 1.2rem);
+    margin-bottom: 20px;
+  }
+  
+  /* Модальные окна на весь экран */
+  .call-modal .modal__content {
+    max-height: 90vh;
+    overflow-y: auto;
+    padding: 30px 20px;
+  }
+  
+  .success-modal__content {
+    padding: 30px 20px;
+  }
+  
+  /* Уменьшаем отступы в формах */
+  .request__content {
+    padding: 30px 20px;
+  }
+  
+  .request__input,
+  .modal__input {
+    padding: 10px 15px;
+    margin-bottom: 12px;
+  }
+  
+  /* FAQ в альбомной ориентации */
+  .faq-item {
+    padding: 15px;
+  }
+}
+
+/* Портретная ориентация на планшетах */
+@media (orientation: portrait) and (min-width: 768px) and (max-width: 1024px) {
+  /* Оптимизация для планшетов в портретном режиме */
+  .services__grid,
+  .portfolio__grid,
+  .reviews__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .benefits__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
