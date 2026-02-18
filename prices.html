@@ -118,9 +118,6 @@
     <link rel="stylesheet" href="/style.css">
     <link rel="stylesheet" href="/cookie-consent.css">
     
-    <!-- Scripts -->
-    <script src="analytics.js" defer></script>
-    <script src="/main.js" defer></script>
 </head>
 
 <body>
@@ -725,12 +722,15 @@
     <!-- Success Modal -->
     <div class="success-modal" id="successModal">
         <div class="success-modal__content">
+            <span class="success-modal__close" id="closeSuccessModal">&times;</span>
             <div class="success-modal__icon">✓</div>
             <h3 class="success-modal__title">Спасибо!</h3>
             <p class="success-modal__text">Ваша заявка успешно отправлена. Мы свяжемся с вами в ближайшее время.</p>
+            <button class="success-modal__button" id="successModalBtn">Вернуться на сайт</button>
         </div>
     </div>
 
+    <script src="/main.js" defer></script>
     <script src="/analytics.js"></script>
     <script src="/cookie-consent.js"></script>
 

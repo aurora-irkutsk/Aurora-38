@@ -214,6 +214,7 @@ function initPhoneValidation() {
       phoneError.style.fontSize = 'clamp(1rem, 2.2vw, 1.2rem)';
       phoneError.style.marginTop = '5px';
       phoneError.style.display = 'none';
+      phoneError.style.textAlign = 'center';
       phoneError.innerHTML = 'Формат ввода: 8 902 560 52 25';
 
       // Вставляем после кнопки отправки
@@ -386,6 +387,7 @@ function initSuccessModal() {
           phoneError.style.fontSize = 'clamp(1rem, 2.2vw, 1.2rem)';
           phoneError.style.marginTop = '5px';
           phoneError.style.display = 'none';
+          phoneError.style.textAlign = 'center';
           phoneError.innerHTML = 'Формат ввода: 8 902 560 52 25';
 
           const button = form.querySelector('button[type="submit"]');
