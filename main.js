@@ -7,7 +7,6 @@ document.addEventListener('DOMContentLoaded', function () {
   initBurgerMenu();
   initCallModal();
   initPhoneValidation();
-  initFormProtection();
   initSuccessModal();
   initFAQ();
   initReviewsLink();
@@ -194,6 +193,31 @@ function initCallModal() {
 // ВАЛИДАЦИЯ И ФОРМАТИРОВАНИЕ НОМЕРА ТЕЛЕФОНА (ДЛЯ ОБЕИХ ФОРМ)
 // =============================================================================
 
+// Вспомогательная функция для создания элемента ошибки валидации телефона
+function createPhoneError(form) {
+  let phoneError = form.querySelector('#phoneError');
+  
+  if (!phoneError) {
+    phoneError = document.createElement('div');
+    phoneError.id = 'phoneError';
+    phoneError.style.color = '#7FFF00';
+    phoneError.style.textShadow = '0 0 10px rgba(127, 255, 0, 0.5)';
+    phoneError.style.fontWeight = '500';
+    phoneError.style.fontSize = 'clamp(1rem, 2.2vw, 1.2rem)';
+    phoneError.style.marginTop = '5px';
+    phoneError.style.display = 'none';
+    phoneError.style.textAlign = 'center';
+    phoneError.innerHTML = 'Формат ввода: 8 902 560 52 25';
+
+    const button = form.querySelector('button[type="submit"]');
+    if (button) {
+      button.parentNode.insertBefore(phoneError, button.nextSibling);
+    }
+  }
+  
+  return phoneError;
+}
+
 function initPhoneValidation() {
   // Функция инициализации одной формы
   function setupForm(form) {
@@ -202,27 +226,9 @@ function initPhoneValidation() {
     const nameInput = form.querySelector('input[name="name"]');
     const phoneInput = form.querySelector('input[name="phone"]');
     const submitButton = form.querySelector('.request__button') || form.querySelector('.modal__button');
-    let phoneError = form.querySelector('#phoneError');
-
-    // Создаём элемент ошибки, если его нет
-    if (!phoneError) {
-      phoneError = document.createElement('div');
-      phoneError.id = 'phoneError';
-      phoneError.style.color = '#7FFF00';
-      phoneError.style.textShadow = '0 0 10px rgba(127, 255, 0, 0.5)';
-      phoneError.style.fontWeight = '500';
-      phoneError.style.fontSize = 'clamp(1rem, 2.2vw, 1.2rem)';
-      phoneError.style.marginTop = '5px';
-      phoneError.style.display = 'none';
-      phoneError.style.textAlign = 'center';
-      phoneError.innerHTML = 'Формат ввода: 8 902 560 52 25';
-
-      // Вставляем после кнопки отправки
-      const button = form.querySelector('button[type="submit"]');
-      if (button) {
-        button.parentNode.insertBefore(phoneError, button.nextSibling);
-      }
-    }
+    
+    // Создаём элемент ошибки через вспомогательную функцию
+    const phoneError = createPhoneError(form);
 
     // Запрет цифр в поле имени
     if (nameInput) {
@@ -267,9 +273,6 @@ function initPhoneValidation() {
           if (digits.length > 8) formatted = digits.slice(0, 3) + ' ' + digits.slice(3, 6) + ' ' + digits.slice(6, 8) + ' ' + digits.slice(8, 10);
         }
 
-        // Сохраняем позицию курсора
-        const start = phoneInput.selectionStart;
-        const end = phoneInput.selectionEnd;
         phoneInput.value = formatted;
         if (!isDeleting) {
           phoneInput.setSelectionRange(formatted.length, formatted.length);
@@ -290,28 +293,6 @@ function initPhoneValidation() {
   setupForm(callForm);
 }
 
-
-// =============================================================================
-// ЗАЩИТА ОТ ПОВТОРНЫХ ОТПРАВОК ФОРМЫ
-// =============================================================================
-
-function initFormProtection() {
-  const forms = document.querySelectorAll('form');
-  
-  forms.forEach(function(form) {
-    form.addEventListener('submit', function() {
-      const submitButton = form.querySelector('button[type="submit"]');
-      if (!submitButton) return;
-      
-      submitButton.disabled = true;
-      
-      // Разблокировать через 5 секунд на случай ошибки
-      setTimeout(function() {
-        submitButton.disabled = false;
-      }, 5000);
-    });
-  });
-}
 
 // =============================================================================
 // МОДАЛЬНОЕ ОКНО УСПЕШНОЙ ОТПРАВКИ ФОРМЫ
@@ -335,8 +316,6 @@ function initSuccessModal() {
   const closeModal = () => {
     successModal.style.display = 'none';
     document.body.style.overflow = '';
-    // Перенаправляем на главную страницу
-    window.location.href = window.location.pathname;
   };
 
   // Обработчики закрытия
@@ -367,6 +346,12 @@ function initSuccessModal() {
     form.addEventListener('submit', async (e) => {
       e.preventDefault();
 
+      // Блокировка кнопки отправки
+      const submitButton = form.querySelector('button[type="submit"]');
+      if (submitButton) {
+        submitButton.disabled = true;
+      }
+
       // Валидация телефона перед отправкой
       const phoneInput = form.querySelector('input[name="phone"]');
       if (phoneInput) {
@@ -376,28 +361,15 @@ function initSuccessModal() {
         const startsWithPlus7 = value.startsWith('+7');
         const startsWith8 = value.startsWith('8');
 
-        // Находим или создаем элемент ошибки
-        let phoneError = form.querySelector('#phoneError');
-        if (!phoneError) {
-          phoneError = document.createElement('div');
-          phoneError.id = 'phoneError';
-          phoneError.style.color = '#7FFF00';
-          phoneError.style.textShadow = '0 0 10px rgba(127, 255, 0, 0.5)';
-          phoneError.style.fontWeight = '500';
-          phoneError.style.fontSize = 'clamp(1rem, 2.2vw, 1.2rem)';
-          phoneError.style.marginTop = '5px';
-          phoneError.style.display = 'none';
-          phoneError.style.textAlign = 'center';
-          phoneError.innerHTML = 'Формат ввода: 8 902 560 52 25';
-
-          const button = form.querySelector('button[type="submit"]');
-          if (button && button.parentNode) {
-            button.parentNode.insertBefore(phoneError, button.nextSibling);
-          }
-        }
+        // Находим или создаем элемент ошибки через вспомогательную функцию
+        const phoneError = createPhoneError(form);
 
         if (!has11Digits || !(startsWithPlus7 || startsWith8)) {
           phoneError.style.display = 'block';
+          // Разблокируем кнопку при ошибке валидации
+          if (submitButton) {
+            submitButton.disabled = false;
+          }
           return; // Прерываем отправку
         } else {
           phoneError.style.display = 'none';
@@ -430,10 +402,16 @@ function initSuccessModal() {
           openSuccessModal();
         } else {
           // Ошибка отправки
+          if (submitButton) {
+            submitButton.disabled = false;
+          }
           alert('Произошла ошибка при отправке формы. Попробуйте позже или позвоните нам напрямую.');
         }
       } catch (error) {
         console.error('Ошибка:', error);
+        if (submitButton) {
+          submitButton.disabled = false;
+        }
         alert('Произошла ошибка при отправке формы. Попробуйте позже или позвоните нам напрямую.');
       }
     });
