@@ -170,14 +170,35 @@ function initCallModal() {
 
   if (!callModal || !openCallBtn || !closeCallBtn) return;
 
+  // Переменная для хранения функции удаления trap focus
+  let removeCallTrapFocus = null;
+  
   const openCallModal = () => {
     callModal.style.display = 'block';
     document.body.style.overflow = 'hidden';
+    
+    // Активируем trap focus
+    const modalContent = callModal.querySelector('.modal__content');
+    if (modalContent) {
+      removeCallTrapFocus = trapFocus(modalContent);
+    }
+    
+    // Устанавливаем фокус на первое поле формы
+    setTimeout(() => {
+      const firstInput = callModal.querySelector('input[name="name"]');
+      if (firstInput) firstInput.focus();
+    }, 100);
   };
 
   const closeCallModal = () => {
     callModal.style.display = 'none';
     document.body.style.overflow = '';
+    
+    // Удаляем trap focus при закрытии
+    if (removeCallTrapFocus) {
+      removeCallTrapFocus();
+      removeCallTrapFocus = null;
+    }
   };
 
   openCallBtn.addEventListener('click', openCallModal);
@@ -295,6 +316,108 @@ function initPhoneValidation() {
 
 
 // =============================================================================
+// ВСПОМОГАТЕЛЬНАЯ ФУНКЦИЯ: TRAP FOCUS (удержание фокуса внутри модального окна)
+// =============================================================================
+
+function trapFocus(element) {
+  const focusableElements = element.querySelectorAll(
+    'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
+  );
+  const firstFocusable = focusableElements[0];
+  const lastFocusable = focusableElements[focusableElements.length - 1];
+
+  const handleTabKey = (e) => {
+    if (e.key !== 'Tab') return;
+
+    if (e.shiftKey) {
+      // Shift + Tab
+      if (document.activeElement === firstFocusable) {
+        e.preventDefault();
+        lastFocusable.focus();
+      }
+    } else {
+      // Tab
+      if (document.activeElement === lastFocusable) {
+        e.preventDefault();
+        firstFocusable.focus();
+      }
+    }
+  };
+
+  element.addEventListener('keydown', handleTabKey);
+  
+  // Возвращаем функцию для удаления обработчика
+  return () => element.removeEventListener('keydown', handleTabKey);
+}
+
+// =============================================================================
+// МОДАЛЬНОЕ ОКНО ОШИБОК
+// =============================================================================
+
+function showErrorModal(message) {
+  // Создаем модальное окно ошибки, если его еще нет
+  let errorModal = document.getElementById('errorModal');
+  
+  if (!errorModal) {
+    errorModal = document.createElement('div');
+    errorModal.id = 'errorModal';
+    errorModal.className = 'success-modal';
+    errorModal.innerHTML = `
+      <div class="success-modal__content">
+        <span class="success-modal__close" id="closeErrorModal">&times;</span>
+        <div class="success-modal__icon" style="background: #ff4444;">✗</div>
+        <h3 class="success-modal__title">Ошибка</h3>
+        <p class="success-modal__text" id="errorModalText"></p>
+        <button class="success-modal__button" id="errorModalBtn">Понятно</button>
+      </div>
+    `;
+    document.body.appendChild(errorModal);
+    
+    // Обработчики закрытия
+    const closeErrorModal = () => {
+      errorModal.style.display = 'none';
+      document.body.style.overflow = '';
+    };
+    
+    errorModal.querySelector('#closeErrorModal').addEventListener('click', closeErrorModal);
+    errorModal.querySelector('#errorModalBtn').addEventListener('click', closeErrorModal);
+    errorModal.addEventListener('click', (e) => {
+      if (e.target === errorModal) closeErrorModal();
+    });
+    
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && errorModal.style.display === 'block') {
+        closeErrorModal();
+      }
+    });
+  }
+  
+  // Устанавливаем текст и показываем
+  document.getElementById('errorModalText').textContent = message;
+  errorModal.style.display = 'block';
+  document.body.style.overflow = 'hidden';
+  
+  // Активируем trap focus
+  const removeTrapFocus = trapFocus(errorModal.querySelector('.success-modal__content'));
+  
+  // Устанавливаем фокус на кнопку "Понятно"
+  setTimeout(() => {
+    const errorBtn = document.getElementById('errorModalBtn');
+    if (errorBtn) errorBtn.focus();
+  }, 100);
+  
+  // Удаляем trap focus при закрытии
+  const originalClose = errorModal.style.display;
+  const observer = new MutationObserver(() => {
+    if (errorModal.style.display === 'none' && originalClose === 'block') {
+      removeTrapFocus();
+      observer.disconnect();
+    }
+  });
+  observer.observe(errorModal, { attributes: true, attributeFilter: ['style'] });
+}
+
+// =============================================================================
 // МОДАЛЬНОЕ ОКНО УСПЕШНОЙ ОТПРАВКИ ФОРМЫ
 // =============================================================================
 
@@ -306,16 +429,36 @@ function initSuccessModal() {
 
   if (!successModal) return;
 
+  // Переменная для хранения функции удаления trap focus
+  let removeSuccessTrapFocus = null;
+  
   // Функция открытия модального окна
   const openSuccessModal = () => {
     successModal.style.display = 'block';
     document.body.style.overflow = 'hidden';
+    
+    // Активируем trap focus
+    const modalContent = successModal.querySelector('.success-modal__content');
+    if (modalContent) {
+      removeSuccessTrapFocus = trapFocus(modalContent);
+    }
+    
+    // Устанавливаем фокус на кнопку "Вернуться на сайт"
+    setTimeout(() => {
+      if (successModalBtn) successModalBtn.focus();
+    }, 100);
   };
 
   // Функция закрытия модального окна
   const closeModal = () => {
     successModal.style.display = 'none';
     document.body.style.overflow = '';
+    
+    // Удаляем trap focus при закрытии
+    if (removeSuccessTrapFocus) {
+      removeSuccessTrapFocus();
+      removeSuccessTrapFocus = null;
+    }
   };
 
   // Обработчики закрытия
@@ -405,14 +548,14 @@ function initSuccessModal() {
           if (submitButton) {
             submitButton.disabled = false;
           }
-          alert('Произошла ошибка при отправке формы. Попробуйте позже или позвоните нам напрямую.');
+          showErrorModal('Произошла ошибка при отправке формы. Попробуйте позже или позвоните нам напрямую.');
         }
       } catch (error) {
         console.error('Ошибка:', error);
         if (submitButton) {
           submitButton.disabled = false;
         }
-        alert('Произошла ошибка при отправке формы. Попробуйте позже или позвоните нам напрямую.');
+        showErrorModal('Произошла ошибка при отправке формы. Попробуйте позже или позвоните нам напрямую.');
       }
     });
   });
