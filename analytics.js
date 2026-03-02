@@ -10,6 +10,14 @@ document.addEventListener('DOMContentLoaded', function() {
                 if (typeof ym !== 'undefined') {
                     ym(104935828, 'reachGoal', eventName);
                 }
+                // Отправка события в Google Analytics
+                if (typeof gtag !== 'undefined') {
+                    gtag('event', eventName, {
+                        'event_category': 'Contact',
+                        'event_label': eventLabel,
+                        'value': eventValue
+                    });
+                }
             });
         });
     }
@@ -28,6 +36,14 @@ document.addEventListener('DOMContentLoaded', function() {
                 if (typeof ym !== 'undefined') {
                     ym(104935828, 'reachGoal', eventName);
                 }
+                // Отправка события в Google Analytics
+                if (typeof gtag !== 'undefined') {
+                    gtag('event', eventName, {
+                        'event_category': 'Form',
+                        'event_label': eventLabel,
+                        'value': eventValue
+                    });
+                }
             });
         }
     }
@@ -41,8 +57,17 @@ document.addEventListener('DOMContentLoaded', function() {
     pageViews++;
     sessionStorage.setItem('pageViews', pageViews);
     
-    if (pageViews === 3 && typeof ym !== 'undefined') {
-        ym(104935828, 'reachGoal', 'engaged_user');
+    if (pageViews === 3) {
+        if (typeof ym !== 'undefined') {
+            ym(104935828, 'reachGoal', 'engaged_user');
+        }
+        if (typeof gtag !== 'undefined') {
+            gtag('event', 'engaged_user', {
+                'event_category': 'Engagement',
+                'event_label': '3+ Pages Viewed',
+                'value': 1
+            });
+        }
     }
     
     // Клик по кнопке "Рассчитать по фото"
@@ -51,6 +76,13 @@ document.addEventListener('DOMContentLoaded', function() {
         btn.addEventListener('click', function() {
             if (typeof ym !== 'undefined') {
                 ym(104935828, 'reachGoal', 'click_calculate');
+            }
+            if (typeof gtag !== 'undefined') {
+                gtag('event', 'click_calculate', {
+                    'event_category': 'Button',
+                    'event_label': 'Calculate by Photo',
+                    'value': 1
+                });
             }
         });
     });
@@ -61,6 +93,13 @@ document.addEventListener('DOMContentLoaded', function() {
         link.addEventListener('click', function() {
             if (typeof ym !== 'undefined') {
                 ym(104935828, 'reachGoal', 'click_service');
+            }
+            if (typeof gtag !== 'undefined') {
+                gtag('event', 'click_service', {
+                    'event_category': 'Navigation',
+                    'event_label': 'Service Click',
+                    'value': 1
+                });
             }
         });
     });
