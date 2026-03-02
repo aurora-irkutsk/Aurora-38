@@ -1,0 +1,156 @@
+# ========================================
+# SECURITY HEADERS - Aurora 38
+# ========================================
+
+<IfModule mod_headers.c>
+    
+    # X-Frame-Options: Защита от clickjacking атак
+    # Запрещает загружать сайт в iframe на чужих доменах
+    Header always set X-Frame-Options "SAMEORIGIN"
+    
+    # X-Content-Type-Options: Защита от MIME-sniffing
+    # Заставляет браузер доверять указанному типу контента
+    Header always set X-Content-Type-Options "nosniff"
+    
+    # Referrer-Policy: Контроль передачи referrer информации
+    # Передаёт только origin при переходе на внешние сайты
+    Header always set Referrer-Policy "strict-origin-when-cross-origin"
+    
+    # Permissions-Policy: Контроль доступа к API браузера
+    # Запрещает использование геолокации, микрофона, камеры
+    Header always set Permissions-Policy "geolocation=(), microphone=(), camera=(), payment=()"
+    
+    # X-XSS-Protection: Дополнительная защита от XSS (для старых браузеров)
+    Header always set X-XSS-Protection "1; mode=block"
+    
+    # Strict-Transport-Security (HSTS): Принудительное использование HTTPS
+    # Принуждает браузер всегда использовать HTTPS соединение
+    Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains; preload"
+    
+    # Content-Security-Policy: Защита от XSS и injection атак
+    # Разрешает загрузку ресурсов только с доверенных источников
+    Header always set Content-Security-Policy "default-src 'self'; script-src 'self' 'unsafe-inline' https://mc.yandex.ru https://www.googletagmanager.com https://formspree.io https://www.google-analytics.com; img-src 'self' data: https: http://www.google-analytics.com https://mc.yandex.ru; style-src 'self' 'unsafe-inline'; font-src 'self'; connect-src 'self' https://mc.yandex.ru https://www.google-analytics.com https://formspree.io; frame-ancestors 'self';"
+    
+</IfModule>
+
+# ========================================
+# GZIP COMPRESSION - Сжатие для ускорения
+# ========================================
+
+<IfModule mod_deflate.c>
+    # Сжимаем текстовые форматы
+    AddOutputFilterByType DEFLATE text/html
+    AddOutputFilterByType DEFLATE text/css
+    AddOutputFilterByType DEFLATE text/javascript
+    AddOutputFilterByType DEFLATE text/xml
+    AddOutputFilterByType DEFLATE text/plain
+    AddOutputFilterByType DEFLATE application/javascript
+    AddOutputFilterByType DEFLATE application/x-javascript
+    AddOutputFilterByType DEFLATE application/json
+    AddOutputFilterByType DEFLATE application/xml
+    AddOutputFilterByType DEFLATE application/xhtml+xml
+    AddOutputFilterByType DEFLATE application/rss+xml
+    AddOutputFilterByType DEFLATE application/atom_xml
+    AddOutputFilterByType DEFLATE image/svg+xml
+</IfModule>
+
+# ========================================
+# BROWSER CACHING - Кеширование в браузере
+# ========================================
+
+<IfModule mod_expires.c>
+    ExpiresActive On
+    
+    # Изображения кешируются на 1 год
+    ExpiresByType image/jpg "access plus 1 year"
+    ExpiresByType image/jpeg "access plus 1 year"
+    ExpiresByType image/gif "access plus 1 year"
+    ExpiresByType image/png "access plus 1 year"
+    ExpiresByType image/webp "access plus 1 year"
+    ExpiresByType image/svg+xml "access plus 1 year"
+    ExpiresByType image/x-icon "access plus 1 year"
+    
+    # CSS и JavaScript кешируются на 1 месяц
+    ExpiresByType text/css "access plus 1 month"
+    ExpiresByType application/javascript "access plus 1 month"
+    ExpiresByType text/javascript "access plus 1 month"
+    
+    # Шрифты кешируются на 1 год
+    ExpiresByType font/woff2 "access plus 1 year"
+    ExpiresByType font/woff "access plus 1 year"
+    ExpiresByType font/ttf "access plus 1 year"
+    ExpiresByType application/font-woff2 "access plus 1 year"
+    
+    # HTML не кешируется (или на 1 час)
+    ExpiresByType text/html "access plus 1 hour"
+    
+    # Манифест и другие файлы на 1 неделю
+    ExpiresByType application/manifest+json "access plus 1 week"
+</IfModule>
+
+# ========================================
+# MIME TYPES - Правильные типы файлов
+# ========================================
+
+<IfModule mod_mime.c>
+    # WebP
+    AddType image/webp .webp
+    
+    # Шрифты
+    AddType font/woff2 .woff2
+    AddType font/woff .woff
+    AddType font/ttf .ttf
+    AddType font/otf .otf
+    
+    # Web App Manifest
+    AddType application/manifest+json .webmanifest
+    
+    # SVG
+    AddType image/svg+xml .svg .svgz
+</IfModule>
+
+# ========================================
+# REDIRECTS - Перенаправления
+# ========================================
+
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    
+    # Принудительное использование HTTPS
+    RewriteCond %{HTTPS} off
+    RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+    
+    # Редирект с www на без www (канонический URL без www)
+    RewriteCond %{HTTP_HOST} ^www\.(.*)$ [NC]
+    RewriteRule ^(.*)$ https://%1/$1 [R=301,L]
+    
+    # Удаление .html из URL (опционально, для красивых URL)
+    # RewriteCond %{REQUEST_FILENAME} !-f
+    # RewriteCond %{REQUEST_FILENAME} !-d
+    # RewriteRule ^([^\.]+)$ $1.html [NC,L]
+</IfModule>
+
+# ========================================
+# ERROR PAGES - Кастомные страницы ошибок
+# ========================================
+
+ErrorDocument 404 /404.html
+
+# ========================================
+# FILE ACCESS RESTRICTIONS - Ограничение доступа
+# ========================================
+
+# Запретить доступ к служебным файлам
+<FilesMatch "^\.">
+    Order allow,deny
+    Deny from all
+</FilesMatch>
+
+# Запретить просмотр директорий
+Options -Indexes
+
+# Защита конфигурационных файлов
+<FilesMatch "\.(htaccess|htpasswd|ini|log|sh|sql|backup)$">
+    Order allow,deny
+    Deny from all
+</FilesMatch>

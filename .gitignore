@@ -23,3 +23,8 @@ node_modules/
 *~
 *.bak
 AGENTS.md
+
+# Документация для разработки (не нужна на продакшене)
+READY_TO_DEPLOY.txt
+SECURITY_SETUP.md
+QUICK_START_SECURITY.txt
