@@ -537,6 +537,59 @@ a.request__button {
   width: 100%;
 }
 
+/* Контейнер для кнопок в карточке услуги */
+.service__buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin: 0 20px 24px;
+  position: relative;
+  z-index: 1;
+}
+
+/* Общие стили кнопок */
+.service__button {
+  padding: 14px 24px;
+  font-size: 16px;
+  font-weight: 600;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 8px;
+  border: 1.5px solid;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  display: block;
+}
+
+/* Кнопка "Оставить заявку" (основная) */
+.service__button--primary {
+  background: #ff8c00;
+  color: #fff;
+  border-color: #ff8c00;
+  box-shadow: 0 0 8px rgba(255, 140, 0, 0.4);
+}
+
+.service__button--primary:hover {
+  background: #ffa500;
+  border-color: #ffa500;
+  box-shadow: 0 0 12px rgba(255, 140, 0, 0.6);
+  transform: translateY(-2px);
+}
+
+/* Кнопка "Подробнее" (вторичная) */
+.service__button--secondary {
+  background: transparent;
+  color: #ff8c00;
+  border-color: #ff8c00;
+  box-shadow: 0 0 8px rgba(255, 140, 0, 0.3);
+}
+
+.service__button--secondary:hover {
+  background: rgba(255, 140, 0, 0.1);
+  box-shadow: 0 0 12px rgba(255, 140, 0, 0.5);
+  transform: translateY(-2px);
+}
+
 
 /* =============================================================================
    ПРЕИМУЩЕСТВА
@@ -2513,6 +2566,13 @@ a.request__button {
 .related-services__description {
   text-align: left;
   flex-grow: 1;
+}
+
+/* Обёртка-ссылка для изображения и заголовка в блоке "Другие наши услуги" */
+.related-services__link-wrapper {
+  text-decoration: none;
+  color: inherit;
+  display: block;
 }
 
 .related-services__card .service__link {
@@ -4871,6 +4931,17 @@ a.request__button {
     transform: none !important;
   }
 
+  /* Адаптация кнопок в карточках услуг */
+  .service__buttons {
+    gap: 10px;
+    margin: 0 15px 20px;
+  }
+
+  .service__button {
+    padding: 12px 20px;
+    font-size: 14px;
+  }
+
   .contacts__wrapper {
     flex-direction: column;
     align-items: center;
@@ -5213,6 +5284,16 @@ a.request__button {
   .step__desc,
   .service__desc {
     font-size: 14px;
+  }
+
+  /* Адаптация кнопок в карточках услуг для планшетов */
+  .service__buttons {
+    gap: 10px;
+  }
+
+  .service__button {
+    padding: 13px 22px;
+    font-size: 15px;
   }
 
   .portfolio__item {
