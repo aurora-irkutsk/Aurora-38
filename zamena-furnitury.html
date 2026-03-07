@@ -1148,5 +1148,40 @@
     </div>
   </div>
 
+  <!-- Exit Intent Modal -->
+  <div class="exit-intent-modal" id="exitIntentModal">
+    <div class="exit-intent-modal__content">
+      <span class="exit-intent-modal__close" id="closeExitIntentModal">&times;</span>
+      <div class="exit-intent-modal__badge">🔥 СПЕЦИАЛЬНОЕ ПРЕДЛОЖЕНИЕ</div>
+      <h3 class="exit-intent-modal__title">Подождите!</h3>
+      <p class="exit-intent-modal__subtitle">Не уходите без выгоды</p>
+      <div class="exit-intent-modal__offer">
+        <div class="exit-intent-modal__discount">-5%</div>
+        <p class="exit-intent-modal__offer-text">
+          Скидка <strong>5%</strong> на любую услугу<br>
+          при заказе <strong>прямо сейчас!</strong>
+        </p>
+      </div>
+      <p class="exit-intent-modal__description">
+        Оставьте заявку в течение следующих <strong>10 минут</strong> и получите скидку на перетяжку или ремонт мебели. Предложение действительно только сегодня!
+      </p>
+      <form class="exit-intent-modal__form" id="exitIntentForm" action="https://formspree.io/f/xvgvojvw" method="POST">
+        <input type="hidden" name="service" value="Заявка со скидкой 5% (Exit Intent)">
+        <input type="text" name="name" class="exit-intent-modal__input" placeholder="Ваше имя *" required>
+        <input type="tel" name="phone" class="exit-intent-modal__input" placeholder="Ваш телефон *" required>
+        <input type="text" name="_gotcha" style="display:none !important" tabindex="-1" autocomplete="off">
+        <button type="submit" class="exit-intent-modal__button">Получить скидку 5%</button>
+        <p class="exit-intent-modal__agreement">Отправляя форму, вы соглашаетесь с нашей <a href="/privacy.html">Политикой приватности</a></p>
+      </form>
+      <div class="exit-intent-modal__timer">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="8" cy="8" r="7" stroke="#ff8c00" stroke-width="2"/>
+          <path d="M8 4V8L11 11" stroke="#ff8c00" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+        <span>Предложение ограничено</span>
+      </div>
+    </div>
+  </div>
+
 </body>
 </html>
