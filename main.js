@@ -70,6 +70,7 @@ document.addEventListener('DOMContentLoaded', function () {
   initServiceModals();
   initPhoneValidation();
   initSuccessModal();
+  initExitIntent();
   initFAQ();
   initReviewsLink();
   initSmoothScroll();
@@ -335,6 +336,90 @@ function initServiceModals() {
 }
 
 // =============================================================================
+// EXIT INTENT MODAL (ВСПЛЫВАЮЩЕЕ ОКНО ПРИ ПОПЫТКЕ ЗАКРЫТЬ САЙТ)
+// =============================================================================
+
+function initExitIntent() {
+  const exitIntentModal = document.getElementById('exitIntentModal');
+  const closeExitIntentBtn = document.getElementById('closeExitIntentModal');
+  const exitIntentForm = document.getElementById('exitIntentForm');
+
+  if (!exitIntentModal) return;
+
+  // Флаг для отслеживания отображения (показывается только 1 раз за сессию)
+  let hasShown = sessionStorage.getItem('exitIntentShown') === 'true';
+  let removeTrapFocus = null;
+
+  // Функция открытия модального окна
+  const openExitIntentModal = () => {
+    if (hasShown) return; // Не показываем, если уже показывали
+
+    exitIntentModal.style.display = 'block';
+    document.body.style.overflow = 'hidden';
+    hasShown = true;
+    sessionStorage.setItem('exitIntentShown', 'true');
+
+    // Активируем trap focus
+    const modalContent = exitIntentModal.querySelector('.exit-intent-modal__content');
+    if (modalContent) {
+      removeTrapFocus = trapFocus(modalContent);
+    }
+
+    // Устанавливаем фокус на первое поле формы
+    setTimeout(() => {
+      const firstInput = exitIntentModal.querySelector('input[name="name"]');
+      if (firstInput) firstInput.focus();
+    }, 100);
+  };
+
+  // Функция закрытия модального окна
+  const closeExitIntentModal = () => {
+    exitIntentModal.style.display = 'none';
+    document.body.style.overflow = '';
+
+    // Удаляем trap focus при закрытии
+    if (removeTrapFocus) {
+      removeTrapFocus();
+      removeTrapFocus = null;
+    }
+  };
+
+  // Обработчик движения мыши для определения намерения выхода
+  const handleMouseOut = (e) => {
+    // Проверяем, движется ли курсор к верхней части окна (чтобы закрыть вкладку)
+    // clientY < 20 означает что курсор близко к верхней границе
+    if (e.clientY < 20 && !hasShown) {
+      openExitIntentModal();
+    }
+  };
+
+  // Добавляем обработчик mouseout на document
+  document.addEventListener('mouseout', handleMouseOut);
+
+  // Обработчики закрытия
+  if (closeExitIntentBtn) {
+    closeExitIntentBtn.addEventListener('click', closeExitIntentModal);
+  }
+
+  // Закрытие по клику на оверлей
+  exitIntentModal.addEventListener('click', (e) => {
+    if (e.target === exitIntentModal) {
+      closeExitIntentModal();
+    }
+  });
+
+  // Закрытие по Escape
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && exitIntentModal.style.display === 'block') {
+      closeExitIntentModal();
+    }
+  });
+
+  // После успешной отправки формы - закрываем модальное окно
+  // (обработка отправки уже есть в initSuccessModal)
+}
+
+// =============================================================================
 // ВАЛИДАЦИЯ И ФОРМАТИРОВАНИЕ НОМЕРА ТЕЛЕФОНА (ДЛЯ ОБЕИХ ФОРМ)
 // =============================================================================
 
@@ -370,7 +455,7 @@ function initPhoneValidation() {
 
     const nameInput = form.querySelector('input[name="name"]');
     const phoneInput = form.querySelector('input[name="phone"]');
-    const submitButton = form.querySelector('.request__button') || form.querySelector('.modal__button');
+    const submitButton = form.querySelector('.request__button') || form.querySelector('.modal__button') || form.querySelector('.exit-intent-modal__button');
     
     // Создаём элемент ошибки через вспомогательную функцию
     const phoneError = createPhoneError(form);
@@ -442,6 +527,10 @@ function initPhoneValidation() {
     const serviceForm = document.getElementById(`serviceForm${i}`);
     setupForm(serviceForm);
   }
+
+  // Инициализируем форму Exit Intent
+  const exitIntentForm = document.getElementById('exitIntentForm');
+  setupForm(exitIntentForm);
 }
 
 
@@ -677,6 +766,12 @@ function initSuccessModal() {
             if (serviceModal && serviceModal.style.display === 'block') {
               serviceModal.style.display = 'none';
             }
+          }
+
+          // Закрываем Exit Intent модальное окно, если оно открыто
+          const exitIntentModal = document.getElementById('exitIntentModal');
+          if (exitIntentModal && exitIntentModal.style.display === 'block') {
+            exitIntentModal.style.display = 'none';
           }
 
           // Показываем модальное окно успеха
