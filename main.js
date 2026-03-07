@@ -67,6 +67,7 @@ document.addEventListener('DOMContentLoaded', function () {
   initGallery();
   initBurgerMenu();
   initCallModal();
+  initServiceModals();
   initPhoneValidation();
   initSuccessModal();
   initFAQ();
@@ -273,6 +274,67 @@ function initCallModal() {
 }
 
 // =============================================================================
+// МОДАЛЬНЫЕ ОКНА УСЛУГ
+// =============================================================================
+
+function initServiceModals() {
+  // Инициализация для каждого из 8 модальных окон услуг
+  for (let i = 1; i <= 8; i++) {
+    const modal = document.getElementById(`serviceModal${i}`);
+    const openBtn = document.getElementById(`openServiceModal${i}`);
+    const closeBtn = document.getElementById(`closeServiceModal${i}`);
+
+    if (!modal || !openBtn || !closeBtn) continue;
+
+    // Переменная для хранения функции удаления trap focus
+    let removeTrapFocus = null;
+    
+    const openModal = () => {
+      modal.style.display = 'block';
+      document.body.style.overflow = 'hidden';
+      
+      // Активируем trap focus
+      const modalContent = modal.querySelector('.modal__content');
+      if (modalContent) {
+        removeTrapFocus = trapFocus(modalContent);
+      }
+      
+      // Устанавливаем фокус на первое поле формы
+      setTimeout(() => {
+        const firstInput = modal.querySelector('input[name="name"]');
+        if (firstInput) firstInput.focus();
+      }, 100);
+    };
+
+    const closeModal = () => {
+      modal.style.display = 'none';
+      document.body.style.overflow = '';
+      
+      // Удаляем trap focus при закрытии
+      if (removeTrapFocus) {
+        removeTrapFocus();
+        removeTrapFocus = null;
+      }
+    };
+
+    openBtn.addEventListener('click', openModal);
+    closeBtn.addEventListener('click', closeModal);
+
+    // Закрытие по клику на оверлей
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) closeModal();
+    });
+
+    // Закрытие по Escape
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && modal.style.display === 'block') {
+        closeModal();
+      }
+    });
+  }
+}
+
+// =============================================================================
 // ВАЛИДАЦИЯ И ФОРМАТИРОВАНИЕ НОМЕРА ТЕЛЕФОНА (ДЛЯ ОБЕИХ ФОРМ)
 // =============================================================================
 
@@ -368,12 +430,18 @@ function initPhoneValidation() {
     // чтобы избежать конфликтов между обработчиками событий
   }
 
-  // Инициализируем обе формы
+  // Инициализируем все формы на странице
   const requestForm = document.getElementById('requestForm');
   const callForm = document.getElementById('callForm');
 
   setupForm(requestForm);
   setupForm(callForm);
+
+  // Инициализируем формы услуг (serviceForm1-8)
+  for (let i = 1; i <= 8; i++) {
+    const serviceForm = document.getElementById(`serviceForm${i}`);
+    setupForm(serviceForm);
+  }
 }
 
 
@@ -601,6 +669,14 @@ function initSuccessModal() {
           const callModal = document.getElementById('callModal');
           if (callModal && callModal.style.display === 'block') {
             callModal.style.display = 'none';
+          }
+
+          // Закрываем модальные окна услуг, если они открыты
+          for (let i = 1; i <= 8; i++) {
+            const serviceModal = document.getElementById(`serviceModal${i}`);
+            if (serviceModal && serviceModal.style.display === 'block') {
+              serviceModal.style.display = 'none';
+            }
           }
 
           // Показываем модальное окно успеха
