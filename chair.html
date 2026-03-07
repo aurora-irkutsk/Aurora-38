@@ -825,7 +825,7 @@
             </a>
             <p class="related-services__description">Обновим ваш диван до уровня как новый качественно в короткие сроки</p>
             <div class="service__buttons">
-              <a href="#request" class="service__button service__button--primary">Оставить заявку</a>
+              <button class="service__button service__button--primary" id="openServiceModal1">Оставить заявку</button>
               <a href="/sofa.html" class="service__button service__button--secondary">Подробнее →</a>
             </div>
           </article>
@@ -836,7 +836,7 @@
             </a>
             <p class="related-services__description">Вернём кресло к жизни с новой обивкой быстро и качественно</p>
             <div class="service__buttons">
-              <a href="#request" class="service__button service__button--primary">Оставить заявку</a>
+              <button class="service__button service__button--primary" id="openServiceModal2">Оставить заявку</button>
               <a href="/armchair.html" class="service__button service__button--secondary">Подробнее →</a>
             </div>
           </article>
@@ -847,7 +847,7 @@
             </a>
             <p class="related-services__description">Реставрация и перетяжка кожаной мебели в короткие сроки</p>
             <div class="service__buttons">
-              <a href="#request" class="service__button service__button--primary">Оставить заявку</a>
+              <button class="service__button service__button--primary" id="openServiceModal4">Оставить заявку</button>
               <a href="/leather.html" class="service__button service__button--secondary">Подробнее →</a>
             </div>
           </article>
@@ -1052,6 +1052,142 @@
           Принять
         </button>
       </div>
+    </div>
+  </div>
+
+    <!-- Service Modal 1: Перетяжка диванов -->
+  <div class="call-modal" id="serviceModal1">
+    <div class="modal__content">
+      <span class="modal__close" id="closeServiceModal1">&times;</span>
+      <h3 class="modal__title">Перетяжка диванов</h3>
+      <p class="modal__text">Оставьте заявку на перетяжку дивана — мастер перезвонит в течение 5 минут и рассчитает стоимость работ.</p>
+      <form class="modal__form" id="serviceForm1" action="https://formspree.io/f/xvgvojvw" method="POST">
+        <input type="hidden" name="service" value="Перетяжка диванов">
+        <input type="text" name="name" class="modal__input" placeholder="Ваше имя *" required>
+        <input type="tel" name="phone" class="modal__input" placeholder="Ваш телефон *" required>
+        <input type="text" name="_gotcha" style="display:none !important" tabindex="-1" autocomplete="off">
+        <button type="submit" class="modal__button">Отправить</button>
+        <p class="modal__agreement">Мы бережно относимся к вашим данным. Отправляя форму, вы соглашаетесь с нашей <a href="/privacy.html">Политикой приватности</a> — ваши данные защищены по закону (152-ФЗ).</p>
+      </form>
+    </div>
+  </div>
+
+  <!-- Service Modal 2: Перетяжка кресел -->
+  <div class="call-modal" id="serviceModal2">
+    <div class="modal__content">
+      <span class="modal__close" id="closeServiceModal2">&times;</span>
+      <h3 class="modal__title">Перетяжка кресел</h3>
+      <p class="modal__text">Оставьте заявку на перетяжку кресла — мастер перезвонит в течение 5 минут и рассчитает стоимость работ.</p>
+      <form class="modal__form" id="serviceForm2" action="https://formspree.io/f/xvgvojvw" method="POST">
+        <input type="hidden" name="service" value="Перетяжка кресел">
+        <input type="text" name="name" class="modal__input" placeholder="Ваше имя *" required>
+        <input type="tel" name="phone" class="modal__input" placeholder="Ваш телефон *" required>
+        <input type="text" name="_gotcha" style="display:none !important" tabindex="-1" autocomplete="off">
+        <button type="submit" class="modal__button">Отправить</button>
+        <p class="modal__agreement">Мы бережно относимся к вашим данным. Отправляя форму, вы соглашаетесь с нашей <a href="/privacy.html">Политикой приватности</a> — ваши данные защищены по закону (152-ФЗ).</p>
+      </form>
+    </div>
+  </div>
+
+  <!-- Service Modal 3: Перетяжка стульев -->
+  <div class="call-modal" id="serviceModal3">
+    <div class="modal__content">
+      <span class="modal__close" id="closeServiceModal3">&times;</span>
+      <h3 class="modal__title">Перетяжка стульев</h3>
+      <p class="modal__text">Оставьте заявку на перетяжку стульев — мастер перезвонит в течение 5 минут и рассчитает стоимость работ.</p>
+      <form class="modal__form" id="serviceForm3" action="https://formspree.io/f/xvgvojvw" method="POST">
+        <input type="hidden" name="service" value="Перетяжка стульев">
+        <input type="text" name="name" class="modal__input" placeholder="Ваше имя *" required>
+        <input type="tel" name="phone" class="modal__input" placeholder="Ваш телефон *" required>
+        <input type="text" name="_gotcha" style="display:none !important" tabindex="-1" autocomplete="off">
+        <button type="submit" class="modal__button">Отправить</button>
+        <p class="modal__agreement">Мы бережно относимся к вашим данным. Отправляя форму, вы соглашаетесь с нашей <a href="/privacy.html">Политикой приватности</a> — ваши данные защищены по закону (152-ФЗ).</p>
+      </form>
+    </div>
+  </div>
+
+  <!-- Service Modal 4: Кожаная мебель -->
+  <div class="call-modal" id="serviceModal4">
+    <div class="modal__content">
+      <span class="modal__close" id="closeServiceModal4">&times;</span>
+      <h3 class="modal__title">Кожаная мебель</h3>
+      <p class="modal__text">Оставьте заявку на перетяжку кожаной мебели — мастер перезвонит в течение 5 минут и рассчитает стоимость работ.</p>
+      <form class="modal__form" id="serviceForm4" action="https://formspree.io/f/xvgvojvw" method="POST">
+        <input type="hidden" name="service" value="Перетяжка кожаной мебели">
+        <input type="text" name="name" class="modal__input" placeholder="Ваше имя *" required>
+        <input type="tel" name="phone" class="modal__input" placeholder="Ваш телефон *" required>
+        <input type="text" name="_gotcha" style="display:none !important" tabindex="-1" autocomplete="off">
+        <button type="submit" class="modal__button">Отправить</button>
+        <p class="modal__agreement">Мы бережно относимся к вашим данным. Отправляя форму, вы соглашаетесь с нашей <a href="/privacy.html">Политикой приватности</a> — ваши данные защищены по закону (152-ФЗ).</p>
+      </form>
+    </div>
+  </div>
+
+  <!-- Service Modal 5: Замена наполнителя -->
+  <div class="call-modal" id="serviceModal5">
+    <div class="modal__content">
+      <span class="modal__close" id="closeServiceModal5">&times;</span>
+      <h3 class="modal__title">Замена наполнителя</h3>
+      <p class="modal__text">Оставьте заявку на замену наполнителя — мастер перезвонит в течение 5 минут и рассчитает стоимость работ.</p>
+      <form class="modal__form" id="serviceForm5" action="https://formspree.io/f/xvgvojvw" method="POST">
+        <input type="hidden" name="service" value="Замена наполнителя">
+        <input type="text" name="name" class="modal__input" placeholder="Ваше имя *" required>
+        <input type="tel" name="phone" class="modal__input" placeholder="Ваш телефон *" required>
+        <input type="text" name="_gotcha" style="display:none !important" tabindex="-1" autocomplete="off">
+        <button type="submit" class="modal__button">Отправить</button>
+        <p class="modal__agreement">Мы бережно относимся к вашим данным. Отправляя форму, вы соглашаетесь с нашей <a href="/privacy.html">Политикой приватности</a> — ваши данные защищены по закону (152-ФЗ).</p>
+      </form>
+    </div>
+  </div>
+
+  <!-- Service Modal 6: Замена механизмов трансформации -->
+  <div class="call-modal" id="serviceModal6">
+    <div class="modal__content">
+      <span class="modal__close" id="closeServiceModal6">&times;</span>
+      <h3 class="modal__title">Замена механизмов трансформации</h3>
+      <p class="modal__text">Оставьте заявку на замену механизмов — мастер перезвонит в течение 5 минут и рассчитает стоимость работ.</p>
+      <form class="modal__form" id="serviceForm6" action="https://formspree.io/f/xvgvojvw" method="POST">
+        <input type="hidden" name="service" value="Замена механизмов трансформации">
+        <input type="text" name="name" class="modal__input" placeholder="Ваше имя *" required>
+        <input type="tel" name="phone" class="modal__input" placeholder="Ваш телефон *" required>
+        <input type="text" name="_gotcha" style="display:none !important" tabindex="-1" autocomplete="off">
+        <button type="submit" class="modal__button">Отправить</button>
+        <p class="modal__agreement">Мы бережно относимся к вашим данным. Отправляя форму, вы соглашаетесь с нашей <a href="/privacy.html">Политикой приватности</a> — ваши данные защищены по закону (152-ФЗ).</p>
+      </form>
+    </div>
+  </div>
+
+  <!-- Service Modal 7: Замена ножек и фурнитуры -->
+  <div class="call-modal" id="serviceModal7">
+    <div class="modal__content">
+      <span class="modal__close" id="closeServiceModal7">&times;</span>
+      <h3 class="modal__title">Замена ножек и фурнитуры</h3>
+      <p class="modal__text">Оставьте заявку на замену ножек и фурнитуры — мастер перезвонит в течение 5 минут и рассчитает стоимость работ.</p>
+      <form class="modal__form" id="serviceForm7" action="https://formspree.io/f/xvgvojvw" method="POST">
+        <input type="hidden" name="service" value="Замена ножек и фурнитуры">
+        <input type="text" name="name" class="modal__input" placeholder="Ваше имя *" required>
+        <input type="tel" name="phone" class="modal__input" placeholder="Ваш телефон *" required>
+        <input type="text" name="_gotcha" style="display:none !important" tabindex="-1" autocomplete="off">
+        <button type="submit" class="modal__button">Отправить</button>
+        <p class="modal__agreement">Мы бережно относимся к вашим данным. Отправляя форму, вы соглашаетесь с нашей <a href="/privacy.html">Политикой приватности</a> — ваши данные защищены по закону (152-ФЗ).</p>
+      </form>
+    </div>
+  </div>
+
+  <!-- Service Modal 8: Ремонт каркаса -->
+  <div class="call-modal" id="serviceModal8">
+    <div class="modal__content">
+      <span class="modal__close" id="closeServiceModal8">&times;</span>
+      <h3 class="modal__title">Ремонт каркаса</h3>
+      <p class="modal__text">Оставьте заявку на ремонт каркаса — мастер перезвонит в течение 5 минут и рассчитает стоимость работ.</p>
+      <form class="modal__form" id="serviceForm8" action="https://formspree.io/f/xvgvojvw" method="POST">
+        <input type="hidden" name="service" value="Ремонт каркаса">
+        <input type="text" name="name" class="modal__input" placeholder="Ваше имя *" required>
+        <input type="tel" name="phone" class="modal__input" placeholder="Ваш телефон *" required>
+        <input type="text" name="_gotcha" style="display:none !important" tabindex="-1" autocomplete="off">
+        <button type="submit" class="modal__button">Отправить</button>
+        <p class="modal__agreement">Мы бережно относимся к вашим данным. Отправляя форму, вы соглашаетесь с нашей <a href="/privacy.html">Политикой приватности</a> — ваши данные защищены по закону (152-ФЗ).</p>
+      </form>
     </div>
   </div>
 
