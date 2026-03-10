@@ -229,10 +229,9 @@ function initBurgerMenu() {
 
 function initCallModal() {
   const callModal = document.getElementById('callModal');
-  const openCallBtn = document.getElementById('openCallModal');
   const closeCallBtn = document.getElementById('closeCallModal');
 
-  if (!callModal || !openCallBtn || !closeCallBtn) return;
+  if (!callModal || !closeCallBtn) return;
 
   // Переменная для хранения функции удаления trap focus
   let removeCallTrapFocus = null;
@@ -265,7 +264,21 @@ function initCallModal() {
     }
   };
 
-  openCallBtn.addEventListener('click', openCallModal);
+  // Находим все кнопки "Вызвать мастера" (openCallModal, openCallModal2, openCallModal3, openCallModal4)
+  const callButtons = [
+    document.getElementById('openCallModal'),
+    document.getElementById('openCallModal2'),
+    document.getElementById('openCallModal3'),
+    document.getElementById('openCallModal4')
+  ];
+
+  // Добавляем обработчики для всех существующих кнопок
+  callButtons.forEach(btn => {
+    if (btn) {
+      btn.addEventListener('click', openCallModal);
+    }
+  });
+
   closeCallBtn.addEventListener('click', closeCallModal);
 
   // Закрытие по клику на оверлей
