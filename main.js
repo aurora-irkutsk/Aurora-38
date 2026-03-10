@@ -71,6 +71,7 @@ document.addEventListener('DOMContentLoaded', function () {
   initPhoneValidation();
   initSuccessModal();
   initExitIntent();
+  initScrollIndicator();
   initFAQ();
   initReviewsLink();
   initSmoothScroll();
@@ -430,6 +431,42 @@ function initExitIntent() {
 
   // После успешной отправки формы - закрываем модальное окно
   // (обработка отправки уже есть в initSuccessModal)
+}
+
+// =============================================================================
+// SCROLL INDICATOR (стрелка прокрутки вниз)
+// =============================================================================
+
+function initScrollIndicator() {
+  const scrollIndicator = document.getElementById('scrollIndicator');
+  
+  if (!scrollIndicator) return;
+
+  // Плавная прокрутка к секции услуг при клике
+  scrollIndicator.addEventListener('click', () => {
+    const servicesSection = document.getElementById('services');
+    if (servicesSection) {
+      servicesSection.scrollIntoView({ 
+        behavior: 'smooth',
+        block: 'start'
+      });
+    }
+  });
+
+  // Скрывать стрелку при прокрутке вниз
+  let lastScrollTop = 0;
+  window.addEventListener('scroll', () => {
+    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+    
+    // Скрываем стрелку если пользователь прокрутил вниз больше чем на 100px
+    if (scrollTop > 100) {
+      scrollIndicator.classList.add('hidden');
+    } else {
+      scrollIndicator.classList.remove('hidden');
+    }
+    
+    lastScrollTop = scrollTop;
+  });
 }
 
 // =============================================================================
