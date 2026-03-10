@@ -5662,7 +5662,7 @@ a.request__button {
 /* Адаптив для мобильных */
 @media (max-width: 768px) {
   .scroll-indicator {
-    bottom: 60px;
+    bottom: 90px;
   }
   
   .scroll-indicator svg {
