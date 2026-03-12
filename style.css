@@ -280,6 +280,19 @@ a.request__button {
   max-width: 850px;
 }
 
+.hero__buttons {
+  display: flex;
+  flex-direction: row;
+  gap: 16px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.hero__buttons .hero__button {
+  min-width: 220px;
+  text-align: center;
+}
+
 .hero__button {
   display: inline-block;
   background: transparent;
@@ -4819,10 +4832,22 @@ a.request__button {
     text-align: left;
   }
 
+  .hero__buttons {
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .hero__buttons .hero__button {
+    min-width: 220px;
+    width: auto;
+    text-align: center;
+  }
+
   .hero__button {
     padding: 12px 24px;
     font-size: 16px;
-    margin: 0 auto;
+    margin: 0;
   }
 
   .services__list,
@@ -5609,11 +5634,12 @@ a.request__button {
 
   .cta-block__buttons {
     flex-direction: column;
+    align-items: center;
     gap: 15px;
   }
 
   .cta-block__btn {
-    width: 100%;
+    width: auto;
     padding: 16px 30px;
     font-size: 16px;
   }
