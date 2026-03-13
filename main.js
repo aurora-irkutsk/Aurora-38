@@ -803,6 +803,15 @@ function initSuccessModal() {
         if (response.ok) {
           // Успешная отправка - показываем модальное окно
           form.reset();
+
+          // Отправка целей в Яндекс.Метрику
+          if (typeof ym !== 'undefined') {
+            if (form.id === 'callForm') {
+              ym(104935828, 'reachGoal', 'form_submit_call_master');
+            } else {
+              ym(104935828, 'reachGoal', 'form_submit_request');
+            }
+          }
           
           // Закрываем модальное окно вызова мастера, если оно открыто
           const callModal = document.getElementById('callModal');
