@@ -115,19 +115,38 @@
 
 <IfModule mod_rewrite.c>
     RewriteEngine On
-    
+
     # Принудительное использование HTTPS
     RewriteCond %{HTTPS} off
     RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
-    
+
     # Редирект с www на без www (канонический URL без www)
     RewriteCond %{HTTP_HOST} ^www\.(.*)$ [NC]
     RewriteRule ^(.*)$ https://%1/$1 [R=301,L]
-    
+
     # Удаление .html из URL (опционально, для красивых URL)
-    # RewriteCond %{REQUEST_FILENAME} !-f
-    # RewriteCond %{REQUEST_FILENAME} !-d
+    # RewriteCond %{REQUEST_FILENAME] !-f
+    # RewriteCond %{REQUEST_FILENAME] !-d
     # RewriteRule ^([^\.]+)$ $1.html [NC,L]
+</IfModule>
+
+# ========================================
+# CANONICAL URLs - Защита от дублей с GET-параметрами
+# ========================================
+# Добавляет HTTP-заголовок Link с canonical URL для страниц с параметрами
+# Это сообщает поисковикам, какая версия страницы является основной
+
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    
+    # Если есть GET-параметры, устанавливаем переменную окружения с canonical URL
+    RewriteCond %{QUERY_STRING} !^$
+    RewriteRule ^(.*)$ - [E=CANONICAL_URL:https://peretyazhka-aurora.ru/$1]
+    
+    # Добавляем HTTP-заголовок Link для страниц с параметрами
+    <IfModule mod_headers.c>
+        Header set Link "<%{CANONICAL_URL}e>; rel=\"canonical\"" env=CANONICAL_URL
+    </IfModule>
 </IfModule>
 
 # ========================================

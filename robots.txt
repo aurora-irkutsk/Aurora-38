@@ -6,6 +6,22 @@ Allow: /
 # Sitemap
 Sitemap: https://peretyazhka-aurora.ru/sitemap.xml
 
+# ========================================
+# ЗАПРЕТ ИНДЕКСАЦИИ ДУБЛЕЙ С GET-ПАРАМЕТРАМИ
+# ========================================
+# Запрещаем индексацию URL с техническими параметрами
+# UTM-параметры (utm_source, utm_medium, utm_campaign) разрешены для аналитики
+
+Disallow: /*?*from=
+Disallow: /*?*ref=
+Disallow: /*?*source=
+Disallow: /*?*clickid=
+Disallow: /*?*gclid=
+Disallow: /*?*yclid=
+Disallow: /*?*openstat=
+Disallow: /*?*partner=
+Disallow: /*?*promo=
+
 # Замедляем агрессивных ботов
 User-agent: AhrefsBot
 Crawl-delay: 10
