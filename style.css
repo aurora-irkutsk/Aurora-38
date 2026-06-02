@@ -32,6 +32,7 @@ body {
   color: #333;
   overflow-x: hidden;
   max-width: 100vw;
+  background-color: #1a1a1a;
 }
 
 h1,
@@ -211,7 +212,7 @@ a.request__button {
 }
 
 .header__button {
-  background: transparent;
+  background: #1a1a1a;
   border: 1px solid #ff8c00;
   box-shadow: 0 0 8px rgba(255, 140, 0, 0.4), inset 0 1px 0 rgba(255, 200, 100, 0.3);
   border-radius: 8px;
@@ -225,7 +226,7 @@ a.request__button {
 
 .header__button:hover {
   transform: scale(1.05);
-  background: transparent;
+  background: #1a1a1a;
 }
 
 /* =============================================================================
@@ -295,7 +296,7 @@ a.request__button {
 
 .hero__button {
   display: inline-block;
-  background: transparent;
+  background: #1a1a1a;
   border: 1px solid #ff8c00;
   box-shadow: 0 0 8px rgba(255, 140, 0, 0.4), inset 0 1px 0 rgba(255, 200, 100, 0.3);
   color: whitesmoke;
@@ -310,7 +311,7 @@ a.request__button {
 .hero__button:hover,
 .hero__button:focus {
   transform: scale(1.05);
-  background: transparent;
+  background: #1a1a1a;
 }
 
 .hero__button:active {
@@ -591,7 +592,7 @@ a.request__button {
 
 /* Кнопка "Подробнее" (вторичная) */
 .service__button--secondary {
-  background: transparent;
+  background: #1a1a1a;
   color: #ff8c00;
   border-color: #ff8c00;
   box-shadow: 0 0 8px rgba(255, 140, 0, 0.3);
@@ -1343,7 +1344,7 @@ a.request__button {
 }
 
 .cta-block__btn--secondary {
-  background: transparent;
+  background: #1a1a1a;
   color: #ff8c00;
   border: 1.5px solid #ffffff;
   box-shadow: 0 0 8px rgba(255, 255, 255, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.3);
@@ -1812,7 +1813,7 @@ a.request__button {
   padding: 14px;
   font-size: 18px;
   font-weight: 600;
-  background: transparent;
+  background: #1a1a1a;
   border: 1px solid #ff8c00;
   box-shadow: 0 0 8px rgba(255, 140, 0, 0.4), inset 0 1px 0 rgba(255, 200, 100, 0.3);
   color: rgba(255, 255, 255, 0.85);
@@ -1825,7 +1826,7 @@ a.request__button {
 
 .request__button:hover {
   transform: scale(1.05);
-  background: transparent;
+  background: #1a1a1a;
 }
 
 .request__button:active {
@@ -2924,7 +2925,7 @@ a.request__button {
 .call-modal .modal__button {
   width: 100%;
   padding: 14px;
-  background: transparent;
+  background: #1a1a1a;
   border: 1px solid #ff8c00;
   box-shadow: 0 0 8px rgba(255, 140, 0, 0.4), inset 0 1px 0 rgba(255, 200, 100, 0.3);
   color: rgba(255, 255, 255, 0.85);
@@ -2937,7 +2938,7 @@ a.request__button {
 
 .call-modal .modal__button:hover {
   transform: scale(1.05);
-  background: transparent;
+  background: #1a1a1a;
 }
 
 .call-modal .modal__button:active {
@@ -3181,7 +3182,7 @@ a.request__button {
 
 .faq-item__question {
   width: 100%;
-  background: transparent;
+  background: #1a1a1a;
   border: none;
   padding: 20px 25px;
   font-size: 18px;
@@ -3221,7 +3222,7 @@ a.request__button {
   max-height: 0;
   overflow: hidden;
   transition: max-height 0.4s ease;
-  background: transparent;
+  background: #1a1a1a;
 }
 
 .faq-item.active .faq-item__answer {
@@ -3321,7 +3322,7 @@ a.request__button {
 }
 
 .faq-cta__button--secondary {
-  background: transparent;
+  background: #1a1a1a;
   color: #ff8c00;
   border: 1.5px solid #ffffff;
   box-shadow: 0 0 8px rgba(255, 255, 255, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.3);
@@ -3804,14 +3805,14 @@ a.request__button {
 }
 
 .about-cta__button--primary:hover {
-  background: transparent;
+  background: #1a1a1a;
   color: #fff;
   transform: translateY(-2px);
   box-shadow: 0 6px 20px rgba(255, 255, 255, 0.3);
 }
 
 .about-cta__button--secondary {
-  background: transparent;
+  background: #1a1a1a;
   color: #ff8c00;
   border: 1.5px solid #ffffff;
   box-shadow: 0 0 8px rgba(255, 255, 255, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.3);
@@ -4174,7 +4175,7 @@ a.request__button {
 }
 
 .prices-cta__button--secondary {
-  background: transparent;
+  background: #1a1a1a;
   color: #ff8c00;
   border: 1.5px solid #ffffff;
   box-shadow: 0 0 8px rgba(255, 255, 255, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.3);
@@ -4554,21 +4555,21 @@ a.request__button {
   .header__button {
     border: 1px solid #ff8c00;
     box-shadow: 0 0 8px rgba(255, 140, 0, 0.4), inset 0 1px 0 rgba(255, 200, 100, 0.3);
-    background: transparent;
+    background: #1a1a1a;
     color: rgba(255, 255, 255, 0.85);
     transition: all 0.3s ease;
   }
 
   .header__button:hover {
     transform: scale(1.05);
-    background: transparent;
+    background: #1a1a1a;
   }
 
   /* Стиль для кнопки "Рассчитать по фото" (один в один с "Вызвать мастера") */
   .hero__button {
     border: 1px solid #ff8c00;
     box-shadow: 0 0 8px rgba(255, 140, 0, 0.4), inset 0 1px 0 rgba(255, 200, 100, 0.3);
-    background: transparent;
+    background: #1a1a1a;
     color: rgba(255, 255, 255, 0.85);
     transition: all 0.3s ease;
     font-weight: 600;
@@ -4582,7 +4583,7 @@ a.request__button {
   .hero__button:hover,
   .hero__button:focus {
     transform: scale(1.05);
-    background: transparent;
+    background: #1a1a1a;
   }
 
   .hero__button:active {
@@ -4704,7 +4705,7 @@ a.request__button {
     justify-content: space-between;
     width: 30px;
     height: 22px;
-    background: transparent;
+    background: #1a1a1a;
     border: none;
     cursor: pointer;
     padding: 0;
@@ -4788,7 +4789,7 @@ a.request__button {
   .mobile-cta {
     border: 1px solid #ff8c00;
     box-shadow: 0 0 8px rgba(255, 140, 0, 0.4), inset 0 1px 0 rgba(255, 200, 100, 0.3);
-    background: transparent;
+    background: #1a1a1a;
     color: rgba(255, 255, 255, 0.85) !important;
     padding: 14px 32px;
     border-radius: 8px;
@@ -4800,7 +4801,7 @@ a.request__button {
   .mobile-cta:hover,
   .mobile-cta:active {
     transform: scale(1.05);
-    background: transparent;
+    background: #1a1a1a;
   }
 
   .hero {
@@ -5148,7 +5149,7 @@ a.request__button {
     justify-content: space-between;
     width: 30px;
     height: 22px;
-    background: transparent;
+    background: #1a1a1a;
     border: none;
     cursor: pointer;
     padding: 0;
@@ -5232,7 +5233,7 @@ a.request__button {
   .mobile-cta {
     border: 1px solid #ff8c00;
     box-shadow: 0 0 8px rgba(255, 140, 0, 0.4), inset 0 1px 0 rgba(255, 200, 100, 0.3);
-    background: transparent;
+    background: #1a1a1a;
     color: white;
     padding: 14px 28px;
     border-radius: 8px;
@@ -5243,7 +5244,7 @@ a.request__button {
 
   .mobile-cta:hover {
     transform: scale(1.05);
-    background: transparent;
+    background: #1a1a1a;
   }
 
   .header__inner {
@@ -6297,7 +6298,7 @@ a.request__button {
 }
 
 .blog-cta__button--secondary {
-  background: transparent;
+  background: #1a1a1a;
   color: #ff8c00;
   border: 1.5px solid #ffffff;
   box-shadow: 0 0 8px rgba(255, 255, 255, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.3);
@@ -6656,3 +6657,4 @@ a.request__button {
     grid-template-columns: repeat(2, 1fr);
   }
 }
+
