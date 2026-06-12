@@ -7,20 +7,15 @@ Allow: /
 Sitemap: https://peretyazhka-aurora.ru/sitemap.xml
 
 # ========================================
-# ЗАПРЕТ ИНДЕКСАЦИИ ДУБЛЕЙ С GET-ПАРАМЕТРАМИ
+# СКЛЕЙКА ДУБЛЕЙ С НЕЗНАЧАЩИМИ GET-ПАРАМЕТРАМИ (Clean-param)
 # ========================================
-# Запрещаем индексацию URL с техническими параметрами
-# UTM-параметры (utm_source, utm_medium, utm_campaign) разрешены для аналитики
+# Clean-param сообщает роботу Яндекса, что эти параметры можно
+# игнорировать. Робот не обходит дубли повторно и объединяет все
+# сигналы (ссылки, поведение) на основной странице без параметров.
+# UTM-параметры (utm_source, utm_medium, utm_campaign) НЕ трогаем —
+# они нужны для аналитики и на индексацию не влияют так же сильно.
 
-Disallow: /*?*from=
-Disallow: /*?*ref=
-Disallow: /*?*source=
-Disallow: /*?*clickid=
-Disallow: /*?*gclid=
-Disallow: /*?*yclid=
-Disallow: /*?*openstat=
-Disallow: /*?*partner=
-Disallow: /*?*promo=
+Clean-param: etext&from&ref&source&clickid&gclid&yclid&openstat&partner&promo
 
 # Замедляем агрессивных ботов
 User-agent: AhrefsBot
